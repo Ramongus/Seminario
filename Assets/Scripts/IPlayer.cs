@@ -1,5 +1,5 @@
 ﻿public interface IPlayer
 {
-	void SetDamage(float health);
-	float GetDamage();
+	void SetHealth(float health);
+	float GetHealth();
 }

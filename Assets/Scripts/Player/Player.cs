@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IPlayer
 {
-	[SerializeField] List<AbstractHabilities> myHabilities;
+	[SerializeField] float maxHP;
+	float currentHP;
 
+	[SerializeField] List<AbstractHabilities> myHabilities;
 
 	[SerializeField] float aimSensitivity;
 	[SerializeField] Transform aimPointer;
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour, IPlayer
 	{
 		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
+		currentHP = maxHP;
+		StartCoroutine(DebugHealth());
 	}
 
 	private void Update()
@@ -28,13 +32,22 @@ public class Player : MonoBehaviour, IPlayer
 		logic.Logic();
 	}
 
-	public float GetDamage()
+	public void SetHealth(float health)
 	{
-		throw new System.NotImplementedException();
+		currentHP = health;
 	}
 
-	public void SetDamage(float health)
+	public float GetHealth()
 	{
-		throw new System.NotImplementedException();
+		return currentHP;
+	}
+
+	IEnumerator DebugHealth()
+	{
+		while (true)
+		{
+			Debug.Log("My health is: " + currentHP);
+			yield return new WaitForSeconds(5);
+		}
 	}
 }

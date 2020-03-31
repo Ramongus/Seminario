@@ -124,4 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   habilitieName: AbsorptionBall
   powerValue: 10
+  isHealHabilitie: 0
+  initialHeight: 1.7
   speed: 13

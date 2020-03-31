@@ -49,7 +49,7 @@ public class FireBall : AbstractHabilities
 
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
 	{
-		transform.position = playerPos;
+		transform.position = playerPos + Vector3.up * initialHeight;
 		Vector3 dirIgnoreHeight = new Vector3(castPos.x - playerPos.x, 0, castPos.z - playerPos.z);
 		transform.forward = dirIgnoreHeight;
 	}

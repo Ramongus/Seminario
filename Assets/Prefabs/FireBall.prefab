@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   habilitieName: FireBall
   powerValue: 10
+  isHealHabilitie: 0
+  initialHeight: 1.7
   speed: 10
 --- !u!54 &7420068925033026283
 Rigidbody:

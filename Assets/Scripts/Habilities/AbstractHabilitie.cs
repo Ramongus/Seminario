@@ -7,14 +7,20 @@ public abstract class AbstractHabilities : MonoBehaviour
 {
 	[SerializeField] protected string habilitieName;
 	[SerializeField] protected float powerValue;
+	[SerializeField] protected bool isHealHabilitie;
+	[SerializeField] protected float initialHeight;
+	protected float lifetime;
+
 
 	protected List<Powers.Power> myPowers;
 	protected Dictionary<Powers.Power, Action> powersInteractions; 
 
 	virtual protected void Awake()
 	{
+		lifetime = 10;
 		myPowers = new List<Powers.Power>();
 		powersInteractions = new Dictionary<Powers.Power, Action>();
+		StartCoroutine(AutoDestruction());
 	}
 
 	public Powers.Power[] GetPowers()
@@ -51,6 +57,18 @@ public abstract class AbstractHabilities : MonoBehaviour
 	public virtual float GetPowerValue()
 	{
 		return powerValue;
+	}
+
+	public bool IsHealHabilitie()
+	{
+		return isHealHabilitie;
+	}
+
+	IEnumerator AutoDestruction()
+	{
+		yield return new WaitForSeconds(lifetime);
+		Destroy(this.gameObject);
+		yield return null;
 	}
 
 	public abstract void SetInitiation(Vector3 castPos, Vector3 playerPos);

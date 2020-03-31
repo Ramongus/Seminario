@@ -7,7 +7,6 @@ public class RockMetheore : AbstractHabilities
 {
 	[SerializeField] float explodeDivisionForce;
 	[SerializeField] RockMetheore rockMetheorePrefab;
-	[SerializeField] float initialHeight;
 
 	private Collider myCollider;
 	private Rigidbody rigi;
@@ -100,7 +99,7 @@ public class RockMetheore : AbstractHabilities
 
 	private void DoDamage(IPlayer player)
 	{
-		player.SetDamage(player.GetDamage() - powerValue);
+		player.SetHealth(player.GetHealth() - powerValue);
 	}
 
 	private Collider GetCollider()

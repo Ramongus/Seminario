@@ -6,6 +6,7 @@
 		Smash,
 		Fire,
 		Reflec,
-		Absorption
+		Absorption,
+		Heal
 	}
 }

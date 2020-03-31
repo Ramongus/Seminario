@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,16 @@ public class AbsorptionBall : AbstractHabilities
 		myPowers.Add(Powers.Power.Absorption);
 		myPowers.Add(Powers.Power.Impulse);
 		powersInteractions.Add(Powers.Power.Fire, Absorb);
+		powersInteractions.Add(Powers.Power.Heal, AbsorbHeal);
+	}
+
+	private void AbsorbHeal()
+	{
+		powerValue += lastHabilitieContact.GetPowerValue();
+		transform.localScale *= 1.3f;
+		GetComponent<Renderer>().material.color = Color.green;
+		Debug.Log("Absoption ball has absorb de power of: " + lastHabilitieContact.name);
+		Destroy(lastHabilitieContact.gameObject);
 	}
 
 	public void Absorb()
@@ -32,7 +43,7 @@ public class AbsorptionBall : AbstractHabilities
 
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
 	{
-		transform.position = playerPos;
+		transform.position = playerPos + Vector3.up * initialHeight;
 		Vector3 dirIgnoreHeight = new Vector3(castPos.x - playerPos.x, 0, castPos.z - playerPos.z);
 		transform.forward = dirIgnoreHeight;
 	}
