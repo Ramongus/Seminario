@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColumnaShader
+  m_Name: BaseArena
   m_Shader: {fileID: 4800000, guid: 153749e74baf819408485913d49ec800, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,19 +20,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: d6516b69975a2774699ba207fec4044a, type: 3}
+        m_Texture: {fileID: 2800000, guid: fc4495a73adeed6468baa6a5add215fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Specular:
-        m_Texture: {fileID: 2800000, guid: 9d2ad1611db529a4b84bfb651646d0ae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7b0b97cf7fab35a4fb9de751f4276827, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 5be1426e240f0a74c93902d014247847, type: 3}
+        m_Texture: {fileID: 2800000, guid: 005b2a34f4ae4f14f91c85331e1489d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ToonRamp:
-        m_Texture: {fileID: 2800000, guid: d79148ded0c93134788fc2019772982d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4cbd4e2857db0eb44bd91520244b9677, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -40,14 +40,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ASEOutlineWidth: 0.007
-    - _IntesitySpec: 0.438
-    - _Power: 0.924
-    - _RimOffset: 0.5
-    - _SpecSomething: 0.633
+    - _ASEOutlineWidth: 0.001
+    - _IntesitySpec: 0.817
+    - _Power: 1
+    - _RimOffset: 0.04
+    - _SpecSomething: 0.613
     - __dirty: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Rim: {r: 1, g: 0.28231797, b: 0, a: 0}
+    - _ASEOutlineColor: {r: 0.46226418, g: 0.42083484, b: 0.42083484, a: 0}
+    - _Rim: {r: 1, g: 0.3372549, b: 0, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0}
