@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RockMetheore : AbstractHabilities
 {
-	[SerializeField] float explodeForce;
+	[SerializeField] float explodeDivisionForce;
 	[SerializeField] RockMetheore rockMetheorePrefab;
 	[SerializeField] float initialHeight;
 
@@ -74,24 +74,28 @@ public class RockMetheore : AbstractHabilities
 
 	private void ImpuseInteraction()
 	{
-		float angleChange = -30f;
-		List<RockMetheore> smallRocks = new List<RockMetheore>();
-		smallRocks.Add(Instantiate(rockMetheorePrefab));
-		smallRocks.Add(Instantiate(rockMetheorePrefab));
-		smallRocks.Add(Instantiate(rockMetheorePrefab));
-		foreach (RockMetheore rock in smallRocks)
+		if (!isDevided)
 		{
-			rock.transform.position = transform.position;
-			rock.transform.localScale = transform.localScale / 3;
-			rock.rigi.useGravity = false;
-			rock.GetCollider().isTrigger = true;
-			rock.transform.forward = impulseDir;
-			rock.transform.Rotate(rock.transform.up * angleChange);
-			angleChange += 30;
-			rock.rigi.AddForce(rock.transform.forward * explodeForce, ForceMode.Impulse);
+			float angleChange = -30f;
+			List<RockMetheore> smallRocks = new List<RockMetheore>();
+			smallRocks.Add(Instantiate(rockMetheorePrefab));
+			smallRocks.Add(Instantiate(rockMetheorePrefab));
+			smallRocks.Add(Instantiate(rockMetheorePrefab));
+			foreach (RockMetheore rock in smallRocks)
+			{
+				rock.isDevided = true;
+				rock.transform.position = transform.position;
+				rock.transform.localScale = transform.localScale / 3;
+				rock.rigi.useGravity = false;
+				rock.GetCollider().isTrigger = true;
+				rock.transform.forward = impulseDir;
+				rock.transform.Rotate(rock.transform.up * angleChange);
+				angleChange += 30;
+				rock.rigi.AddForce(rock.transform.forward * explodeDivisionForce, ForceMode.Impulse);
+			}
+			angleChange = -30f;
+			Destroy(this.gameObject);
 		}
-		angleChange = -30f;
-		Destroy(this.gameObject);
 	}
 
 	private void DoDamage(IPlayer player)

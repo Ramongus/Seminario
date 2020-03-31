@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc548f2fd30a8494e8e1ed3d7ebd6f99, type: 2}
+  - {fileID: 2100000, guid: b4396de995137ef46a860f7d3ee29ece, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3819482735479147755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c805e397fecd94c877bd8389bb3ba4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b55ea27e053873449b92cc6c18001b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: Mirror

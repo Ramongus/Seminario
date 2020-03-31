@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae82298315b219c4989fdecd5683dc1e, type: 2}
+  - {fileID: 2100000, guid: 7e8c7ed86961b7a4ba5bc1500db4815e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,7 +88,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837337888657580422}
-  m_Material: {fileID: 13400000, guid: b1624a5b8d174094ea0ab6ac8ecca30e, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 837337888657580422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8c6a6e3c4576f4c981dbe9e7551d69, type: 3}
+  m_Script: {fileID: 11500000, guid: 37dc03ea35d02a144b38cdc5b20b8f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: RockMetheore
-  powerValue: 15
-  explodeForce: 400
+  powerValue: 10
+  explodeDivisionForce: 550
   rockMetheorePrefab: {fileID: 837337888657580424}
-  initialHeight: 13
+  initialHeight: 10

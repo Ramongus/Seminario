@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 583de7dc797bf37468726c9e978fdaa3, type: 2}
+  - {fileID: 2100000, guid: 33a282cd95be7eb46bc0460a1778e3de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,9 +119,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3602285740065977555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b57ae63d0babed941bb845b35b8c24a1, type: 3}
+  m_Script: {fileID: 11500000, guid: cf72c93fcedb425429ef4052d9f13f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: AbsorptionBall
   powerValue: 10
-  speed: 15
+  speed: 13
