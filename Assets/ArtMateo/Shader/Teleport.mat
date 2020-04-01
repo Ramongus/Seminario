@@ -50,8 +50,8 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _Float0: 1
-    - _Range: -4
-    - _Teleport: 14.6
+    - _Range: -2.8
+    - _Teleport: 19.4
     - __dirty: 0
     - _offsetForce: 0.3
     m_Colors:
