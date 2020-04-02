@@ -109,6 +109,7 @@ public class RockMetheore : AbstractHabilities
 			foreach (RockMetheore rock in smallRocks)
 			{
 				rock.isDevided = true;
+				rock.SetDividedParticles();
 				rock.transform.position = transform.position;
 				rock.transform.localScale = transform.localScale / 3;
 				rock.rigi.useGravity = false;
