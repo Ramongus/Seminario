@@ -48,7 +48,7 @@ public class HealArea : AbstractHabilities
 			if(cooldownTimer <= 0)
 			{
 				cooldownTimer = healCooldown;
-				player.SetHealth(player.GetHealth() + powerValue);
+				player.SetHealth(player.GetHP() + powerValue);
 			}
 		}
 	}
