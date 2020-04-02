@@ -43,7 +43,7 @@ public class PlayerLogic
 
 		this.playerAnimator = playerAnimator;
 
-		EventsManager.SuscribeToEvent("FireSpell", ThrowSpellAnimation);
+		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
 	}
 
 
