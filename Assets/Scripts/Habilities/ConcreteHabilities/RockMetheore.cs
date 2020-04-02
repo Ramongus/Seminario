@@ -7,6 +7,9 @@ public class RockMetheore : AbstractHabilities
 {
 	[SerializeField] float explodeDivisionForce;
 	[SerializeField] RockMetheore rockMetheorePrefab;
+	[SerializeField] GameObject fallingParticles;
+	[SerializeField] GameObject impactParticles;
+	[SerializeField] GameObject circleMarkerParticles;
 
 	private Collider myCollider;
 	private Rigidbody rigi;
@@ -33,7 +36,7 @@ public class RockMetheore : AbstractHabilities
 		if (isFalling)
 		{
 			IPlayer player = collision.gameObject.GetComponent<IPlayer>();
-			if(player != null)
+			if (player != null)
 				DoDamage(player);
 		}
 
@@ -45,7 +48,29 @@ public class RockMetheore : AbstractHabilities
 				return;
 		}
 
+		if(!isDevided)
+			OnImpact();
+
+	}
+
+	private void OnImpact()
+	{
 		isFalling = false;
+		SetImpactParticles();
+	}
+
+	private void SetImpactParticles()
+	{
+		fallingParticles.SetActive(false);
+		impactParticles.SetActive(true);
+		circleMarkerParticles.SetActive(true);
+	}
+
+	private void SetDividedParticles()
+	{
+		fallingParticles.SetActive(true);
+		impactParticles.SetActive(false);
+		circleMarkerParticles.SetActive(false);
 	}
 
 	public void OnTriggerEnter(Collider collision)
@@ -68,7 +93,8 @@ public class RockMetheore : AbstractHabilities
 				return;
 		}
 
-		isFalling = false;
+		if (!isDevided)
+			OnImpact();
 	}
 
 	private void ImpuseInteraction()

@@ -18,6 +18,7 @@ public class AbsorptionBall : AbstractHabilities
 		powersInteractions.Add(Powers.Power.Heal, AbsorbHeal);
 	}
 
+	
 	private void AbsorbHeal()
 	{
 		powerValue += lastHabilitieContact.GetPowerValue();
@@ -26,14 +27,20 @@ public class AbsorptionBall : AbstractHabilities
 		Debug.Log("Absoption ball has absorb de power of: " + lastHabilitieContact.name);
 		Destroy(lastHabilitieContact.gameObject);
 	}
+	
 
 	public void Absorb()
 	{
 		powerValue += lastHabilitieContact.GetPowerValue();
 		transform.localScale *= 1.3f;
-		GetComponent<Renderer>().material.color = Color.red;
+		ChangeMaterialToAbsorbedSpell(lastHabilitieContact);
 		Debug.Log("Absoption ball has absorb de power of: " + lastHabilitieContact.name);
 		Destroy(lastHabilitieContact.gameObject);
+	}
+
+	private void ChangeMaterialToAbsorbedSpell(AbstractHabilities abilitie)
+	{
+		GetComponent<Renderer>().material = abilitie.GetComponent<Renderer>().material;
 	}
 
 	private void Update()
