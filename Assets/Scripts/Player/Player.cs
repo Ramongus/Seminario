@@ -18,10 +18,18 @@ public class Player : MonoBehaviour, IPlayer
 
 	HabilitiesManager myHabilitiesManager;
 
+	Animator animator;
+
+	public Player(float maxHP)
+	{
+		this.maxHP = maxHP;
+		currentHP = maxHP;
+	}
 
 	private void Awake()
 	{
-		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity);
+		animator = GetComponent<Animator>();
+		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity, animator);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
 		StartCoroutine(DebugHealth());
@@ -34,12 +42,27 @@ public class Player : MonoBehaviour, IPlayer
 
 	public void SetHealth(float health)
 	{
+		if(health >= maxHP)
+		{
+			currentHP = maxHP;
+			return;
+		}
+		else if(health <= 0)
+		{
+			currentHP = 0;
+			return;
+		}
 		currentHP = health;
 	}
 
-	public float GetHealth()
+	public float GetHP()
 	{
 		return currentHP;
+	}
+
+	public float GetMaxHP()
+	{
+		return maxHP;
 	}
 
 	IEnumerator DebugHealth()

@@ -99,7 +99,7 @@ public class RockMetheore : AbstractHabilities
 
 	private void DoDamage(IPlayer player)
 	{
-		player.SetHealth(player.GetHealth() - powerValue);
+		player.SetHealth(player.GetHP() - powerValue);
 	}
 
 	private Collider GetCollider()
