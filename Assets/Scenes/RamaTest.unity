@@ -293,7 +293,7 @@ Transform:
   m_Children:
   - {fileID: 1674513748}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &336445189
 MonoBehaviour:
@@ -367,11 +367,11 @@ Transform:
   m_GameObject: {fileID: 346455328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.47, y: 0.77, z: 0.77}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.8292, y: 7.8292, z: 7.8292}
   m_Children:
   - {fileID: 375383330}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &346739318
 PrefabInstance:
@@ -817,6 +817,7 @@ GameObject:
   - component: {fileID: 588546308}
   - component: {fileID: 588546307}
   - component: {fileID: 588546306}
+  - component: {fileID: 588546309}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -882,13 +883,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588546305}
-  m_LocalRotation: {x: -0.44446805, y: -0.004345443, z: 0.00112664, w: -0.8957834}
-  m_LocalPosition: {x: -0.2983206, y: 28.73, z: -14.94}
+  m_LocalRotation: {x: -0.44446805, y: -0.004345447, z: 0.001126647, w: -0.8957835}
+  m_LocalPosition: {x: -0.29832268, y: 28.730001, z: -14.940003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 52.779003, y: 0.643, z: 0.17500001}
+--- !u!114 &588546309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588546305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f68b01f1205888429cb6e4eac1ff619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1666715303}
+  cameraSpeed: 7
+  deadZoneRadius: 1
 --- !u!1 &674256637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1099,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 66.461006, y: 53.631004, z: 94.394005}
 --- !u!1 &706630292
 GameObject:
@@ -1865,7 +1881,7 @@ Transform:
   - {fileID: 1477177664}
   - {fileID: 1740516407}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 4.979, z: 0}
 --- !u!4 &1467862209
 Transform:
@@ -2389,6 +2405,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 708ad217e41c80a45892b75ed86f969b, type: 3}
+--- !u!4 &1666715303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
+    type: 3}
+  m_PrefabInstance: {fileID: 6059951822339734332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1674513747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,7 +3171,7 @@ PrefabInstance:
     - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
@@ -3165,6 +3187,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6629786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.662978
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.6629786
       objectReference: {fileID: 0}
     - target: {fileID: 1483907105387364511, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}

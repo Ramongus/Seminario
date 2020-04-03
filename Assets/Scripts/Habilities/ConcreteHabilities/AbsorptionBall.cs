@@ -15,7 +15,7 @@ public class AbsorptionBall : AbstractHabilities
 		myPowers.Add(Powers.Power.Absorption);
 		myPowers.Add(Powers.Power.Impulse);
 		powersInteractions.Add(Powers.Power.Fire, Absorb);
-		powersInteractions.Add(Powers.Power.Heal, AbsorbHeal);
+		powersInteractions.Add(Powers.Power.Heal, Absorb);
 	}
 
 	
