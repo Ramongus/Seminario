@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireBall : AbstractHabilities
 {
 	[SerializeField] float speed;
+	[SerializeField] GameObject explodeParticles;
 
 	private void Start()
 	{
@@ -17,6 +18,7 @@ public class FireBall : AbstractHabilities
 	private void Explode()
 	{
 		Debug.LogWarning("FireBall explode, but is not still implemented");
+		CreateExplodeParticles();
 		Destroy(this.gameObject);
 	}
 
@@ -39,12 +41,28 @@ public class FireBall : AbstractHabilities
 
 	private void OnTriggerEnter(Collider other)
 	{
-		AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
-		if (habilitie != null)
+		Player collideWithPlayer = other.gameObject.GetComponent<Player>();
+		if(collideWithPlayer != null)
 		{
-			if (InteractWith(habilitie))
-				return;
+
 		}
+		else
+		{
+			AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
+			if (habilitie != null)
+			{
+				if (InteractWith(habilitie))
+					return;
+			}
+			CreateExplodeParticles();
+		}
+	}
+
+	private void CreateExplodeParticles()
+	{
+		GameObject particlesOnExplode = Instantiate(explodeParticles);
+		particlesOnExplode.transform.position = this.transform.position;
+		particlesOnExplode.GetComponent<ParticleSystem>().Play();
 	}
 
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)

@@ -129,6 +129,8 @@ MonoBehaviour:
   isHealHabilitie: 0
   initialHeight: 1.7
   speed: 20
+  explodeParticles: {fileID: 8276694425358295037, guid: 4607a4f04fb84a34d8a438047e28ffa4,
+    type: 3}
 --- !u!1 &2659439455381324887
 GameObject:
   m_ObjectHideFlags: 0
