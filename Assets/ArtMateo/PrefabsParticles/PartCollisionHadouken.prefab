@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6376102798151164103}
   m_Layer: 0
-  m_Name: ParticleCollision
+  m_Name: PartCollisionHadouken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
