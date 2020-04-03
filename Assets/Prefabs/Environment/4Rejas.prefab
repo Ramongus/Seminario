@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6021221651157198948}
+  - component: {fileID: 5443277866247103669}
   m_Layer: 0
   m_Name: 4Rejas
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5443277866247103669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223186080414299375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.43508, y: 1, z: 2.0154011}
+  m_Center: {x: -0.07176916, y: 0.000002172528, z: 0.76942664}
 --- !u!1001 &5081967181277411811
 PrefabInstance:
   m_ObjectHideFlags: 0
