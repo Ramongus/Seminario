@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Version2
+  m_Name: Version3
   m_Shader: {fileID: 4800000, guid: e6b7f42ffc0b652438fd0b5feefc9cdc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,15 +20,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 623e5b55aa06f5b4c8f4a6f86e7968f1, type: 3}
+        m_Texture: {fileID: 2800000, guid: bf8db44337b68b84ab93728224605a26, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Specular:
-        m_Texture: {fileID: 2800000, guid: 9dfd1f331f81e9a44852b6240d5dc211, type: 3}
+        m_Texture: {fileID: 2800000, guid: a30b34a6807204243a136b6f01f7be2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 9e4a5b57f21064d41821663a679ce539, type: 3}
+        m_Texture: {fileID: 2800000, guid: 564856c76b1fa0745b21c2ebec28a3a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ToonRamp:
@@ -44,7 +44,7 @@ Material:
     - _IntesitySpec: 0.44
     - _Power: 0.8
     - _RimOffset: 0.41
-    - _SpecSomething: 0.64
+    - _SpecSomething: 0.51
     - __dirty: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
