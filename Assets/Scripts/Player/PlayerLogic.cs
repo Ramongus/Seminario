@@ -84,13 +84,6 @@ public class PlayerLogic
 
 	private Vector3 GetAxisInComparisonOfPlayerFoward(Vector3 movAxis, Vector3 forward)
 	{
-		//float angleToRotate = Vector3.Angle(movAxis, forward);
-		/*
-		float angleOfMovAxis = Vector3.Angle(Vector3.forward, movAxis);
-		if (movAxis.x < 0)
-			angleOfMovAxis *= -1;
-		*/
-
 		float angleOfForward = Vector3.Angle(Vector3.forward, forward);
 		if (forward.x < 0)
 			angleOfForward *= -1;
