@@ -42,8 +42,8 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0.007
     - _IntesitySpec: 0.615
-    - _Power: 1
-    - _RimOffset: 0.06
+    - _Power: 0.952
+    - _RimOffset: -0.18
     - _SpecSomething: 1
     - __dirty: 0
     m_Colors:
