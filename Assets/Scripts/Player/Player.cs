@@ -14,6 +14,8 @@ public class Player : MonoBehaviour, IPlayer
 
 	[SerializeField] float movementSpeed;
 
+	[SerializeField] bool isJoystickPlayer;
+
 	PlayerLogic logic;
 
 	HabilitiesManager myHabilitiesManager;
@@ -29,7 +31,7 @@ public class Player : MonoBehaviour, IPlayer
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
-		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity, animator);
+		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity, animator, isJoystickPlayer);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
 		StartCoroutine(DebugHealth());

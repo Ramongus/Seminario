@@ -6,9 +6,9 @@ public class HablilitiesController
 	HabilitiesSelectorController habilitiesSelector;
 	HabilitieActivator spellCaster;
 
-	public HablilitiesController(float aimSensitivity, Transform aimPointer)
+	public HablilitiesController(float aimSensitivity, Transform aimPointer, bool isJoystick)
 	{
-		aimController = new AimPointerController(aimSensitivity, aimPointer);
+		aimController = new AimPointerController(aimSensitivity, aimPointer, isJoystick);
 		habilitiesSelector = new HabilitiesSelectorController();
 		spellCaster = new HabilitieActivator(aimPointer);
 	}

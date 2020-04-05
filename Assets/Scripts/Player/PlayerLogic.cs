@@ -30,7 +30,7 @@ public class PlayerLogic
 	Animator playerAnimator;
 
 
-	public PlayerLogic(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator)
+	public PlayerLogic(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator, bool isJoystick)
 	{
 		playerTransform = playerT;
 		movementSpeed = movSpeed;
@@ -39,7 +39,7 @@ public class PlayerLogic
 
 		movementController = new SimpleController();
 		rotationUpdater = new RotationUpdater(aimPointer, playerTransform);
-		habilitiesController = new HablilitiesController(aimSensitivity, aimPointer);
+		habilitiesController = new HablilitiesController(aimSensitivity, aimPointer, isJoystick);
 
 		this.playerAnimator = playerAnimator;
 

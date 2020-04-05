@@ -18,6 +18,8 @@ public class MoleArcher : AbstractEnemy
 	public float maxAppearDistance;
 	public Transform player;
 
+
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -63,6 +65,7 @@ public class MoleArcher : AbstractEnemy
 				yield return null;
 			}
 		}
+		Attack();
 	}
 
 	private Vector3 GetRandomValidPos()
@@ -103,7 +106,7 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Attack()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
 	public override IAttack ChooseOneAttack()

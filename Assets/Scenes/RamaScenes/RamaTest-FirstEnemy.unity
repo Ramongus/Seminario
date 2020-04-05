@@ -667,7 +667,7 @@ BoxCollider:
   m_GameObject: {fileID: 375383329}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 588546309}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1334,6 +1334,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1474128672, guid: 3522ce53e30de094faf8e18ba9c04cce, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 409057403971980419, guid: 3522ce53e30de094faf8e18ba9c04cce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3416,5 +3420,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2547655768500510507, guid: b5a27d6e305ea2e4e801896d411ace86,
         type: 3}
+    - target: {fileID: 6059951822886035832, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: isJoystickPlayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97dedade534144c43b9f097c981c8834, type: 3}
