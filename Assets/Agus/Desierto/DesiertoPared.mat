@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ASEOutlineWidth: 0.009
+    - _ASEOutlineWidth: 0.04
     - _IntesitySpec: 0.99
     - _Power: 0.98
     - _RimOffset: 0.39
