@@ -60,10 +60,13 @@ public class PlayerLogic
 	//BaseMovement methods
 	private void BaseMovement()
 	{
-		Vector3 axis = movementController.GetMovementAxis();
-		UpdateAnimator(axis);
-		playerTransform.position += axis * movementSpeed * Time.deltaTime;
 		rotationUpdater.UpdateRotation();
+		Vector3 axis = movementController.GetMovementAxis();
+		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -playerTransform.forward);
+		if (proyectionAxisOnGoingBackDir > 0)
+			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
+		playerTransform.position += axis * movementSpeed * Time.deltaTime;
+		UpdateAnimator(axis);
 	}
 
 	private void UpdateAnimator(Vector3 movAxis)

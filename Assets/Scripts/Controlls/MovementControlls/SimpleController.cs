@@ -17,6 +17,7 @@ public class SimpleController
 		}
 
 		axis = Vector3.ClampMagnitude(axis, 1);
+
 		return axis;
 	}
 }
