@@ -21954,6 +21954,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionOP
       objectReference: {fileID: 0}
+    - target: {fileID: 5137410486790994248, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410486790994248, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410486790994255, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487221182126, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487221182127, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487221182127, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487252400032, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487252400032, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137410487252400039, guid: 4e40f34eb37b7df40b27d1926886829f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e40f34eb37b7df40b27d1926886829f, type: 3}
 --- !u!1001 &6388990743606827980
