@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,17 +45,40 @@ public class Player : MonoBehaviour, IPlayer
 
 	public void SetHealth(float health)
 	{
-		if(health >= maxHP)
+		if (health >= maxHP)
 		{
 			currentHP = maxHP;
 			return;
 		}
-		else if(health <= 0)
+		else if (health <= 0)
 		{
 			currentHP = 0;
 			return;
 		}
+		DamageOrHealAnimation(health);
 		currentHP = health;
+	}
+
+	private void DamageOrHealAnimation(float health)
+	{
+		if (health >= currentHP)
+		{
+			HealthAnimation();
+		}
+		else
+		{
+			DamagedAnimation();
+		}
+	}
+
+	private void HealthAnimation()
+	{
+		Debug.LogWarning("Heal animation its not already implemented");
+	}
+
+	private void DamagedAnimation()
+	{
+		Debug.LogWarning("Damaged animation its not already implemented");
 	}
 
 	public float GetHP()
