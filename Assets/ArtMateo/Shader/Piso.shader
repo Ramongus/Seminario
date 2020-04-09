@@ -59,7 +59,7 @@ Shader "Ejercicio3"
 }
 /*ASEBEGIN
 Version=17200
-237;260;959;447;749.1588;246.9882;2.394704;True;False
+6.666667;6.666667;480;603;175.6272;426.591;2.394704;True;False
 Node;AmplifyShaderEditor.RangedFloatNode;18;-210.3999,263.4878;Float;False;Property;_Tiling;Tiling;2;0;Create;True;0;0;False;0;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.Vector2Node;16;-2.399933,363.4878;Float;False;Property;_Speed;Speed;1;0;Create;True;0;0;False;0;0,0;1,1;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.TextureCoordinatesNode;17;-72.39993,244.4878;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -88,4 +88,4 @@ WireConnection;4;1;22;0
 WireConnection;0;2;4;0
 WireConnection;0;9;22;0
 ASEEND*/
-//CHKSM=3D42F083B20CFEBD3B5A3585AED15DF3C4FF5FD8
+//CHKSM=671FB7273CD0E50D107FB02A72D4731A59D95A6E
