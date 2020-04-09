@@ -24,6 +24,28 @@ public abstract class AbstractEnemy : MonoBehaviour
 	public abstract void Move();
 	public abstract void Die();
 
+	public float GetHP()
+	{
+		return hp;
+	}
+
+	public void SetHp(float health)
+	{
+		hp = health;
+		if (hp < 0)
+		{
+			hp = 0;
+			Die();
+			return;
+		}
+		if(hp > maxHp)
+		{
+			hp = maxHp;
+			return;
+		}
+		
+	}
+
 	protected void UpdateHealthBar()
 	{
 		healthBar.fillAmount = hp / maxHp;

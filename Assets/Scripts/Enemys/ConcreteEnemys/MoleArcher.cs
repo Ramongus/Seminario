@@ -178,7 +178,7 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Die()
 	{
-		throw new System.NotImplementedException();
+		Destroy(gameObject);
 	}
 
 	public override void Move()
