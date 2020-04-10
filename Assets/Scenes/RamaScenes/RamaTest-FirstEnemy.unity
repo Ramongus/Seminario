@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44082388, g: 0.4895187, b: 0.56963104, a: 1}
+  m_IndirectSpecularColor: {r: 0.44082347, g: 0.48951828, b: 0.56963015, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,6 +209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -719,6 +724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -1713,6 +1723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1897,6 +1912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -2628,6 +2648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2702,6 +2727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2775,6 +2805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -3665,6 +3700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstEnemy-MoleArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
