@@ -23,16 +23,49 @@ public class MoleArcher : AbstractEnemy
 	public List<IAttack> myAttacks;
 
 	public TripleBombAttack bombCaster;
+	public Transform bombSpawnPoint;
+
+	public float timeDisappeared;
+	public float timeAppeared;
+	private float timer;
+
+	private Collider myCollider;
+
+	Action nextAction;
+	List<Action> actionsCycle;
+	int actionIndex;
+
+	Dictionary<Action, float> actionTime;
 
 	protected override void Awake()
 	{
 		base.Awake();
+		player = FindObjectOfType<Player>().transform;
 		teleportMaterial = render.GetComponent<Renderer>().material;
 		myAttacks = new List<IAttack>();
+		myCollider = GetComponent<Collider>();
+		timer = 1;
+		actionIndex = 0;
+
+		actionsCycle = new List<Action>();
+		//actionsCycle.Add(Disappear);
+		//actionsCycle.Add(Appear);
+
+		actionTime = new Dictionary<Action, float>();
+		actionTime.Add(Disappear, timeDisappeared);
+		actionTime.Add(Appear, timeAppeared);
+
+		actionsCycle = new List<Action>(actionTime.Keys);
 	}
 
 	private void Update()
 	{
+		timer -= Time.deltaTime;
+		if(timer < 0)
+		{
+			DoAction();
+		}
+		/*
 		if (testAppear)
 		{
 			Appear();
@@ -43,6 +76,18 @@ public class MoleArcher : AbstractEnemy
 		{
 			Disappear();
 			testDisappear = false;
+		}
+		*/
+	}
+
+	private void DoAction()
+	{
+		actionsCycle[actionIndex]();
+		timer = actionTime[actionsCycle[actionIndex]];
+		actionIndex++;
+		if(actionIndex >= actionsCycle.Count)
+		{
+			actionIndex = 0;
 		}
 	}
 
@@ -70,6 +115,7 @@ public class MoleArcher : AbstractEnemy
 				yield return null;
 			}
 		}
+		myCollider.enabled = true;
 		Attack();
 	}
 
@@ -91,6 +137,7 @@ public class MoleArcher : AbstractEnemy
 
 	private IEnumerator DisappearAnimation()
 	{
+		myCollider.enabled = false;
 		if (teleportAppearValue < teleportDisappearValue)
 		{
 			while (teleportMaterial.GetFloat("_Teleport") < teleportDisappearValue)
@@ -119,8 +166,8 @@ public class MoleArcher : AbstractEnemy
 		yield return new WaitForSeconds(attackCooldown);
 		TripleBombAttack bombCaster = Instantiate(this.bombCaster);
 		bombCaster.SetTarget(player);
-		bombCaster.transform.position = this.transform.position;
-		bombCaster.transform.parent = this.transform;
+		bombCaster.transform.position = bombSpawnPoint.position;
+		bombCaster.transform.parent = bombSpawnPoint;
 	}
 
 	public override IAttack ChooseOneAttack()
@@ -131,7 +178,7 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Die()
 	{
-		throw new System.NotImplementedException();
+		Destroy(gameObject);
 	}
 
 	public override void Move()

@@ -71,5 +71,15 @@ public abstract class AbstractHabilities : MonoBehaviour
 		yield return null;
 	}
 
+	virtual protected void OnTriggerEnter(Collider other)
+	{
+		AbstractEnemy enemy = other.gameObject.GetComponent<AbstractEnemy>();
+		if (enemy)
+		{
+			enemy.SetHp(enemy.GetHP() - powerValue);
+			Destroy(gameObject);
+		}
+	}
+
 	public abstract void SetInitiation(Vector3 castPos, Vector3 playerPos);
 }
