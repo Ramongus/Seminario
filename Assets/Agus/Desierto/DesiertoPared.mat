@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Specular:
-        m_Texture: {fileID: 2800000, guid: 9dc057dda325ae64db14dcbafe46399c, type: 3}
+        m_Texture: {fileID: 2800000, guid: a30b34a6807204243a136b6f01f7be2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0.04
     - _IntesitySpec: 0.99
-    - _Power: 0.98
+    - _Power: 1
     - _RimOffset: 0.39
     - _SpecSomething: 1
     - __dirty: 0
@@ -51,4 +51,4 @@ Material:
     - _PruebaModifAlbedo: {r: 0, g: 0, b: 0, a: 0}
     - _Rim: {r: 0.6698113, g: 0.35194683, b: 0.12637947, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 0.4339623, g: 0.41349235, b: 0.41349235, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}

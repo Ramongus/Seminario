@@ -41,14 +41,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ASEOutlineWidth: 0.44
-    - _IntesitySpec: 0.46
-    - _Power: 0.62
-    - _RimOffset: 0.17
-    - _SpecSomething: 0.82
+    - _IntesitySpec: 1
+    - _Power: 1
+    - _RimOffset: 1
+    - _SpecSomething: 0.996
     - __dirty: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
     - _PruebaModifAlbedo: {r: 0, g: 0, b: 0, a: 0}
     - _Rim: {r: 0.6698113, g: 0.35194683, b: 0.12637947, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
