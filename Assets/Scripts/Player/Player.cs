@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IPlayer
 {
+	[SerializeField] Image healthBar;
 	[SerializeField] float maxHP;
 	float currentHP;
 
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour, IPlayer
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
 		StartCoroutine(DebugHealth());
+		EventsManager.SuscribeToEvent("Dash", Dash);
 	}
 
 	private void Update()
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour, IPlayer
 		}
 		DamageOrHealAnimation(health);
 		currentHP = health;
+		healthBar.fillAmount = currentHP / maxHP;
 	}
 
 	private void DamageOrHealAnimation(float health)
@@ -98,5 +102,10 @@ public class Player : MonoBehaviour, IPlayer
 			Debug.Log("My health is: " + currentHP);
 			yield return new WaitForSeconds(5);
 		}
+	}
+
+	public void Dash(params object[] parameters)
+	{
+
 	}
 }
