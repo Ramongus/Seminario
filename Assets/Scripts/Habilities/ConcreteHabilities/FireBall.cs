@@ -42,7 +42,7 @@ public class FireBall : AbstractHabilities
 	override protected void OnTriggerEnter(Collider other)
 	{
 		base.OnTriggerEnter(other);
-		Player collideWithPlayer = other.gameObject.GetComponent<Player>();
+		PlayerView collideWithPlayer = other.gameObject.GetComponent<PlayerView>();
 		if(collideWithPlayer != null)
 		{
 

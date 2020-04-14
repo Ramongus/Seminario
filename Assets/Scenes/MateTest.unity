@@ -20429,7 +20429,7 @@ PrefabInstance:
     - target: {fileID: -7943378556525867576, guid: 74a7f4242aaeff140bda3711e80a4b52,
         type: 3}
       propertyPath: m_Name
-      value: hips
+      value: HIPS
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 74a7f4242aaeff140bda3711e80a4b52,
         type: 3}
@@ -36632,6 +36632,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1250301278154058921, guid: 7cf4deca24972514ab6685de0b7aa8b4,
+        type: 3}
+      propertyPath: m_Name
+      value: HIPS
+      objectReference: {fileID: 0}
     - target: {fileID: 5035079239777208955, guid: 7cf4deca24972514ab6685de0b7aa8b4,
         type: 3}
       propertyPath: m_LocalPosition.x

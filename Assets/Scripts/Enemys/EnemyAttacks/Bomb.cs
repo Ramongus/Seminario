@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
 	public float explodeRadius;
 	public GameObject explodeParticles;
 	public float explosionDamage;
+	public GameObject explodeField;
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +17,21 @@ public class Bomb : MonoBehaviour
 		StartCoroutine(AutoDestruct());
     }
 
+	public void SetExplodeField(GameObject explodeField)
+	{
+		this.explodeField = explodeField;
+	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
-		Player player = collision.gameObject.GetComponent<Player>();
+		PlayerView player = collision.gameObject.GetComponent<PlayerView>();
 		if(collision.gameObject.layer == LayerMask.NameToLayer("Arena") || player != null)
 			Explode();
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Player player = other.gameObject.GetComponent<Player>();
+		PlayerView player = other.gameObject.GetComponent<PlayerView>();
 		if (other.gameObject.layer == LayerMask.NameToLayer("Arena") || player != null)
 			Explode();
 	}
@@ -33,9 +39,11 @@ public class Bomb : MonoBehaviour
 	private void Explode()
 	{
 		Collider[] inExplodeRange = GetCollidersInExplodeRange();
-		List<Player> playerInExplode = GetPlayersInExplosion(inExplodeRange);
+		List<PlayerView> playerInExplode = GetPlayersInExplosion(inExplodeRange);
 		DoDamageToPlayers(playerInExplode);
 		ExplodeAnimation();
+		if (explodeField != null)
+			Destroy(explodeField);
 		Destroy(gameObject);
 	}
 
@@ -50,20 +58,20 @@ public class Bomb : MonoBehaviour
 		return Physics.OverlapSphere(transform.position, explodeRadius);
 	}
 
-	private void DoDamageToPlayers(List<Player> playerInExplode)
+	private void DoDamageToPlayers(List<PlayerView> playerInExplode)
 	{
-		foreach (Player player in playerInExplode)
+		foreach (PlayerView player in playerInExplode)
 		{
 			player.SetHealth(player.GetHP() - explosionDamage);
 		}
 	}
 
-	private List<Player> GetPlayersInExplosion(Collider[] inExplodeRange)
+	private List<PlayerView> GetPlayersInExplosion(Collider[] inExplodeRange)
 	{
-		List<Player> players = new List<Player>();
+		List<PlayerView> players = new List<PlayerView>();
 		foreach (Collider collider in inExplodeRange)
 		{
-			Player isPlayer = collider.gameObject.GetComponent<Player>();
+			PlayerView isPlayer = collider.gameObject.GetComponent<PlayerView>();
 			if (isPlayer)
 				players.Add(isPlayer);
 		}

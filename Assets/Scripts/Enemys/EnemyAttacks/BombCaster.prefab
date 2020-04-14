@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd619c6529148454587bb39b9b11a9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleBombPrefab: {fileID: 5191596752555020514, guid: b4048e272ee304f4791b975d6832f437,
+  singleBombPrefab: {fileID: 6482159690803452198, guid: b4048e272ee304f4791b975d6832f437,
     type: 3}
   explodeAreaMarker: {fileID: 0}
   betweenBombsCooldown: 0.5
@@ -51,6 +51,8 @@ MonoBehaviour:
   castTransform: {fileID: 989669079125280158}
   target: {fileID: 0}
   minAngleVariation: 0
-  maxAngleVariation: 0
+  maxAngleVariation: 360
   minDistanceVariation: 0
-  maxDistanceVariation: 0
+  maxDistanceVariation: 7
+  explosionFieldPrefab: {fileID: 3356304377988076573, guid: efdab02df131b894a8ff274cb676efe9,
+    type: 3}
