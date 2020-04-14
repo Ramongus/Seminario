@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17592405, g: 0.22015512, b: 0.30248207, a: 1}
+  m_IndirectSpecularColor: {r: 0.17592368, g: 0.22015437, b: 0.30248114, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4200,26 +4200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 108519966070271599, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: Spine
-      objectReference: {fileID: 0}
-    - target: {fileID: 656686350117278271, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftToeBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 723297759544499333, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftUpLeg
-      objectReference: {fileID: 0}
-    - target: {fileID: 835645761740299042, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: Neck
-      objectReference: {fileID: 0}
     - target: {fileID: 1253112155283815318, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4290,70 +4270,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.6629786
       objectReference: {fileID: 0}
-    - target: {fileID: 1447748928634593210, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: Spine2
-      objectReference: {fileID: 0}
     - target: {fileID: 1483907105387364511, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: aed9dd67eea948342942fe91e1373c4d, type: 2}
-    - target: {fileID: 2217851643929250846, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightHandIndex4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2357796530034461933, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightForeArm
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740524290484892892, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightFoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810560363821907424, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightHandIndex3
-      objectReference: {fileID: 0}
     - target: {fileID: 2826196805228464517, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
       propertyPath: m_Name
       value: MageTest-PLAYER
-      objectReference: {fileID: 0}
-    - target: {fileID: 3263029698583601680, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightLeg
-      objectReference: {fileID: 0}
-    - target: {fileID: 3721154622318999247, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightToeBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844221208069031699, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftFoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 5033394197611273540, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: HIPS MAGO
-      objectReference: {fileID: 0}
-    - target: {fileID: 5299243719554814310, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightToe_End
-      objectReference: {fileID: 0}
-    - target: {fileID: 5621683048605601537, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightShoulder
       objectReference: {fileID: 0}
     - target: {fileID: 6059951822886035832, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
@@ -4449,51 +4374,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0.5458167
-      objectReference: {fileID: 0}
-    - target: {fileID: 6206764455736579499, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftToe_End
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731511827234120224, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightHand
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936543899263559992, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightArm
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945853257444160637, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: Spine1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623121705984467775, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightHandIndex1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7821745276837658612, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightHandIndex2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7999402980983603364, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftLeg
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380449888570905422, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: RightUpLeg
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486141976344036080, guid: 97dedade534144c43b9f097c981c8834,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftShoulder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97dedade534144c43b9f097c981c8834, type: 3}

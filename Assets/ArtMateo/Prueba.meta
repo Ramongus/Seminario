@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/ArtMateo/Prueba.meta
-guid: 8178ce115641ef64dbd9e629cff3eece
-=======
-guid: 4274ae2bf420c5743b0260742900fcc4
->>>>>>> 83c57984bd33306259c2ac8ec362be1b256ab4c6:Assets/ArtMateo/Shaders/Materials.meta
+guid: 615ed833048645a47b1f57cff71c8e6b
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
