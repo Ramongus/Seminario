@@ -40,7 +40,7 @@ public class MoleArcher : AbstractEnemy
 	protected override void Awake()
 	{
 		base.Awake();
-		player = FindObjectOfType<Player>().transform;
+		player = FindObjectOfType<PlayerView>().transform;
 		teleportMaterial = render.GetComponent<Renderer>().material;
 		myAttacks = new List<IAttack>();
 		myCollider = GetComponent<Collider>();

@@ -2942,7 +2942,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -4345,5 +4345,35 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 18681156}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.16754133
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.040570766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.08541396
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.0731611
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059951822886035834, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.5458167
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97dedade534144c43b9f097c981c8834, type: 3}

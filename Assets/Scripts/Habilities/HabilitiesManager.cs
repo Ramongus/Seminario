@@ -7,9 +7,9 @@ public class HabilitiesManager
 	List<AbstractHabilities> myHabilities;
 	int habilitieIndex;
 
-	Player owner;
+	PlayerView owner;
 
-	public HabilitiesManager(List<AbstractHabilities> theHabilities, Player player)
+	public HabilitiesManager(List<AbstractHabilities> theHabilities, PlayerView player)
 	{
 		owner = player;
 		myHabilities = new List<AbstractHabilities>(theHabilities);
