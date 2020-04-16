@@ -137,6 +137,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5191596752555020441}
     m_Modifications:
+    - target: {fileID: 4096931523862351383, guid: bdfa8a6acdb9d7d4ab2b7b5caba6db97,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096931523862351383, guid: bdfa8a6acdb9d7d4ab2b7b5caba6db97,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096931523862351383, guid: bdfa8a6acdb9d7d4ab2b7b5caba6db97,
+        type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.a
+      value: 0.60784316
+      objectReference: {fileID: 0}
     - target: {fileID: 4509470767185698746, guid: bdfa8a6acdb9d7d4ab2b7b5caba6db97,
         type: 3}
       propertyPath: m_LocalPosition.x

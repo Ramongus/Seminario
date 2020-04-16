@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17592368, g: 0.22015437, b: 0.30248114, a: 1}
+  m_IndirectSpecularColor: {r: 0.17592405, g: 0.22015512, b: 0.30248207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -1314,7 +1314,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.4e-43, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 1.57e-43, z: 0.03515625, w: 0.45703125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1799,7 +1799,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -2062,7 +2062,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -2863,7 +2863,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -3021,7 +3021,7 @@ PrefabInstance:
     - target: {fileID: 3036747677745228337, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3036747677745228339, guid: 93f9dbaae9e1e94498d78d802d4ed67a,
         type: 3}
@@ -4131,6 +4131,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8007689591679059651, guid: 7e809dfcc146faa48a067a84a3ece953,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.13333334
+      objectReference: {fileID: 0}
     - target: {fileID: 8101586333661251423, guid: 7e809dfcc146faa48a067a84a3ece953,
         type: 3}
       propertyPath: m_LocalPosition.x
