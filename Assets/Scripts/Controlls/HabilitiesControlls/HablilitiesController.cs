@@ -7,7 +7,7 @@ public class HablilitiesController
 	HabilitieActivator spellCaster;
 	DashController dashController;
 
-	public HablilitiesController(float aimSensitivity, Transform aimPointer, bool isJoystick)
+	public HablilitiesController(float aimSensitivity, Transform aimPointer, bool isJoystick = false)
 	{
 		aimController = new AimPointerController(aimSensitivity, aimPointer, isJoystick);
 		habilitiesSelector = new HabilitiesSelectorController();

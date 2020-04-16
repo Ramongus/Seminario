@@ -1,21 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerLogic
+public class PlayerModel
 {
-	/*
-	 * Manejo de inputs.
-	 *	-MovementController
-	 *		.BaseMovement
-	 *		
-	 *	-HabilitiesController
-	 *		.Aim
-	 *		.Habilitie Selection
-	 *		.Habilitie Caster
-	 */
-
 	//Movement data
-	SimpleController movementController;
+	PlayerMovementController movementController;
 	RotationUpdater rotationUpdater;
 	Transform playerTransform;
 	float movementSpeed;
@@ -30,18 +19,23 @@ public class PlayerLogic
 	Animator playerAnimator;
 
 
-	public PlayerLogic(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator, bool isJoystick)
+	PlayerController _controller;
+
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator, bool isJoystick)
 	{
 		playerTransform = playerT;
 		movementSpeed = movSpeed;
 		this.aimPointer = aimPointer;
 		this.aimSensitivity = aimSensitivity;
 
-		movementController = new SimpleController();
+		//TODO TIPO DE CONTROLADOR DE INPUTS DEBE SEPARARSE A OTRA CLASE
+		movementController = new PlayerMovementController();
 		rotationUpdater = new RotationUpdater(aimPointer, playerTransform);
 		habilitiesController = new HablilitiesController(aimSensitivity, aimPointer, isJoystick);
 
 		this.playerAnimator = playerAnimator;
+
+		_controller = new PlayerController(this);
 
 		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
 	}
@@ -49,19 +43,17 @@ public class PlayerLogic
 
 	public void Logic()
 	{
-		BaseMovement();
-		HabilitiesInputs();
 	}
 
 	public void ThrowSpellAnimation(params object[] parameters)
 	{
 		playerAnimator.SetTrigger("Attack");
 	}
-	//BaseMovement methods
-	private void BaseMovement()
+
+	//Model
+	public void BaseMovement(Vector3 axis)
 	{
 		rotationUpdater.UpdateRotation();
-		Vector3 axis = movementController.GetMovementAxis();
 		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -playerTransform.forward);
 		if (proyectionAxisOnGoingBackDir > 0)
 			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
@@ -69,6 +61,7 @@ public class PlayerLogic
 		UpdateAnimator(axis);
 	}
 
+	//Esta funcion deberia estar en la view
 	private void UpdateAnimator(Vector3 movAxis)
 	{
 		if (movAxis != Vector3.zero)
@@ -85,6 +78,7 @@ public class PlayerLogic
 		playerAnimator.SetFloat("xAxis", axisConverted.x);
 	}
 
+	//Toma las axis obtenida y la transforma para que sea la direccion real in game del player respescto de su foward
 	private Vector3 GetAxisInComparisonOfPlayerFoward(Vector3 movAxis, Vector3 forward)
 	{
 		float angleOfForward = Vector3.Angle(Vector3.forward, forward);
@@ -95,9 +89,19 @@ public class PlayerLogic
 		return rotatedVector;
 	}
 
-	//Habilities Inputs
+	//Habilities Inputs -- EN EL CONTROLLER
 	private void HabilitiesInputs()
 	{
 		habilitiesController.ManageHabilities();
+	}
+
+	public Transform GetAimPointer()
+	{
+		return aimPointer;
+	}
+
+	public float GetAimSensitivity()
+	{
+		return aimSensitivity;
 	}
 }
