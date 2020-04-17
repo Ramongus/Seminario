@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class HabilitieActivator
+public class PlayerAbilitieActivator
 {
 	Transform aimPointer;
 
-	public HabilitieActivator(Transform aimPointer)
+	public PlayerAbilitieActivator(Transform aimPointer)
 	{
 		this.aimPointer = aimPointer;
 	}

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationUpdater
+public class PlayerRotationUpdater
 {
 	Transform aimPointer;
 	Transform playerTransform;
 
-	public RotationUpdater(Transform aimPointer, Transform playerT)
+	public PlayerRotationUpdater(Transform aimPointer, Transform playerT)
 	{
 		this.aimPointer = aimPointer;
 		playerTransform = playerT;

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AimPointerController
+public class PlayerPointerController
 {
 	[SerializeField] float sensitivity;
 	[SerializeField] Transform aimPointer;
 	bool isJoystick;
 
-	public AimPointerController(float sensitivity, Transform aimPointer, bool isJoystick)
+	public PlayerPointerController(float sensitivity, Transform aimPointer, bool isJoystick)
 	{
 		this.sensitivity = sensitivity;
 		this.aimPointer = aimPointer;

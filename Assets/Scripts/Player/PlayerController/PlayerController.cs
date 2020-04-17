@@ -4,13 +4,13 @@ public class PlayerController : IUpdate
 {
 	PlayerModel _playerModel;
 	PlayerMovementController movementController;
-	HablilitiesController habilitiesController;
+	PlayerAbilitiesController habilitiesController;
 
 	public PlayerController(PlayerModel model)
 	{
 		_playerModel = model;
 		movementController = new PlayerMovementController();
-		habilitiesController = new HablilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer());
+		habilitiesController = new PlayerAbilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer());
 		EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
 	}
 

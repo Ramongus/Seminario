@@ -5,7 +5,7 @@ public class PlayerModel
 {
 	//Movement data
 	PlayerMovementController movementController;
-	RotationUpdater rotationUpdater;
+	PlayerRotationUpdater rotationUpdater;
 	Transform playerTransform;
 	float movementSpeed;
 
@@ -14,7 +14,7 @@ public class PlayerModel
 	float aimSensitivity;
 
 	//HabilitiesController data
-	HablilitiesController habilitiesController;
+	PlayerAbilitiesController habilitiesController;
 
 	Animator playerAnimator;
 
@@ -28,7 +28,7 @@ public class PlayerModel
 		this.aimPointer = aimPointer;
 		this.aimSensitivity = aimSensitivity;
 
-		rotationUpdater = new RotationUpdater(aimPointer, playerTransform);
+		rotationUpdater = new PlayerRotationUpdater(aimPointer, playerTransform);
 
 		this.playerAnimator = playerAnimator;
 

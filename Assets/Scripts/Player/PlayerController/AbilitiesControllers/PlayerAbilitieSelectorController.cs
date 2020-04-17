@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HabilitiesSelectorController
+public class PlayerAbilitieSelectorController
 {
 	public void UpdateChangeHabilitie()
 	{
