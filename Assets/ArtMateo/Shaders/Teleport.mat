@@ -39,7 +39,7 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 1
     - _Range: -1
-    - _Teleport: 3.7
+    - _Teleport: -7.22364
     - __dirty: 0
     - _offsetForce: 0
     m_Colors:
