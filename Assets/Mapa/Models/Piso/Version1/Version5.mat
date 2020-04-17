@@ -42,12 +42,12 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0.01
     - _IntesitySpec: 0.44
-    - _Power: 0.8
+    - _Power: 1
     - _RimOffset: 0.41
     - _SpecSomething: 0.51
     - __dirty: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0}
-    - _Rim: {r: 0.05660377, g: 0.05660377, b: 0.05660377, a: 0}
+    - _Rim: {r: 0.3584906, g: 0.29132092, b: 0.18600926, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
