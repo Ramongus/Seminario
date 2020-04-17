@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SimpleController
+public class PlayerMovementController
 {
     public Vector3 GetMovementAxis()
     {

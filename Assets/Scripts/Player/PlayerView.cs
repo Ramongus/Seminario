@@ -19,7 +19,7 @@ public class PlayerView : MonoBehaviour, IPlayer
 
 	[SerializeField] bool isJoystickPlayer;
 
-	PlayerLogic logic;
+	PlayerModel logic;
 
 	HabilitiesManager myHabilitiesManager;
 
@@ -34,7 +34,7 @@ public class PlayerView : MonoBehaviour, IPlayer
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
-		logic = new PlayerLogic(transform, movementSpeed, aimPointer, aimSensitivity, animator, isJoystickPlayer);
+		logic = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, animator, isJoystickPlayer);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
 		StartCoroutine(DebugHealth());
@@ -46,6 +46,11 @@ public class PlayerView : MonoBehaviour, IPlayer
 		logic.Logic();
 	}
 
+	//
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public void SetHealth(float health)
 	{
 		if (health >= maxHP)
@@ -58,6 +63,11 @@ public class PlayerView : MonoBehaviour, IPlayer
 		DamageOrHealAnimation(health);
 		healthBar.fillAmount = currentHP / maxHP;
 	}
+	//
+	//
+	//
+	//
+
 
 	private void DamageOrHealAnimation(float health)
 	{
@@ -81,11 +91,19 @@ public class PlayerView : MonoBehaviour, IPlayer
 		Debug.LogWarning("Damaged animation its not already implemented");
 	}
 
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public float GetHP()
 	{
 		return currentHP;
 	}
 
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public float GetMaxHP()
 	{
 		return maxHP;
@@ -100,6 +118,10 @@ public class PlayerView : MonoBehaviour, IPlayer
 		}
 	}
 
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
+	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public void Dash(params object[] parameters)
 	{
 
