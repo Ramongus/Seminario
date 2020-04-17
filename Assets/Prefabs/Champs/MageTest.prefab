@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db2620343a9f0e4d9333760eed28dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   maxHP: 100
   myHabilities: []
   aimSensitivity: 15
