@@ -13,7 +13,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -39,7 +39,7 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 1
     - _Range: 1
-    - _Teleport: -2
+    - _Teleport: -7.2335157
     - __dirty: 0
     - _offsetForce: 0
     m_Colors:
