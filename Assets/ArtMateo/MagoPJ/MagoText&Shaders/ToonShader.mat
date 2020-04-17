@@ -47,7 +47,7 @@ Material:
     - _SpecSomething: 1
     - __dirty: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
-    - _Rim: {r: 0.7921569, g: 0.26274508, b: 0.7724913, a: 0}
+    - _ASEOutlineColor: {r: 0.40652487, g: 0.04903879, b: 0.5471698, a: 0}
+    - _Rim: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0}
