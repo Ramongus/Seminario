@@ -20,15 +20,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Alb:
-        m_Texture: {fileID: 2800000, guid: e53573ef89237bd4eb8165396db95dd5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 17bf72ec73a38cb479b90a200e03b5b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Met:
-        m_Texture: {fileID: 2800000, guid: 7e0101fe8fa8d5946a46f6ab8ff5bb4c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8ccc09e27049be54e9cbb8dd8b5c8bad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Nor:
-        m_Texture: {fileID: 2800000, guid: 0beca7832af8bcb409ebdf9da1dfdf97, type: 3}
+        m_Texture: {fileID: 2800000, guid: f4baef908ed4fab4aa5fa225973ae502, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -38,9 +38,9 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _Float0: 1
-    - _Range: -1
-    - _Teleport: -7.22364
+    - _Range: 1
+    - _Teleport: -7.211076
     - __dirty: 0
     - _offsetForce: 0
     m_Colors:
-    - _ColorTel: {r: 1024, g: 384.4447, b: 0, a: 1}
+    - _ColorTel: {r: 0, g: 766.9961, b: 698.7294, a: 1}
