@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Mapa/Models/Piso/Version1/New Material.mat.meta
-guid: d8c2828c4b45eb847accebfac73b5a7b
-NativeFormatImporter:
-=======
-guid: 33e343829f462e74babe81706f68933e
+guid: 69f880b404ddd54428fbd45dbd018326
 folderAsset: yes
 DefaultImporter:
->>>>>>> 1653d9d901a62f6953a973572be0a2a151c8492f:Assets/ArtMateo/ParaAGUS/PiedrasDetallePIso.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
