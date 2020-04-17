@@ -21,28 +21,20 @@ public class PlayerModel
 
 	PlayerController _controller;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator, bool isJoystick)
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator)
 	{
 		playerTransform = playerT;
 		movementSpeed = movSpeed;
 		this.aimPointer = aimPointer;
 		this.aimSensitivity = aimSensitivity;
 
-		//TODO TIPO DE CONTROLADOR DE INPUTS DEBE SEPARARSE A OTRA CLASE
-		movementController = new PlayerMovementController();
 		rotationUpdater = new RotationUpdater(aimPointer, playerTransform);
-		habilitiesController = new HablilitiesController(aimSensitivity, aimPointer, isJoystick);
 
 		this.playerAnimator = playerAnimator;
 
 		_controller = new PlayerController(this);
 
 		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
-	}
-
-
-	public void Logic()
-	{
 	}
 
 	public void ThrowSpellAnimation(params object[] parameters)

@@ -8,7 +8,6 @@ public class PlayerView : MonoBehaviour, IPlayer
 {
 	[SerializeField] Image healthBar;
 	[SerializeField] float maxHP;
-	float currentHP;
 
 	[SerializeField] List<AbstractHabilities> myHabilities;
 
@@ -17,13 +16,15 @@ public class PlayerView : MonoBehaviour, IPlayer
 
 	[SerializeField] float movementSpeed;
 
-	[SerializeField] bool isJoystickPlayer;
-
-	PlayerModel logic;
-
 	HabilitiesManager myHabilitiesManager;
 
 	Animator animator;
+
+	//LO QUE DEBERIA ESTAR EN EL MODEL
+	float currentHP;
+
+	//LO QUE NO DEBERIA ESTAR(o no estar aca al menso)
+	PlayerModel logic;
 
 	public PlayerView(float maxHP)
 	{
@@ -34,16 +35,10 @@ public class PlayerView : MonoBehaviour, IPlayer
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
-		logic = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, animator, isJoystickPlayer);
+		logic = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, animator);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
 		StartCoroutine(DebugHealth());
-		EventsManager.SuscribeToEvent("Dash", Dash);
-	}
-
-	private void Update()
-	{
-		logic.Logic();
 	}
 
 	//
@@ -116,14 +111,5 @@ public class PlayerView : MonoBehaviour, IPlayer
 			Debug.Log("My health is: " + currentHP);
 			yield return new WaitForSeconds(5);
 		}
-	}
-
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	public void Dash(params object[] parameters)
-	{
-
 	}
 }

@@ -16,7 +16,6 @@ public class PlayerController : IUpdate
 
 	public void CheckInputs()
 	{
-		Debug.Log("CheckingInputs");
 		Vector3 axis = movementController.GetMovementAxis();
 		_playerModel.BaseMovement(axis);
 		habilitiesController.ManageHabilities();
