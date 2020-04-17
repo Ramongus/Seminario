@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Mapa/Models/Piso/Version1.meta
-guid: e70734b97df8d42489f9f73c04da9f51
-=======
-guid: 2c0a3a50556d6f64b9136482cd9fb88c
->>>>>>> 1653d9d901a62f6953a973572be0a2a151c8492f:Assets/ArtMateo/ParaAGUS/PiedrasDetallePIso/Materials.meta
+guid: dd89f33087f5e964e8ad68d8ac71e2b2
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

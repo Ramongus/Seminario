@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Prefabs/Environment/RejaCentro.prefab.meta
-guid: 003f19014607cb547aa19386a02eac6d
-PrefabImporter:
-=======
-guid: 2fc9e530f4846d64580d1015ecf05c50
+guid: 5304cbec52ce9bf438a502376a384b85
 NativeFormatImporter:
->>>>>>> 1653d9d901a62f6953a973572be0a2a151c8492f:Assets/ArtMateo/ParaAGUS/Grass/Grass.mat.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
