@@ -9,7 +9,8 @@ public class MoleArcher : AbstractEnemy
 	public float teleportAppearValue;
 	public float teleportDisappearValue;
 	public float teleportSpeed;
-	private Material teleportMaterial;
+	public Material teleportMaterial;
+	public Material golemMaterial;
 
 	public bool testAppear;
 	public bool testDisappear;
@@ -37,11 +38,13 @@ public class MoleArcher : AbstractEnemy
 
 	Dictionary<Action, float> actionTime;
 
+	public Animator animator;
+
 	protected override void Awake()
 	{
 		base.Awake();
 		player = FindObjectOfType<PlayerView>().transform;
-		teleportMaterial = render.GetComponent<Renderer>().material;
+		SetMaterial(golemMaterial);
 		myAttacks = new List<IAttack>();
 		myCollider = GetComponent<Collider>();
 		timer = 1;
@@ -93,12 +96,14 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Appear()
 	{
+		SetMaterial(teleportMaterial);
 		StartCoroutine(AppearAnimation());
 	}
 
 	IEnumerator AppearAnimation()
 	{
 		transform.position = GetRandomValidPos();
+		LookAtPlayer();
 		if(teleportAppearValue > teleportDisappearValue)
 		{
 			while(teleportMaterial.GetFloat("_Teleport") < teleportAppearValue)
@@ -116,6 +121,7 @@ public class MoleArcher : AbstractEnemy
 			}
 		}
 		myCollider.enabled = true;
+		SetMaterial(golemMaterial);
 		Attack();
 	}
 
@@ -132,6 +138,7 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Disappear()
 	{
+		SetMaterial(teleportMaterial);
 		StartCoroutine(DisappearAnimation());
 	}
 
@@ -158,6 +165,7 @@ public class MoleArcher : AbstractEnemy
 
 	public override void Attack()
 	{
+		animator.SetTrigger("Attack");
 		StartCoroutine(WaitCooldownToAttack());
 	}
 
@@ -184,5 +192,15 @@ public class MoleArcher : AbstractEnemy
 	public override void Move()
 	{
 		throw new System.NotImplementedException();
+	}
+
+	public void SetMaterial(Material currentMaterial)
+	{
+		render.GetComponent<Renderer>().material = currentMaterial;
+	}
+
+	public void LookAtPlayer()
+	{
+		transform.forward = (player.transform.position - transform.position).normalized;
 	}
 }
