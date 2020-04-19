@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 33548884173e9ce4499f046d05d31c57, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4be057719ea8c1d47b4d3c081378a5e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Specular:
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 93e447c6fc64ee74d805bc3146b20b58, type: 3}
+        m_Texture: {fileID: 2800000, guid: 633056eba7c91ef44ab04e2df5de86be, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ToonRamp:
@@ -51,4 +51,4 @@ Material:
     - _PruebaModifAlbedo: {r: 0, g: 0, b: 0, a: 0}
     - _Rim: {r: 0.6698113, g: 0.35194683, b: 0.12637947, a: 0}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _Tint: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}

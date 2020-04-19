@@ -1535,8 +1535,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588546305}
-  m_LocalRotation: {x: -0.29560235, y: 0.6293273, z: -0.33514938, w: -0.63579977}
-  m_LocalPosition: {x: 409.4, y: -2.4900017, z: -217.4}
+  m_LocalRotation: {x: 0.3132393, y: -0.59212816, z: 0.33808145, w: 0.66103435}
+  m_LocalPosition: {x: 398.927, y: -1.9433174, z: -252.81036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4103,7 +4103,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 057de9e5aca60704e8089852f7b43752,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 307
+      value: 381.1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 057de9e5aca60704e8089852f7b43752,
         type: 3}
@@ -4113,7 +4113,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 057de9e5aca60704e8089852f7b43752,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 103.5
+      value: -244.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 057de9e5aca60704e8089852f7b43752,
         type: 3}
@@ -5848,6 +5848,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapaIsla
       objectReference: {fileID: 0}
+    - target: {fileID: 7796212847163498132, guid: b09c01959c9dcae48a76687574f5b9d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 280.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796212847163498132, guid: b09c01959c9dcae48a76687574f5b9d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.541
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796212847163498132, guid: b09c01959c9dcae48a76687574f5b9d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -305.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796212848126603330, guid: b09c01959c9dcae48a76687574f5b9d7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5eb2aec644e4cd4c9ea726bb4325a5b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09c01959c9dcae48a76687574f5b9d7, type: 3}
 --- !u!4 &7869369575572258427
