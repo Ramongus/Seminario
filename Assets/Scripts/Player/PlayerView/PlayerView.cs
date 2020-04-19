@@ -18,13 +18,13 @@ public class PlayerView : MonoBehaviour, IPlayer
 
 	HabilitiesManager myHabilitiesManager;
 
-	Animator animator;
+	Animator _animator;
 
 	//LO QUE DEBERIA ESTAR EN EL MODEL
 	float currentHP;
 
 	//LO QUE NO DEBERIA ESTAR(o no estar aca al menso)
-	PlayerModel logic;
+	PlayerModel _model;
 
 	public PlayerView(float maxHP)
 	{
@@ -34,11 +34,34 @@ public class PlayerView : MonoBehaviour, IPlayer
 
 	private void Awake()
 	{
-		animator = GetComponent<Animator>();
-		logic = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, animator);
+		_animator = GetComponent<Animator>();
+		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, this, maxHP);
 		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
 		currentHP = maxHP;
-		StartCoroutine(DebugHealth());
+		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
+	}
+
+	public void UpdateMovementAnimation()
+	{
+		if (_model.GetCurrentDir() != Vector3.zero)
+			_animator.SetFloat("Speed", 1);
+		else
+		{
+			_animator.SetFloat("Speed", 0);
+			return;
+		}
+		_animator.SetFloat("zAxis", _model.GetCurrentDir().z);
+		_animator.SetFloat("xAxis", _model.GetCurrentDir().x);
+	}
+
+	public void UpdateHealthBar()
+	{
+		healthBar.fillAmount = _model.GetCurrentHP() / _model.GetMaxHp();
+	}
+
+	public void ThrowSpellAnimation(params object[] parameters)
+	{
+		_animator.SetTrigger("Attack");
 	}
 
 	//
@@ -48,6 +71,8 @@ public class PlayerView : MonoBehaviour, IPlayer
 	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public void SetHealth(float health)
 	{
+		_model.SetHealth(health);
+		/*
 		if (health >= maxHP)
 			currentHP = maxHP;
 		else if (health <= 0)
@@ -57,6 +82,7 @@ public class PlayerView : MonoBehaviour, IPlayer
 
 		DamageOrHealAnimation(health);
 		healthBar.fillAmount = currentHP / maxHP;
+		*/
 	}
 	//
 	//
@@ -92,7 +118,7 @@ public class PlayerView : MonoBehaviour, IPlayer
 	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public float GetHP()
 	{
-		return currentHP;
+		return _model.GetCurrentHP();
 	}
 
 	//ESTO ES LOGICA SACARLO DE LA VIEW!
@@ -101,15 +127,6 @@ public class PlayerView : MonoBehaviour, IPlayer
 	//ESTO ES LOGICA SACARLO DE LA VIEW!
 	public float GetMaxHP()
 	{
-		return maxHP;
-	}
-
-	IEnumerator DebugHealth()
-	{
-		while (true)
-		{
-			Debug.Log("My health is: " + currentHP);
-			yield return new WaitForSeconds(5);
-		}
+		return _model.GetMaxHp();
 	}
 }

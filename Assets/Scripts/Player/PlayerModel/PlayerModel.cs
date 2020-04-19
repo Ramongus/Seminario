@@ -13,33 +13,30 @@ public class PlayerModel
 	Transform aimPointer;
 	float aimSensitivity;
 
-	//HabilitiesController data
-	PlayerAbilitiesController habilitiesController;
-
-	Animator playerAnimator;
-
-
 	PlayerController _controller;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, Animator playerAnimator)
+	Vector3 _currentDir;
+
+	PlayerView _view;
+
+	float _maxHP;
+	float _currentHp;
+
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp)
 	{
 		playerTransform = playerT;
 		movementSpeed = movSpeed;
 		this.aimPointer = aimPointer;
 		this.aimSensitivity = aimSensitivity;
 
-		rotationUpdater = new PlayerRotationUpdater(aimPointer, playerTransform);
+		_maxHP = maxHp;
+		_currentHp = _maxHP;
 
-		this.playerAnimator = playerAnimator;
+		rotationUpdater = new PlayerRotationUpdater(aimPointer, playerTransform);
 
 		_controller = new PlayerController(this);
 
-		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
-	}
-
-	public void ThrowSpellAnimation(params object[] parameters)
-	{
-		playerAnimator.SetTrigger("Attack");
+		_view = view;
 	}
 
 	//Model
@@ -50,28 +47,14 @@ public class PlayerModel
 		if (proyectionAxisOnGoingBackDir > 0)
 			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
 		playerTransform.position += axis * movementSpeed * Time.deltaTime;
-		UpdateAnimator(axis);
-	}
 
-	//Esta funcion deberia estar en la view
-	private void UpdateAnimator(Vector3 movAxis)
-	{
-		if (movAxis != Vector3.zero)
-			playerAnimator.SetFloat("Speed", 1);
-		else
-		{
-			playerAnimator.SetFloat("Speed", 0);
-			return;
-		}
-
-		Vector3 axisConverted = GetAxisInComparisonOfPlayerFoward(movAxis, playerTransform.forward);
-
-		playerAnimator.SetFloat("zAxis", axisConverted.z);
-		playerAnimator.SetFloat("xAxis", axisConverted.x);
+		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, playerTransform.forward);
+		_currentDir = axisConverted;
+		_view.UpdateMovementAnimation();
 	}
 
 	//Toma las axis obtenida y la transforma para que sea la direccion real in game del player respescto de su foward
-	private Vector3 GetAxisInComparisonOfPlayerFoward(Vector3 movAxis, Vector3 forward)
+	private Vector3 GetAxisConvertedToPlayerFowardReferece(Vector3 movAxis, Vector3 forward)
 	{
 		float angleOfForward = Vector3.Angle(Vector3.forward, forward);
 		if (forward.x < 0)
@@ -81,19 +64,40 @@ public class PlayerModel
 		return rotatedVector;
 	}
 
-	//Habilities Inputs -- EN EL CONTROLLER
-	private void HabilitiesInputs()
-	{
-		habilitiesController.ManageHabilities();
-	}
-
 	public Transform GetAimPointer()
 	{
 		return aimPointer;
 	}
-
+	
 	public float GetAimSensitivity()
 	{
 		return aimSensitivity;
+	}
+
+	public Vector3 GetCurrentDir()
+	{
+		return _currentDir;
+	}
+
+	public float GetMaxHp()
+	{
+		return _maxHP;
+	}
+
+	public float GetCurrentHP()
+	{
+		return _currentHp;
+	}
+
+	public void SetHealth(float health)
+	{
+		if (health >= _maxHP)
+			_currentHp = _maxHP;
+		else if (health <= 0)
+			_currentHp = 0;
+		else
+			_currentHp = health;
+
+		_view.UpdateHealthBar();
 	}
 }
