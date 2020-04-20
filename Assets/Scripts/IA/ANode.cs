@@ -7,9 +7,9 @@ public class ANode : MonoBehaviour
 	public float G { get; set; }
 	public float H { get; set; }
 	public float F { get { return G + H; } }
-	public ANode Previous { get; set; }
+	public ANode previous;
 
-	private Dictionary<ANode, float> neighbours = new Dictionary<ANode, float>();
+	public Dictionary<ANode, float> neighbours = new Dictionary<ANode, float>();
 	public float neighboursCount;
 
 	[SerializeField] float radiusToNeighbours;
@@ -35,7 +35,7 @@ public class ANode : MonoBehaviour
 	public void Reset()
 	{
 		G = Mathf.Infinity;
-		Previous = null;
+		previous = null;
 	}
 
 	private float DistanceToNode(ANode node)
