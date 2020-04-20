@@ -3,20 +3,20 @@
 public class PlayerAbilitiesController
 {
 	PlayerPointerController aimController;
-	PlayerAbilitieSelectorController habilitiesSelector;
+	PlayerAbilitieSelectorController abilitiesSelector;
 	PlayerAbilitieActivator spellCaster;
 
 	public PlayerAbilitiesController(float aimSensitivity, Transform aimPointer, bool isJoystick = false)
 	{
 		aimController = new PlayerPointerController(aimSensitivity, aimPointer, isJoystick);
-		habilitiesSelector = new PlayerAbilitieSelectorController();
+		abilitiesSelector = new PlayerAbilitieSelectorController();
 		spellCaster = new PlayerAbilitieActivator(aimPointer);
 	}
 
-	public void ManageHabilities()
+	public void ManageAbilities()
     {
 		aimController.AimUpdate();
-		habilitiesSelector.UpdateChangeHabilitie();
+		abilitiesSelector.UpdateChangeHabilitie();
 		spellCaster.ActivateHabilitie();
     }
 }

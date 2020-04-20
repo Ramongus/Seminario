@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockMetheore : AbstractHabilities
+public class RockMetheore : AbstractAbilities
 {
 	[SerializeField] float explodeDivisionForce;
 	[SerializeField] RockMetheore rockMetheorePrefab;
@@ -40,7 +40,7 @@ public class RockMetheore : AbstractHabilities
 				DoDamage(player);
 		}
 
-		AbstractHabilities habilitie = collision.gameObject.GetComponent<AbstractHabilities>();
+		AbstractAbilities habilitie = collision.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
 		{
 			Debug.Log("Lo toco una habilidad");
@@ -85,7 +85,7 @@ public class RockMetheore : AbstractHabilities
 				DoDamage(player);
 		}
 
-		AbstractHabilities habilitie = collision.gameObject.GetComponent<AbstractHabilities>();
+		AbstractAbilities habilitie = collision.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
 		{
 			Debug.Log("Lo toco una habilidad");

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbsorptionBall : AbstractHabilities
+public class AbsorptionBall : AbstractAbilities
 {
 	[SerializeField] float speed;
 
-	AbstractHabilities lastHabilitieContact;
+	AbstractAbilities lastHabilitieContact;
 
 	protected override void Awake()
 	{
@@ -38,7 +38,7 @@ public class AbsorptionBall : AbstractHabilities
 		Destroy(lastHabilitieContact.gameObject);
 	}
 
-	private void ChangeMaterialToAbsorbedSpell(AbstractHabilities abilitie)
+	private void ChangeMaterialToAbsorbedSpell(AbstractAbilities abilitie)
 	{
 		GetComponent<Renderer>().material = abilitie.GetComponent<Renderer>().material;
 	}
@@ -63,7 +63,7 @@ public class AbsorptionBall : AbstractHabilities
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Absorption Ball Detect Trigger");
-		AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
+		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
 		{
 			lastHabilitieContact = habilitie;

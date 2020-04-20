@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealArea : AbstractHabilities
+public class HealArea : AbstractAbilities
 {
 	[SerializeField] float healCooldown;
 	float cooldownTimer;
@@ -31,7 +31,7 @@ public class HealArea : AbstractHabilities
 
 	private void OnTriggerEnter(Collider other)
 	{
-		AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
+		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
 		{
 			Debug.Log("Lo toco una habilidad");
@@ -42,13 +42,13 @@ public class HealArea : AbstractHabilities
 
 	private void OnTriggerStay(Collider other)
 	{
-		IPlayer player = other.GetComponent<IPlayer>();
-		if(player != null)
+		IDamageable damageable = other.GetComponent<IDamageable>();
+		if(damageable != null)
 		{
 			if(cooldownTimer <= 0)
 			{
 				cooldownTimer = healCooldown;
-				player.SetHealth(player.GetHP() + powerValue);
+				damageable.SetHealth(damageable.GetHealth() + powerValue);
 			}
 		}
 	}

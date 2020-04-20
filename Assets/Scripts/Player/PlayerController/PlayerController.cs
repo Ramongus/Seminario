@@ -4,13 +4,13 @@ public class PlayerController : IUpdate
 {
 	PlayerModel _playerModel;
 	PlayerMovementController movementController;
-	PlayerAbilitiesController habilitiesController;
+	PlayerAbilitiesController abilitiesController;
 
 	public PlayerController(PlayerModel model)
 	{
 		_playerModel = model;
 		movementController = new PlayerMovementController();
-		habilitiesController = new PlayerAbilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer());
+		abilitiesController = new PlayerAbilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer());
 		EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
 	}
 
@@ -18,7 +18,7 @@ public class PlayerController : IUpdate
 	{
 		Vector3 axis = movementController.GetMovementAxis();
 		_playerModel.BaseMovement(axis);
-		habilitiesController.ManageHabilities();
+		abilitiesController.ManageAbilities();
 	}
 
 	public void MyUpdate()

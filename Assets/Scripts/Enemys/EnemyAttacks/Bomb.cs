@@ -24,14 +24,14 @@ public class Bomb : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		PlayerView player = collision.gameObject.GetComponent<PlayerView>();
+		Player player = collision.gameObject.GetComponent<Player>();
 		if(collision.gameObject.layer == LayerMask.NameToLayer("Arena") || player != null)
 			Explode();
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		PlayerView player = other.gameObject.GetComponent<PlayerView>();
+		Player player = other.gameObject.GetComponent<Player>();
 		if (other.gameObject.layer == LayerMask.NameToLayer("Arena") || player != null)
 			Explode();
 	}
@@ -39,7 +39,7 @@ public class Bomb : MonoBehaviour
 	private void Explode()
 	{
 		Collider[] inExplodeRange = GetCollidersInExplodeRange();
-		List<PlayerView> playerInExplode = GetPlayersInExplosion(inExplodeRange);
+		List<Player> playerInExplode = GetPlayersInExplosion(inExplodeRange);
 		DoDamageToPlayers(playerInExplode);
 		ExplodeAnimation();
 		if (explodeField != null)
@@ -58,21 +58,21 @@ public class Bomb : MonoBehaviour
 		return Physics.OverlapSphere(transform.position, explodeRadius);
 	}
 
-	private void DoDamageToPlayers(List<PlayerView> playerInExplode)
+	private void DoDamageToPlayers(List<Player> playerInExplode)
 	{
-		foreach (PlayerView player in playerInExplode)
+		foreach (Player player in playerInExplode)
 		{
-			player.SetHealth(player.GetHP() - explosionDamage);
+			player.SetHealth(player.GetHealth() - explosionDamage);
 		}
 	}
 
-	private List<PlayerView> GetPlayersInExplosion(Collider[] inExplodeRange)
+	private List<Player> GetPlayersInExplosion(Collider[] inExplodeRange)
 	{
-		List<PlayerView> players = new List<PlayerView>();
+		List<Player> players = new List<Player>();
 		foreach (Collider collider in inExplodeRange)
 		{
-			PlayerView isPlayer = collider.gameObject.GetComponent<PlayerView>();
-			if (isPlayer)
+			Player isPlayer = collider.gameObject.GetComponent<Player>();
+			if (isPlayer != null)
 				players.Add(isPlayer);
 		}
 		return players;

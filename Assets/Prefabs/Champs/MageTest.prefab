@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 9217163214976898796}
   - component: {fileID: 6059951822886035833}
   - component: {fileID: 6059951822886035834}
-  - component: {fileID: 6059951822886035832}
+  - component: {fileID: 1642723887388276904}
   m_Layer: 0
   m_Name: MageTest
   m_TagString: Untagged
@@ -426,7 +426,7 @@ CapsuleCollider:
   m_Height: 1.2322881
   m_Direction: 1
   m_Center: {x: 0.042705256, y: 0.64906615, z: 0.0075480742}
---- !u!114 &6059951822886035832
+--- !u!114 &1642723887388276904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,15 +435,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2826196805228464517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db2620343a9f0e4d9333760eed28dc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 43dbb81498f63ac48bf7687fcc25d694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHP: 100
-  myHabilities: []
   aimSensitivity: 15
   aimPointer: {fileID: 0}
   movementSpeed: 10
+  myHabilities: []
 --- !u!1 &3263029698583601680
 GameObject:
   m_ObjectHideFlags: 0

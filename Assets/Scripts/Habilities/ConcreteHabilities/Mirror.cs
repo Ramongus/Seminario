@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mirror : AbstractHabilities
+public class Mirror : AbstractAbilities
 {
-	AbstractHabilities lastHabilitieContact;
+	AbstractAbilities lastHabilitieContact;
 
 	protected override void Awake()
 	{
@@ -45,7 +45,7 @@ public class Mirror : AbstractHabilities
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Mirror Detect Trigger");
-		AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
+		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
 		{
 			lastHabilitieContact = habilitie;

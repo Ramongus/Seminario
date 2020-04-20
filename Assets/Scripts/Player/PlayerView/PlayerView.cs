@@ -4,102 +4,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerView : MonoBehaviour, IPlayer
+public class PlayerView
 {
-	[SerializeField] Image healthBar;
-	[SerializeField] float maxHP;
-
-	[SerializeField] List<AbstractHabilities> myHabilities;
-
-	[SerializeField] float aimSensitivity;
-	[SerializeField] Transform aimPointer;
-
-	[SerializeField] float movementSpeed;
-
-	HabilitiesManager myHabilitiesManager;
-
+	//Tal vez en un futuro haya que dividir en distintas clases:
+	// -La que se encargue del animator,
+	// -La que se encargue de las particulas,
+	// -etc..
+	Image _healthBar;
 	Animator _animator;
 
-	//LO QUE DEBERIA ESTAR EN EL MODEL
-	float currentHP;
-
-	//LO QUE NO DEBERIA ESTAR(o no estar aca al menso)
 	PlayerModel _model;
 
-	public PlayerView(float maxHP)
+	public PlayerView(Animator animator, Image healthBar)
 	{
-		this.maxHP = maxHP;
-		currentHP = maxHP;
+		_animator = animator;
+		_healthBar = healthBar;
+		EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
 	}
 
-	private void Awake()
+	public void UpdateMovementAnimation(Vector3 axis)
 	{
-		_animator = GetComponent<Animator>();
-		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, this, maxHP);
-		myHabilitiesManager = new HabilitiesManager(myHabilities, this);
-		currentHP = maxHP;
-		EventsManager.SuscribeToEvent("FireHabilitie", ThrowSpellAnimation);
-	}
-
-	public void UpdateMovementAnimation()
-	{
-		if (_model.GetCurrentDir() != Vector3.zero)
-			_animator.SetFloat("Speed", 1);
-		else
+		if (!IsChangingPosition(axis))
 		{
-			_animator.SetFloat("Speed", 0);
+			SetIdleAnimation();
 			return;
 		}
-		_animator.SetFloat("zAxis", _model.GetCurrentDir().z);
-		_animator.SetFloat("xAxis", _model.GetCurrentDir().x);
+		SetMovingAnimation(axis);
 	}
 
-	public void UpdateHealthBar()
+	public void UpdateHealthBar(float fillAmount)
 	{
-		healthBar.fillAmount = _model.GetCurrentHP() / _model.GetMaxHp();
+		_healthBar.fillAmount = fillAmount;
 	}
 
-	public void ThrowSpellAnimation(params object[] parameters)
+	public void SetSpellCastAnimation(params object[] parameters)
 	{
 		_animator.SetTrigger("Attack");
 	}
 
-	//
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	public void SetHealth(float health)
+	private void SetMovingAnimation(Vector3 axis)
 	{
-		_model.SetHealth(health);
-		/*
-		if (health >= maxHP)
-			currentHP = maxHP;
-		else if (health <= 0)
-			currentHP = 0;
-		else
-			currentHP = health;
-
-		DamageOrHealAnimation(health);
-		healthBar.fillAmount = currentHP / maxHP;
-		*/
+		_animator.SetFloat("Speed", 1);
+		_animator.SetFloat("zAxis", axis.z);
+		_animator.SetFloat("xAxis", axis.x);
 	}
-	//
-	//
-	//
-	//
 
-
-	private void DamageOrHealAnimation(float health)
+	private void SetIdleAnimation()
 	{
-		if (health >= currentHP)
-		{
-			HealthAnimation();
-		}
-		else
-		{
-			DamagedAnimation();
-		}
+		_animator.SetFloat("Speed", 0);
+	}
+
+	private bool IsChangingPosition(Vector3 axis)
+	{
+		if (axis != Vector3.zero)
+			return true;
+		return false;
 	}
 
 	private void HealthAnimation()
@@ -110,23 +69,5 @@ public class PlayerView : MonoBehaviour, IPlayer
 	private void DamagedAnimation()
 	{
 		Debug.LogWarning("Damaged animation its not already implemented");
-	}
-
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	public float GetHP()
-	{
-		return _model.GetCurrentHP();
-	}
-
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	//ESTO ES LOGICA SACARLO DE LA VIEW!
-	public float GetMaxHP()
-	{
-		return _model.GetMaxHp();
 	}
 }

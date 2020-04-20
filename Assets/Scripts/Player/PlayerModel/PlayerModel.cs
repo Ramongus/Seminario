@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel
+public class PlayerModel : ICastAbilities
 {
 	//Movement data
-	PlayerMovementController movementController;
 	PlayerRotationUpdater rotationUpdater;
-	Transform playerTransform;
+	Transform _transform;
 	float movementSpeed;
 
 	//Aim data
@@ -22,9 +22,14 @@ public class PlayerModel
 	float _maxHP;
 	float _currentHp;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp)
+	List<AbstractAbilities> _abilities;
+
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities)
 	{
-		playerTransform = playerT;
+		_abilities = new List<AbstractAbilities>(playerAbilities);
+		new AbilitiesManager(_abilities, this);
+
+		_transform = playerT;
 		movementSpeed = movSpeed;
 		this.aimPointer = aimPointer;
 		this.aimSensitivity = aimSensitivity;
@@ -32,9 +37,7 @@ public class PlayerModel
 		_maxHP = maxHp;
 		_currentHp = _maxHP;
 
-		rotationUpdater = new PlayerRotationUpdater(aimPointer, playerTransform);
-
-		_controller = new PlayerController(this);
+		rotationUpdater = new PlayerRotationUpdater(aimPointer, _transform);
 
 		_view = view;
 	}
@@ -43,14 +46,14 @@ public class PlayerModel
 	public void BaseMovement(Vector3 axis)
 	{
 		rotationUpdater.UpdateRotation();
-		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -playerTransform.forward);
+		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -_transform.forward);
 		if (proyectionAxisOnGoingBackDir > 0)
 			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
-		playerTransform.position += axis * movementSpeed * Time.deltaTime;
+		_transform.position += axis * movementSpeed * Time.deltaTime;
 
-		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, playerTransform.forward);
+		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
 		_currentDir = axisConverted;
-		_view.UpdateMovementAnimation();
+		_view.UpdateMovementAnimation(_currentDir);
 	}
 
 	//Toma las axis obtenida y la transforma para que sea la direccion real in game del player respescto de su foward
@@ -98,6 +101,10 @@ public class PlayerModel
 		else
 			_currentHp = health;
 
-		_view.UpdateHealthBar();
+		_view.UpdateHealthBar(_currentHp / _maxHP);
+	}
+	public Vector3 GetPosition()
+	{
+		return _transform.position;
 	}
 }

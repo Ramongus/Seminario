@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : AbstractHabilities
+public class FireBall : AbstractAbilities
 {
 	[SerializeField] float speed;
 	[SerializeField] GameObject explodeParticles;
@@ -42,14 +42,14 @@ public class FireBall : AbstractHabilities
 	override protected void OnTriggerEnter(Collider other)
 	{
 		base.OnTriggerEnter(other);
-		PlayerView collideWithPlayer = other.gameObject.GetComponent<PlayerView>();
+		Player collideWithPlayer = other.gameObject.GetComponent<Player>();
 		if(collideWithPlayer != null)
 		{
 
 		}
 		else
 		{
-			AbstractHabilities habilitie = other.gameObject.GetComponent<AbstractHabilities>();
+			AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
 			if (habilitie != null)
 			{
 				if (InteractWith(habilitie))

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HabilitiesManager
+public class AbilitiesManager
 {
-	List<AbstractHabilities> myHabilities;
+	List<AbstractAbilities> myHabilities;
 	int habilitieIndex;
 
-	PlayerView owner;
+	ICastAbilities _owner;
 
-	public HabilitiesManager(List<AbstractHabilities> theHabilities, PlayerView player)
+	public AbilitiesManager(List<AbstractAbilities> theHabilities, ICastAbilities owner)
 	{
-		owner = player;
-		myHabilities = new List<AbstractHabilities>(theHabilities);
+		_owner = owner;
+		myHabilities = new List<AbstractAbilities>(theHabilities);
 		habilitieIndex = 0;
 		EventsManager.SuscribeToEvent("NextHabilitie", ChangeToNextHabilitie);
 		EventsManager.SuscribeToEvent("PreviousHabilitie", ChangeToPreviousHabilitie);
@@ -21,7 +21,7 @@ public class HabilitiesManager
 
 	public void CastHabilitie(params object[] parameters)
 	{
-		EventsManager.TriggerEvent("CastHabilitie", myHabilities[habilitieIndex].GetName(), parameters[0], owner.transform.position);
+		EventsManager.TriggerEvent("CastHabilitie", myHabilities[habilitieIndex].GetName(), parameters[0], _owner.GetPosition());
 	}
 
 	public void ChangeToNextHabilitie(params object[] parameters)

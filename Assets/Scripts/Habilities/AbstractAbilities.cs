@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractHabilities : MonoBehaviour
+public abstract class AbstractAbilities : MonoBehaviour
 {
 	[SerializeField] protected string habilitieName;
 	[SerializeField] protected float powerValue;
@@ -28,7 +28,7 @@ public abstract class AbstractHabilities : MonoBehaviour
 		return myPowers.ToArray();
 	}
 
-	protected bool InteractWith(AbstractHabilities h)
+	protected bool InteractWith(AbstractAbilities h)
 	{
 		foreach (Powers.Power power in h.GetPowers())
 		{
