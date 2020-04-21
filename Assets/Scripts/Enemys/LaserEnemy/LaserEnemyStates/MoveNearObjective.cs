@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveNearObjective : State
@@ -37,31 +35,50 @@ public class MoveNearObjective : State
 
 		ANode finalNode = GetFinalNode();
 		ANode initialNode = GetInitialNode();
+		Debug.Log("Final node: " + finalNode.name);
+		Debug.Log("Initial node" + initialNode.name);
+
 		if(finalNode != null && initialNode != null)
 		{
 			pathfinder.SeTFinalNode(finalNode);
 			pathfinder.SetInitialNode(initialNode);
 		}
-		Debug.Log(finalNode.name);
-		Debug.Log(initialNode.name);
 
-		Stack<ANode> pathInStack = new Stack<ANode>(pathfinder.GetPath());
-		Debug.Log("Stack size: " + pathInStack.Count);
-		path = ConvertNodeStackToTransformList(pathInStack);
-		index = 1;
+		//Stack<ANode> pathInStack = new Stack<ANode>(pathfinder.GetPath());
+		List<ANode> pathNodes = new List<ANode>(pathfinder.GetPath().ToArray());
+		//Debug.Log("Stack size: " + pathInStack.Count);
+		path = ConvertNodeListToTransformList(pathNodes);
+
+		for (int i = 0; i < path.Count; i++)
+		{
+			Debug.Log("Node: " + i + " is: " + path[i]);
+		}
 	}
 
 	public override void Execute()
 	{
+		float range = 1f;
+		if(Vector3.Distance(path[index].position, owner.transform.position) < range)
+		{
+			index++;
+			if(index >= path.Count)
+			{
+				_sm.SetState<ChargeAttack>();
+				Debug.LogWarning("Intente cambiar de estado");
+			}
+		}
 
+		Vector3 currentDir = (path[index].position - owner.transform.position).normalized;
+		owner.forward = currentDir;
+		owner.transform.position += speed * owner.transform.forward * Time.deltaTime;
 	}
 
-	private List<Transform> ConvertNodeStackToTransformList(Stack<ANode> pathInStack)
+	private List<Transform> ConvertNodeListToTransformList(List<ANode> nodeList)
 	{
 		List<Transform> list = new List<Transform>();
-		while(pathInStack.Count > 0)
+		foreach (ANode node in nodeList)
 		{
-			list.Add(pathInStack.Pop().transform);
+			list.Add(node.transform);
 		}
 		return list;
 	}

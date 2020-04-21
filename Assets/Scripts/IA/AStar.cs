@@ -72,7 +72,7 @@ public class AStar
 				//si me lo guardo en un stack ya lo invierto.
 				while (current != null)
 				{
-					Debug.LogWarning(current);
+					Debug.LogWarning("Stack Pushing Node: " + current);
 					resultPath.Push(current);
 					current = current.previous;
 				}
