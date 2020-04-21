@@ -48,11 +48,6 @@ public class MoveNearObjective : State
 		List<ANode> pathNodes = new List<ANode>(pathfinder.GetPath().ToArray());
 		//Debug.Log("Stack size: " + pathInStack.Count);
 		path = ConvertNodeListToTransformList(pathNodes);
-
-		for (int i = 0; i < path.Count; i++)
-		{
-			Debug.Log("Node: " + i + " is: " + path[i]);
-		}
 	}
 
 	public override void Execute()
@@ -64,7 +59,7 @@ public class MoveNearObjective : State
 			if(index >= path.Count)
 			{
 				_sm.SetState<ChargeAttack>();
-				Debug.LogWarning("Intente cambiar de estado");
+				return;
 			}
 		}
 
