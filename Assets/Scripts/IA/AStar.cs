@@ -72,6 +72,7 @@ public class AStar
 				//si me lo guardo en un stack ya lo invierto.
 				while (current != null)
 				{
+					Debug.LogWarning(current);
 					resultPath.Push(current);
 					current = current.previous;
 				}
@@ -84,7 +85,7 @@ public class AStar
 				var neighNode = item.Key;
 				var neighDist = item.Value;
 
-				//Si el nodo vecino ya fue analizado o está bloqueado continuamos a la siguiente iteración.
+				//Si el nodo vecino ya fue analizado continuamos a la siguiente iteración.
 				if (closedNodes.Contains(neighNode))
 				{
 					continue;
@@ -115,7 +116,7 @@ public class AStar
 			//Remuevo el nodo ya que terminamos de trabajar con él.
 			openNodes.Remove(current);
 		}
-
+		Debug.LogError("TE ESTA DEVOLVIENDO NULO EL PATH");
 		//Si llegué hasta acá es porque no había forma de llegar al nodo final desde el nodo inicial.
 		return null;
 	}

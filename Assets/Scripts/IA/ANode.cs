@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ANode : MonoBehaviour
 {
+	public Dictionary<ANode, float> neighbours = new Dictionary<ANode, float>();
+	public ANode previous;
 	public float G { get; set; }
 	public float H { get; set; }
 	public float F { get { return G + H; } }
-	public ANode previous;
 
-	public Dictionary<ANode, float> neighbours = new Dictionary<ANode, float>();
 	public float neighboursCount;
 
 	[SerializeField] float radiusToNeighbours;
 
 	void Awake()
 	{
-		List<ANode> nodes = FindObjectOfType<NodesList>().GetNodes(); ;
+		G = Mathf.Infinity;
+		List<ANode> nodes = new List<ANode>(FindObjectOfType<NodesList>().GetNodes());
 		if (nodes.Contains(this))
 		{
 			nodes.Remove(this);
@@ -40,7 +41,7 @@ public class ANode : MonoBehaviour
 
 	private float DistanceToNode(ANode node)
 	{
-		return (node.transform.position - transform.position).magnitude;
+		return Vector3.Distance(node.transform.position, transform.position);
 	}
 
 	private void OnDrawGizmos()

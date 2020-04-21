@@ -31,7 +31,6 @@ public class RockMetheore : AbstractAbilities
 	public void OnCollisionEnter(Collision collision)
 	{
 		impulseDir = Vector3.Normalize(this.transform.position - collision.transform.position);
-		Debug.Log(impulseDir);
 		impulseDir = new Vector3(impulseDir.x, 0, impulseDir.z);
 		if (isFalling)
 		{
