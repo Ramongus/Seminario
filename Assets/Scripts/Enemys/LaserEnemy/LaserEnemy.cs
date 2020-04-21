@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LaserEnemy : MonoBehaviour
 {
+	[SerializeField] Laser laserAttack;
+	[SerializeField] Transform castPoint;
 	[SerializeField] List<Transform> patrolWaypoints;
 	[SerializeField] float speed;
 	[SerializeField] bool patrolStateLoop;
@@ -17,7 +19,7 @@ public class LaserEnemy : MonoBehaviour
 	private void Awake()
 	{
 		_view = new LaserEnemyView();
-		_model = new LaserEnemyModel(_view, transform, FindObjectOfType<NodesList>().GetNodes(), speed, patrolWaypoints, patrolStateLoop, FindObjectOfType<Player>().transform, distanceToPlayer);
+		_model = new LaserEnemyModel(_view, transform, FindObjectOfType<NodesList>().GetNodes(), speed, patrolWaypoints, patrolStateLoop, FindObjectOfType<Player>().transform, distanceToPlayer, laserAttack, castPoint);
 		_controller = new LaserEnemyController(_model);
 	}
 
