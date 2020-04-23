@@ -75,7 +75,7 @@ public class RockMetheore : AbstractAbilities
 	public void OnTriggerEnter(Collider collision)
 	{
 		impulseDir = Vector3.Normalize(this.transform.position - collision.transform.position);
-		Debug.Log(impulseDir);
+		//Debug.Log(impulseDir);
 		impulseDir = new Vector3(impulseDir.x, 0, impulseDir.z);
 		if (isFalling)
 		{
