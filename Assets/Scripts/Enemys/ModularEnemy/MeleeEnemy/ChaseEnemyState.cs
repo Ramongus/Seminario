@@ -13,11 +13,14 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	Transform target;
 	IMoveBehaviour moveBehaviour;
 
+	Animator animator;
+
 	private void Start()
 	{
 		SetStateMachine();
 		target = FindObjectOfType<Player>().transform;
 		moveBehaviour = GetComponent<IMoveBehaviour>();
+		animator = GetComponent<Animator>();
 	}
 
 	public string GetStateName()
@@ -58,11 +61,13 @@ public class ChaseEnemyState : MonoBehaviour, IState
 		}
 		transform.forward = Vector3.Lerp(transform.forward, toTarget.normalized, rotationSpeed * Time.deltaTime);
 		moveBehaviour.SetVelocity(transform.forward);
+		animator.SetFloat("Speed", 1);
 	}
 
 	public void StateSleep()
 	{
 		Debug.Log("StateSleeps - Chase");
 		moveBehaviour.SetVelocity(Vector3.zero);
+		animator.SetFloat("Speed", 0);
 	}
 }

@@ -22,6 +22,8 @@ public class GoToPathPointState : MonoBehaviour, IState
 
 	AStar pathfinder;
 
+	Animator animator;
+
 	private void Start()
 	{
 		SetStateMachine();
@@ -29,6 +31,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		pathfinder = new AStar();
 		nodes = new List<ANode>(FindObjectOfType<NodesList>().GetNodes());
 		moveBehaviour = GetComponent<IMoveBehaviour>();
+		animator = GetComponent<Animator>();
 	}
 
 	public string GetStateName()
@@ -87,6 +90,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		}
 		transform.forward = Vector3.Lerp(transform.forward, new Vector3(toPathIndex.x, 0, toPathIndex.z).normalized, rotationSpeed * Time.deltaTime);
 		moveBehaviour.SetVelocity(transform.forward);
+		animator.SetFloat("Speed", 1);
 	}
 
 	private List<Transform> GetNewPath()

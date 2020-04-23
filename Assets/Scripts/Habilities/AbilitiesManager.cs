@@ -13,7 +13,7 @@ public class AbilitiesManager
 	{
 		_owner = owner;
 		myHabilities = new List<AbstractAbilities>(theHabilities);
-		habilitieIndex = 0;
+		habilitieIndex = 2;
 		EventsManager.SuscribeToEvent("NextHabilitie", ChangeToNextHabilitie);
 		EventsManager.SuscribeToEvent("PreviousHabilitie", ChangeToPreviousHabilitie);
 		EventsManager.SuscribeToEvent("FireHabilitie", CastHabilitie);
