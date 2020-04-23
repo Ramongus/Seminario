@@ -13,7 +13,7 @@ public class PatrolState : State
 	bool goingBack;
 	List<Transform> waypoints;
 
-	public PatrolState(StateMachine sm, Transform owner, float speed, List<Transform> waypoints, bool loop) : base(sm)
+	public PatrolState(StateMachineClassic sm, Transform owner, float speed, List<Transform> waypoints, bool loop) : base(sm)
 	{
 		this.waypoints = new List<Transform>(waypoints);
 		index = 0;

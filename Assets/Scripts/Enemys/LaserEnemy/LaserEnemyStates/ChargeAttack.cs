@@ -11,7 +11,7 @@ public class ChargeAttack : State
 	Transform castAttackPoint;
 	LaserEnemy laserInstantiator;
 
-	public ChargeAttack(StateMachine sm, IChargeAttack attack, Transform owner, Transform objective, Transform castAttackPoint, LaserEnemy laserInstantiator) : base(sm)
+	public ChargeAttack(StateMachineClassic sm, IChargeAttack attack, Transform owner, Transform objective, Transform castAttackPoint, LaserEnemy laserInstantiator) : base(sm)
 	{
 		this.attack = attack;
 		this.owner = owner;

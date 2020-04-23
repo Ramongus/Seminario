@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IState
+public interface IStateClassic
 {
 	void OnAwake();
 	void OnUpdate();

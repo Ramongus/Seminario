@@ -3,34 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class StateMachine {
+public class StateMachine : MonoBehaviour {
 
-    State _currentState;
-    List<State> _states = new List<State>();
+	[SerializeField] protected string defaultState;
+    protected IState _currentState;
+    protected List<IState> _states = new List<IState>();
 
-    /// <summary>
-    /// Llama al execute del estado actual.
-    /// </summary>
-	public void Update()
+	protected virtual void Awake()
+	{
+		IState[] allStates = GetComponents<IState>();
+		for (int i = 0; i < allStates.Length; i++)
+		{
+			AddState(allStates[i]);
+		}
+		if (_states.Count == 0)
+		{
+			Debug.LogError("RECUERDE AGREGAR AL OBJETO AL MENOS UN ESTADO");
+			Debug.LogError("#####");
+			Debug.LogError("REMEMBER AT LEAST ATTACH ONE STATE TO THE OBJECT");
+			throw new MissingComponentException();
+		}
+
+		_currentState = FindStateByName(defaultState);
+		if (_currentState == null)
+		{
+			_currentState = _states[0];
+		}
+	}
+
+	/// <summary>
+	/// Llama al execute del estado actual.
+	/// </summary>
+	protected virtual void Update()
     {
         if (_currentState != null)
-            _currentState.Execute();
-    }
-
-    /// <summary>
-    /// Llama al LateExecute del estado actual.
-    /// </summary>
-    public void LateUpdate()
-    {
-        if (_currentState != null)
-            _currentState.LateExecute();
+            _currentState.StateExecute();
     }
 
     /// <summary>
     /// Agrega un estado.
     /// </summary>
     /// <param name="s">El estado a agregar.</param>
-    public void AddState(State s)
+    protected void AddState(IState s)
     {
         _states.Add(s);
         if (_currentState == null)
@@ -40,20 +54,20 @@ public class StateMachine {
     /// <summary>
     /// Cambia de estado.
     /// </summary>
-    public void SetState<T>() where T : State
+    public void SetState<T>() where T : IState
     {
         for (int i = 0; i < _states.Count; i++)
         {
             if (_states[i].GetType() == typeof(T))
             {
-                _currentState.Sleep();
+                _currentState.StateSleep();
                 _currentState = _states[i];
-                _currentState.Awake();
+                _currentState.StateAwake();
             }
         }
     }
 
-    public bool IsActualState<T>() where T : State
+    public bool IsActualState<T>() where T : IState
     {
         return _currentState.GetType() == typeof(T);
     }
@@ -71,4 +85,20 @@ public class StateMachine {
                 return i;
         return -1;
     }
+	/// <summary>
+	/// Busca y devuelve un estado perteneciente a la maquina de estados por nombre, si no encuentra ninguno con dicho nombre devuelve nulo.
+	/// </summary>
+	/// <param name="name">El nombre del estado a buscar</param>
+	/// <returns></returns>
+	protected IState FindStateByName(string name)
+	{
+		for (int i = 0; i < _states.Count; i++)
+		{
+			if(_states[i].GetStateName() == name)
+			{
+				return _states[i];
+			}
+		}
+		return null;
+	}
 }

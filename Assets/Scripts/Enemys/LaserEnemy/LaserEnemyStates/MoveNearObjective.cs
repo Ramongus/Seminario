@@ -18,7 +18,7 @@ public class MoveNearObjective : State
 
 	float speed;
 
-	public MoveNearObjective(StateMachine sm, List<ANode> availableNodes, Transform owner, Transform objective, float distanceToMoveArround, float speed) : base(sm)
+	public MoveNearObjective(StateMachineClassic sm, List<ANode> availableNodes, Transform owner, Transform objective, float distanceToMoveArround, float speed) : base(sm)
 	{
 		nodes = new List<ANode>(availableNodes);
 		pathfinder = new AStar();

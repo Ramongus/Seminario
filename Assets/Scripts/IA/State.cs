@@ -3,13 +3,13 @@ using System.Collections;
 
 public class State {
 
-    protected StateMachine _sm;
+    protected StateMachineClassic _sm;
 
     /// <summary>
     /// Crea el estado.
     /// </summary>
     /// <param name="sm">Máquina de estados que va a recibir al estado.</param>
-    public State(StateMachine sm)
+    public State(StateMachineClassic sm)
     {
         _sm = sm;
     }
