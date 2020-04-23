@@ -1,6 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Prefabs/Enemys/ENEMYMELE.prefab.meta
 guid: 4b290954172f735428ed13f5147e9031
 PrefabImporter:
+=======
+guid: a9ef8a62081e10846b642db97f861d23
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e:Assets/ArtMateo/Prueba/Piedritas.meta
+=======
+guid: 4b290954172f735428ed13f5147e9031
+PrefabImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e
   externalObjects: {}
   userData: 
   assetBundleName: 

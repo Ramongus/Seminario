@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Scripts/Enemys/ModularEnemy/MeleeEnemy.meta
 guid: 6943363f433a34a4bb5f45ff00d81184
+=======
+guid: 710b3998eae7de24badd181a9056d0fd
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e:Assets/ArtMateo/Prueba/FBX.meta
+=======
+guid: 6943363f433a34a4bb5f45ff00d81184
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e
+=======
+guid: 6943363f433a34a4bb5f45ff00d81184
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

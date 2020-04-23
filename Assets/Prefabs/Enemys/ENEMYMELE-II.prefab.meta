@@ -1,6 +1,22 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Prefabs/Enemys/ENEMYMELE-II.prefab.meta
 guid: ad5d82fea7258ad46aa5343883ed0edf
 PrefabImporter:
+=======
+guid: 1015395af830fbf4d82d83941e788862
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e:Assets/ArtMateo/Prueba/Templo.meta
+=======
+guid: ad5d82fea7258ad46aa5343883ed0edf
+PrefabImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e
+=======
+guid: ad5d82fea7258ad46aa5343883ed0edf
+PrefabImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e
   externalObjects: {}
   userData: 
   assetBundleName: 
