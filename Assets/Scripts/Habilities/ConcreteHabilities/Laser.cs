@@ -1,11 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : AbstractAbilities, IChargeAttack, IDoDamage
 {
 	[SerializeField] float timeToCharge;
+	[SerializeField] float timeBeforeAttack;
 	float chargeAmount;
+
+	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
+	{
+	}
 
 	public bool Charge()
 	{
@@ -20,7 +26,12 @@ public class Laser : AbstractAbilities, IChargeAttack, IDoDamage
 
 	public void Attack()
 	{
-		throw new System.NotImplementedException();
+		StartCoroutine(WarnAttack());
+	}
+
+	IEnumerator WarnAttack()
+	{
+		throw new NotImplementedException();
 	}
 
 	public void DoDamage(IDamageable damageable)
@@ -28,10 +39,6 @@ public class Laser : AbstractAbilities, IChargeAttack, IDoDamage
 		throw new System.NotImplementedException();
 	}
 
-	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
-	{
-		throw new System.NotImplementedException();
-	}
 
 	public void ResetCharge()
 	{

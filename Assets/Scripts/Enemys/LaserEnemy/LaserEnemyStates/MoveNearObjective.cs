@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveNearObjective : State
@@ -52,8 +53,9 @@ public class MoveNearObjective : State
 
 	public override void Execute()
 	{
-		float range = 1f;
-		if(Vector3.Distance(path[index].position, owner.transform.position) < range)
+		float range = 4f;
+		Vector3 nodePositionAtSamehight = GetNodeYAtSameHight();
+		if(Vector3.Distance(nodePositionAtSamehight, owner.transform.position) < range)
 		{
 			index++;
 			if(index >= path.Count)
@@ -63,9 +65,16 @@ public class MoveNearObjective : State
 			}
 		}
 
-		Vector3 currentDir = (path[index].position - owner.transform.position).normalized;
+		//Vector3 deltaDir = (path[index].position - owner.transform.position);
+		//Vector3 currentDir = new Vector3(deltaDir.x, 0, deltaDir.z).normalized;
+		Vector3 currentDir = Vector3.Normalize(nodePositionAtSamehight - owner.transform.position);
 		owner.forward = currentDir;
 		owner.transform.position += speed * owner.transform.forward * Time.deltaTime;
+	}
+
+	private Vector3 GetNodeYAtSameHight()
+	{
+		return new Vector3(path[index].position.x, owner.transform.position.y, path[index].position.z);
 	}
 
 	private List<Transform> ConvertNodeListToTransformList(List<ANode> nodeList)

@@ -9,18 +9,21 @@ public class ChargeAttack : State
 	Transform owner;
 	Transform objective;
 	Transform castAttackPoint;
+	LaserEnemy laserInstantiator;
 
-	public ChargeAttack(StateMachine sm, IChargeAttack attack, Transform owner, Transform objective, Transform castAttackPoint) : base(sm)
+	public ChargeAttack(StateMachine sm, IChargeAttack attack, Transform owner, Transform objective, Transform castAttackPoint, LaserEnemy laserInstantiator) : base(sm)
 	{
 		this.attack = attack;
 		this.owner = owner;
 		this.objective = objective;
 		this.castAttackPoint = castAttackPoint;
+		this.laserInstantiator = laserInstantiator;
 	}
 
 	public override void Awake()
 	{
 		base.Awake();
+		laserInstantiator.InstantiateLaser(castAttackPoint.position);
 		Debug.Log("Charging");
 	}
 
@@ -33,6 +36,7 @@ public class ChargeAttack : State
 
 		if (attack.Charge())
 		{
+			Debug.Log("Attack");
 			attack.Attack();
 			//Aca deberia ir a un nuevo estado de "Recuperacion de mana" o algo asi en el que se mueva por los alrededores;
 		}
@@ -40,12 +44,19 @@ public class ChargeAttack : State
 
 	private bool IsInPosition()
 	{
-		RaycastHit hit = new RaycastHit();
-		Debug.Log(castAttackPoint);
-		Debug.Log(objective);
-		if (Physics.Raycast(castAttackPoint.position, Vector3.Normalize(objective.position - castAttackPoint.position), out hit))
+		Vector3 ignoreObjectiveHeight = new Vector3(objective.position.x, castAttackPoint.position.y, objective.position.z);
+		owner.forward = Vector3.Normalize(ignoreObjectiveHeight - owner.position);
+
+		RaycastHit hit;
+		if (Physics.Raycast(owner.position, Vector3.Normalize(ignoreObjectiveHeight - owner.position), out hit, 1000))
 		{
-			return hit.collider.GetComponent<Player>() != null;
+			Player player = hit.collider.GetComponent<Player>();
+			if(player == null)
+			{
+				Debug.Log("Se esta interponiendo entre el raycast y el player: " + hit.transform.name);
+			}
+			laserInstantiator.UpdateLaser(Vector3.zero, ignoreObjectiveHeight - castAttackPoint.position);
+			return player != null;
 		}
 		attack.ResetCharge();
 		return false;
