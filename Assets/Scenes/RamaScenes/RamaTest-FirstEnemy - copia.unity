@@ -26220,11 +26220,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENEMYMELE-II
       objectReference: {fileID: 0}
-    - target: {fileID: 4452770757803362320, guid: ad5d82fea7258ad46aa5343883ed0edf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5d82fea7258ad46aa5343883ed0edf, type: 3}
 --- !u!1001 &6036513289927850016
