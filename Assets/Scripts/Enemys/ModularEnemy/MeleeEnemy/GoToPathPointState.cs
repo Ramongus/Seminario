@@ -22,6 +22,8 @@ public class GoToPathPointState : MonoBehaviour, IState
 
 	AStar pathfinder;
 
+	Animator animator;
+
 	private void Start()
 	{
 		SetStateMachine();
@@ -29,6 +31,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		pathfinder = new AStar();
 		nodes = new List<ANode>(FindObjectOfType<NodesList>().GetNodes());
 		moveBehaviour = GetComponent<IMoveBehaviour>();
+		animator = GetComponent<Animator>();
 	}
 
 	public string GetStateName()
