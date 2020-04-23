@@ -90,6 +90,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		}
 		transform.forward = Vector3.Lerp(transform.forward, new Vector3(toPathIndex.x, 0, toPathIndex.z).normalized, rotationSpeed * Time.deltaTime);
 		moveBehaviour.SetVelocity(transform.forward);
+		animator.SetFloat("Speed", 1);
 	}
 
 	private List<Transform> GetNewPath()

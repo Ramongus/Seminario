@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Environment/Plamera (1).prefab.meta
 guid: 61e47a4bbe885304fb869fdce73f504a
 PrefabImporter:
+=======
+guid: 1015395af830fbf4d82d83941e788862
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 013d3d46eae3ef360bf44414554e50810c4d523e:Assets/ArtMateo/Prueba/Templo.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
