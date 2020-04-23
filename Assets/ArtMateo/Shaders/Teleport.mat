@@ -39,8 +39,8 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 1
     - _Range: 1
-    - _Teleport: -7.2956095
+    - _Teleport: -7.5574474
     - __dirty: 0
     - _offsetForce: 0
     m_Colors:
-    - _ColorTel: {r: 0, g: 766.9961, b: 698.7294, a: 1}
+    - _ColorTel: {r: 766.9961, g: 191.35986, b: 0, a: 1}
