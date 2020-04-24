@@ -11,10 +11,21 @@ public class RifleEnemy : MonoBehaviour
 	Transform target;
 	bool isAttacking;
 	[SerializeField] float damage;
+	HealthSystem healthSystem;
 
 	private void Awake()
 	{
 		target = FindObjectOfType<Player>().transform;
+		healthSystem = GetComponent<HealthSystem>();
+		healthSystem.OnHealthChange += HealthSystem_OnHealthChange;
+	}
+
+	private void HealthSystem_OnHealthChange(object sender, System.EventArgs e)
+	{
+		if(healthSystem.GetHealth() <= 0)
+		{
+			Destroy(currentLineRender);
+		}
 	}
 
 	private void Update()
