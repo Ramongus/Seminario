@@ -12,6 +12,7 @@ public class Mirror : AbstractAbilities
 		base.Awake();
 		myPowers.Add(Powers.Power.Reflec);
 		powersInteractions.Add(Powers.Power.Impulse, ReflectHabilitie);
+		powersInteractions.Add(Powers.Power.Smash, BreakMirror);
 	}
 
 	private void ReflectHabilitie()
@@ -28,6 +29,11 @@ public class Mirror : AbstractAbilities
 		{
 			lastHabilitieContact.transform.Rotate(Vector3.up * angleWithZAxis);
 		}
+	}
+
+	private void BreakMirror()
+	{
+
 	}
 
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)

@@ -56,7 +56,7 @@ public class AbsorptionBall : AbstractAbilities
 		transform.forward = dirIgnoreHeight;
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	override protected void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log("Absorption Ball Detect Collision");
 	}
@@ -71,6 +71,16 @@ public class AbsorptionBall : AbstractAbilities
 			if (InteractWith(habilitie))
 				return;
 		}
+
+		HealthSystem hasHealSystem = other.gameObject.GetComponent<HealthSystem>();
+		if(hasHealSystem != null)
+		{
+			if (isHealHabilitie)
+				hasHealSystem.Sethealth(hasHealSystem.GetHealth() + powerValue);
+			else
+				hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
+		}
+
 		base.OnTriggerEnter(other);
 	}
 }
