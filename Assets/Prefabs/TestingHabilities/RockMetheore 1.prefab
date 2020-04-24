@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5781793268825680543
+--- !u!1 &3783264536639700034
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,53 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7378681249689213068}
-  - component: {fileID: 1962814346719437498}
-  - component: {fileID: 5188666105099148867}
-  - component: {fileID: 5551873668012041323}
-  - component: {fileID: 591133885507716785}
-  - component: {fileID: 5539965993979478931}
+  - component: {fileID: 6423960655012368805}
+  - component: {fileID: 8555967928053307726}
+  - component: {fileID: 1919903460500953074}
   m_Layer: 0
-  m_Name: RockMetheore 1
+  m_Name: rockRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7378681249689213068
+--- !u!4 &6423960655012368805
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781793268825680543}
-  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: -0.0074842, y: -0.17443, z: -0.023658}
-  m_LocalScale: {x: 0.075458646, y: 0.07545868, z: 0.07545868}
-  m_Children:
-  - {fileID: 1960489886362172672}
-  - {fileID: 814214023884800272}
-  - {fileID: 5114331265612546938}
-  - {fileID: 3579550425382240081}
-  - {fileID: 3711996496105813995}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_GameObject: {fileID: 3783264536639700034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7378681249689213068}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1962814346719437498
+--- !u!33 &8555967928053307726
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781793268825680543}
+  m_GameObject: {fileID: 3783264536639700034}
   m_Mesh: {fileID: -234467979983875177, guid: f09ad3361bc42c848bb7cd4645845e52, type: 3}
---- !u!23 &5188666105099148867
+--- !u!23 &1919903460500953074
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781793268825680543}
+  m_GameObject: {fileID: 3783264536639700034}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,6 +78,45 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5781793268825680543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7378681249689213068}
+  - component: {fileID: 5551873668012041323}
+  - component: {fileID: 591133885507716785}
+  - component: {fileID: 5539965993979478931}
+  m_Layer: 0
+  m_Name: RockMetheore 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7378681249689213068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781793268825680543}
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: -0.0074842, y: -0.17443, z: -0.023658}
+  m_LocalScale: {x: 0.075458646, y: 0.07545868, z: 0.07545868}
+  m_Children:
+  - {fileID: 1960489886362172672}
+  - {fileID: 814214023884800272}
+  - {fileID: 5114331265612546938}
+  - {fileID: 3579550425382240081}
+  - {fileID: 3711996496105813995}
+  - {fileID: 6423960655012368805}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5551873668012041323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,6 +168,8 @@ MonoBehaviour:
   fallingParticles: {fileID: 6682237704980329175}
   impactParticles: {fileID: 7754227063789048928}
   circleMarkerParticles: {fileID: 3579550425382240080}
+  destroyableFbx: {fileID: 421351536765388280}
+  rockRender: {fileID: 3783264536639700034}
 --- !u!1 &6682237704980329175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,6 +5432,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5520513ca4bb2a745b8038e97a7735fa, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 606aecf24e54a544abed96be699ddaf1,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c4fec4705bab0754aadfc891a7d9e7bc, type: 2}
     - target: {fileID: -6019391931222249588, guid: 606aecf24e54a544abed96be699ddaf1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5711,6 +5749,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5520513ca4bb2a745b8038e97a7735fa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 606aecf24e54a544abed96be699ddaf1, type: 3}
+--- !u!1 &421351536765388280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 606aecf24e54a544abed96be699ddaf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8572916264798264561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3711996496105813995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 606aecf24e54a544abed96be699ddaf1,

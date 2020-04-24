@@ -10,6 +10,8 @@ public class RockMetheore : AbstractAbilities
 	[SerializeField] GameObject fallingParticles;
 	[SerializeField] GameObject impactParticles;
 	[SerializeField] GameObject circleMarkerParticles;
+	[SerializeField] GameObject destroyableFbx;
+	[SerializeField] GameObject rockRender;
 
 	private Collider myCollider;
 	private Rigidbody rigi;
@@ -74,7 +76,7 @@ public class RockMetheore : AbstractAbilities
 		circleMarkerParticles.SetActive(false);
 	}
 
-	public void OnTriggerEnter(Collider collision)
+	override protected void OnTriggerEnter(Collider collision)
 	{
 		impulseDir = Vector3.Normalize(this.transform.position - collision.transform.position);
 		//Debug.Log(impulseDir);
@@ -96,6 +98,7 @@ public class RockMetheore : AbstractAbilities
 
 		if (!isDevided)
 			OnImpact();
+		base.OnTriggerEnter(collision);
 	}
 
 	private void ImpuseInteraction()
@@ -121,13 +124,15 @@ public class RockMetheore : AbstractAbilities
 				rock.rigi.AddForce(rock.transform.forward * explodeDivisionForce, ForceMode.Impulse);
 			}
 			angleChange = -30f;
-			Destroy(this.gameObject);
+			Debug.Log("SE DESTRUYE POR IMPULSE INTERACTION");
+			//Destroy(this.gameObject);
 		}
 	}
 
 	private void Explode()
 	{
-
+		rockRender.SetActive(false);
+		destroyableFbx.SetActive(true);
 	}
 
 	private void DoDamage(IPlayer player)

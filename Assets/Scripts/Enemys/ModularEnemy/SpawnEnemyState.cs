@@ -66,7 +66,8 @@ public class SpawnEnemyState : MonoBehaviour, IState
 		{
 			collidersToActive[i].enabled = true;
 		}
-		GetComponent<Rigidbody>().isKinematic = false;
+		if(GetComponent<Rigidbody>() != null)
+			GetComponent<Rigidbody>().isKinematic = false;
 	}
 
 	public void SetMaterial(Material currentMaterial)

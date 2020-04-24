@@ -100,6 +100,7 @@ public abstract class AbstractAbilities : MonoBehaviour
 					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
 			}
 
+			Debug.Log("SE DESTRUYE POR Trigger INTERACTION");
 			Destroy(gameObject);
 		}
 	}
@@ -117,6 +118,8 @@ public abstract class AbstractAbilities : MonoBehaviour
 					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
 			}
 
+			Debug.Log("SE DESTRUYE POR Collision INTERACTION");
+			Debug.Log(collision.gameObject);
 			Destroy(gameObject);
 		}
 	}
