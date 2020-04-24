@@ -89,6 +89,16 @@ public abstract class AbstractAbilities : MonoBehaviour
 			Destroy(gameObject);
 		}
 		*/
+		IDamageable player = other.GetComponent<IDamageable>();
+		if(player != null)
+		{
+			if (isHealHabilitie)
+			{
+				player.SetHealth(player.GetHealth() + powerValue);
+				Destroy(this.gameObject);
+			}
+		}
+
 		if(other.gameObject.layer == 12 || other.gameObject.layer == 13)
 		{
 			HealthSystem hasHealSystem = other.gameObject.GetComponent<HealthSystem>();
