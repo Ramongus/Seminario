@@ -42,6 +42,11 @@ public class PlayerView
 		_animator.SetTrigger("Attack");
 	}
 
+	public void DieAnimation()
+	{
+		_animator.SetTrigger("Die");
+	}
+
 	private void SetMovingAnimation(Vector3 axis)
 	{
 		_animator.SetFloat("Speed", 1);

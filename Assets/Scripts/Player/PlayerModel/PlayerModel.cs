@@ -20,7 +20,7 @@ public class PlayerModel : ICastAbilities
 	PlayerView _view;
 
 	float _maxHP;
-	float _currentHp;
+	float _currentHp; 
 
 	List<AbstractAbilities> _abilities;
 
@@ -100,7 +100,11 @@ public class PlayerModel : ICastAbilities
 		if (health >= _maxHP)
 			_currentHp = _maxHP;
 		else if (health <= 0)
+		{
 			_currentHp = 0;
+			_view.DieAnimation();
+			EventsManager.TriggerEvent("OnPlayerDie");
+		}
 		else
 			_currentHp = health;
 
