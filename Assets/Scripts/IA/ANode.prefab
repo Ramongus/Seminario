@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e433cda4120e72488832ceceb8c737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previous: {fileID: 0}
   neighboursCount: 0
-  radiusToNeighbours: 2
+  radiusToNeighbours: 4
