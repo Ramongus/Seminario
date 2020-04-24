@@ -3853,7 +3853,7 @@ PrefabInstance:
     - target: {fileID: 2137193428736283718, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
       propertyPath: radiusToNeighbours
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2137193428736283719, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
@@ -14430,7 +14430,7 @@ PrefabInstance:
     - target: {fileID: 2137193428736283718, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
       propertyPath: radiusToNeighbours
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2137193428736283719, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
@@ -14896,7 +14896,7 @@ PrefabInstance:
     - target: {fileID: 2137193428736283718, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
       propertyPath: radiusToNeighbours
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2137193428736283719, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
@@ -28264,7 +28264,7 @@ PrefabInstance:
     - target: {fileID: 2137193428736283718, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
       propertyPath: radiusToNeighbours
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2137193428736283719, guid: c307e54b0ec48c841bbe250b00fed0ec,
         type: 3}
