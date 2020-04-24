@@ -12,6 +12,8 @@ public class AbbilitieCanvasManager : MonoBehaviour
     public GameObject abbilitie4;
     public GameObject abbilitie5;
 
+    public GameObject selection;
+
     public int currentAbbilitie;
     public int lastAbbilitie;
     private void Start()
@@ -55,6 +57,7 @@ public class AbbilitieCanvasManager : MonoBehaviour
     }
     void UpdateCanvas()
     {
+        selection.transform.position = new Vector3(abbilities[currentAbbilitie].gameObject.transform.position.x, selection.transform.position.y, selection.transform.position.z);
         abbilities[currentAbbilitie].gameObject.transform.localScale = new Vector3(1.3f,1.3f ,1.3f);
         if (lastAbbilitie == 0) return;
         abbilities[lastAbbilitie].gameObject.transform.localScale = new Vector3(1, 1, 1);
