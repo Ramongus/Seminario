@@ -5730,7 +5730,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: Infinity, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0.41015625, y: 0.0625, z: 0.03125, w: -0.03515625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -11302,12 +11302,37 @@ PrefabInstance:
     - target: {fileID: 2933587161038832916, guid: da9ad037b20b32646b4889717855da68,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995194736069028534, guid: da9ad037b20b32646b4889717855da68,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547157309214777627, guid: da9ad037b20b32646b4889717855da68,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547157309214777627, guid: da9ad037b20b32646b4889717855da68,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547157309214777627, guid: da9ad037b20b32646b4889717855da68,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547157309214777627, guid: da9ad037b20b32646b4889717855da68,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547157309214777627, guid: da9ad037b20b32646b4889717855da68,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9ad037b20b32646b4889717855da68, type: 3}
@@ -16539,6 +16564,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapaIsla
       objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0033457
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3332912
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.1021152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.017678017
+      objectReference: {fileID: 0}
     - target: {fileID: 4811135378219401370, guid: 872628976a7d5e54fad99be1fb1b8241,
         type: 3}
       propertyPath: m_Size.x
@@ -16588,6 +16633,76 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 1.9947848
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.011745214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0044633
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3297682
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0960748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.055604786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0026706937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.1015182
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.016999532
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.011354685
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.01124537
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.005601749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3314445
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0916171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.058611475
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872628976a7d5e54fad99be1fb1b8241, type: 3}
@@ -18599,6 +18714,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4412204630347936942, guid: 699ab05adf7673c469ed90e9e8cfa68c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412204631163559487, guid: 699ab05adf7673c469ed90e9e8cfa68c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5627988437772096597, guid: 699ab05adf7673c469ed90e9e8cfa68c,
         type: 3}
       propertyPath: m_Name
