@@ -41,6 +41,7 @@ public class FireBall : AbstractAbilities
 
 	override protected void OnTriggerEnter(Collider other)
 	{
+		base.OnTriggerEnter(other);
 		Player collideWithPlayer = other.gameObject.GetComponent<Player>();
 		if(collideWithPlayer != null)
 		{
@@ -56,7 +57,6 @@ public class FireBall : AbstractAbilities
 			}
 			CreateExplodeParticles();
 		}
-		base.OnTriggerEnter(other);
 	}
 
 	private void CreateExplodeParticles()

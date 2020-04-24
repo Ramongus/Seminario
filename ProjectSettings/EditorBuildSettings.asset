@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RamaScenes/MATETEST.unity
+    path: Assets/Scenes/RamaScenes/RamaTest-FirstEnemy.unity
     guid: 9fdadbb0c93f55f4795be552d39c175c
   m_configObjects: {}

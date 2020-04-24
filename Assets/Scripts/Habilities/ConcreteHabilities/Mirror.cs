@@ -37,12 +37,12 @@ public class Mirror : AbstractAbilities
 		transform.position = castPos;
 	}
 
-	protected override void OnCollisionEnter(Collision collision)
+	private void OnCollisionEnter(Collision collision)
 	{
-		base.OnCollisionEnter(collision);
+		Debug.Log("Mirror Detect Collision");
 	}
 
-	protected override void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Mirror Detect Trigger");
 		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
@@ -52,6 +52,5 @@ public class Mirror : AbstractAbilities
 			if (InteractWith(habilitie))
 				return;
 		}
-		base.OnTriggerEnter(other);
 	}
 }
