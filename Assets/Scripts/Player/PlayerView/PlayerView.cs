@@ -19,7 +19,8 @@ public class PlayerView
 	{
 		_animator = animator;
 		_healthBar = healthBar;
-		EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
+		//EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
+		EventsManager.SuscribeToEvent("AbilitieCasted", SetSpellCastAnimation);
 	}
 
 	public void UpdateMovementAnimation(Vector3 axis)

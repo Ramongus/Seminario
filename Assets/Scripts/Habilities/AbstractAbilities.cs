@@ -11,6 +11,9 @@ public abstract class AbstractAbilities : MonoBehaviour
 	[SerializeField] protected float initialHeight;
 	protected float lifetime;
 
+	[SerializeField] protected float cooldown;
+	protected float cooldownTimer;
+
 
 	protected List<Powers.Power> myPowers;
 	protected Dictionary<Powers.Power, Action> powersInteractions; 
@@ -21,6 +24,11 @@ public abstract class AbstractAbilities : MonoBehaviour
 		myPowers = new List<Powers.Power>();
 		powersInteractions = new Dictionary<Powers.Power, Action>();
 		StartCoroutine(AutoDestruction());
+	}
+
+	virtual protected void Update()
+	{
+
 	}
 
 	public Powers.Power[] GetPowers()

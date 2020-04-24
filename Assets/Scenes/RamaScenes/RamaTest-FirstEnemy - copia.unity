@@ -4640,6 +4640,12 @@ MonoBehaviour:
   - {fileID: 2547655768500510507, guid: b5a27d6e305ea2e4e801896d411ace86, type: 3}
   - {fileID: 1515575908328283158, guid: 7d769b408bd4cd7458ae1ad3dee3ff17, type: 3}
   - {fileID: 837337888657580424, guid: 16d983e28238a2e4596ef01c96dab7ed, type: 3}
+  habilitiesCooldowns:
+  - 2
+  - 1
+  - 4
+  - 3
+  - 2
 --- !u!4 &455087206
 Transform:
   m_ObjectHideFlags: 0

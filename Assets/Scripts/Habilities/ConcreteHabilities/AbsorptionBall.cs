@@ -43,8 +43,9 @@ public class AbsorptionBall : AbstractAbilities
 		GetComponent<Renderer>().material = abilitie.GetComponent<Renderer>().material;
 	}
 
-	private void Update()
+	override protected void Update()
 	{
+		base.Update();
 		transform.position += transform.forward * speed * Time.deltaTime;
 	}
 

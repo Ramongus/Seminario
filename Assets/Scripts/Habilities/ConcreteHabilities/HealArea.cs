@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealArea : AbstractAbilities
 {
 	[SerializeField] float healCooldown;
-	float cooldownTimer;
+	float healTimer;
 
 	protected override void Awake()
 	{
@@ -24,12 +24,13 @@ public class HealArea : AbstractAbilities
 		Destroy(this.gameObject);
 	}
 
-	private void Update()
+	override protected void Update()
 	{
-		cooldownTimer -= Time.deltaTime;
+		base.Update();
+		healTimer -= Time.deltaTime;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	override protected void OnTriggerEnter(Collider other)
 	{
 		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
 		if (habilitie != null)
@@ -45,9 +46,9 @@ public class HealArea : AbstractAbilities
 		IDamageable damageable = other.GetComponent<IDamageable>();
 		if(damageable != null)
 		{
-			if(cooldownTimer <= 0)
+			if(healTimer <= 0)
 			{
-				cooldownTimer = healCooldown;
+				healTimer = healCooldown;
 				damageable.SetHealth(damageable.GetHealth() + powerValue);
 			}
 		}
