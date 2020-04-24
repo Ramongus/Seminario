@@ -46,11 +46,14 @@ public class PlayerModel : ICastAbilities
 	public void BaseMovement(Vector3 axis)
 	{
 		rotationUpdater.UpdateRotation();
+		
+		//ACA HACEMOS QUE SI ESTA YENDO PARA ATRAS VAYA MAS LENTO
 		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -_transform.forward);
 		if (proyectionAxisOnGoingBackDir > 0)
 			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
-		_transform.position += axis * movementSpeed * Time.deltaTime;
+		//ACA TERMINA
 
+		_transform.position += axis * movementSpeed * Time.deltaTime;
 		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
 		_currentDir = axisConverted;
 		_view.UpdateMovementAnimation(_currentDir);

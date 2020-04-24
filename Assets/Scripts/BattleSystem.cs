@@ -53,7 +53,7 @@ public class BattleSystem : MonoBehaviour
 
 	private void StopBattle()
 	{
-		Destroy(this.gameObject);
+		//Destroy(this.gameObject);
 	}
 
 	public bool AreWavesOver()

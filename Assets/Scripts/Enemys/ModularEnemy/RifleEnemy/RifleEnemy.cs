@@ -28,9 +28,12 @@ public class RifleEnemy : MonoBehaviour
 			Vector3 toTargetFromLineCast = target.position - lineCastPoint.position;
 			Vector3 toTargetFromLineCastDir = toTargetFromLineCast.normalized;
 
-			SetLinePosition(lineCastPoint.position);
-			SetLineVertexPosition(0, Vector3.zero);
-			SetLineVertexPosition(1, new Vector3(toTargetFromLineCastDir.x, 0, toTargetFromLineCastDir.z).normalized * attackRange);
+			if(currentLineRender != null)
+			{
+				SetLinePosition(lineCastPoint.position);
+				SetLineVertexPosition(0, Vector3.zero);
+				SetLineVertexPosition(1, new Vector3(toTargetFromLineCastDir.x, 0, toTargetFromLineCastDir.z).normalized * attackRange);
+			}
 		}
 	}
 

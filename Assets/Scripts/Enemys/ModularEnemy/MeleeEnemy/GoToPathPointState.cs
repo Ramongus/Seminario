@@ -8,6 +8,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 	[SerializeField] string stateName;
 	[SerializeField] float rotationSpeed;
 	[SerializeField] Transform raycastInitialPoint;
+	[SerializeField] LayerMask raycastLayerMask;
 
 	List<ANode> nodes;
 	List<Transform> path;
@@ -60,7 +61,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		Debug.Log("ON PATH STATE");
 		Vector3 toTargetFromRayPoint = target.position - raycastInitialPoint.position;
 		RaycastHit hit;
-		if(Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit))
+		if(Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit, Mathf.Infinity, raycastLayerMask))
 		{
 			Player player = hit.collider.GetComponent<Player>();
 			if(player != null)

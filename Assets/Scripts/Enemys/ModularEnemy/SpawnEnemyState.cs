@@ -12,6 +12,8 @@ public class SpawnEnemyState : MonoBehaviour, IState
 	[SerializeField] float spawnAppearValue;
 	[SerializeField] GameObject render;
 	[SerializeField] string nextStateName;
+
+	[SerializeField] Collider[] collidersToActive;
 	float timer;
 
 	StateMachine myStateMachine;
@@ -57,6 +59,11 @@ public class SpawnEnemyState : MonoBehaviour, IState
 	public void StateSleep()
 	{
 		SetMaterial(defaultMaterial);
+		for (int i = 0; i < collidersToActive.Length; i++)
+		{
+			collidersToActive[i].enabled = true;
+		}
+		GetComponent<Rigidbody>().isKinematic = false;
 	}
 
 	public void SetMaterial(Material currentMaterial)

@@ -10,6 +10,7 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	[SerializeField] Transform raycastInitialPoint;
 	[SerializeField] float attackRange;
 	[SerializeField] float sightViewAngle;
+	[SerializeField] LayerMask layerRay;
 	StateMachine myStateMachine;
 
 	Transform target;
@@ -56,7 +57,7 @@ public class ChaseEnemyState : MonoBehaviour, IState
 
 		Vector3 toTargetFromRayPoint = target.position - raycastInitialPoint.position;
 		RaycastHit hit;
-		if (Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit))
+		if (Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit, Mathf.Infinity, layerRay))
 		{
 			Player player = hit.collider.GetComponent<Player>();
 			if (player == null)
