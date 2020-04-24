@@ -13,8 +13,9 @@ public class EnemySpawnCollisionManager : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log("Esta collisionando");
+		/*Debug.Log("Esta collisionando");
 		AbstractAbilities abilitie = collision.collider.GetComponent<AbstractAbilities>();
+		
 		if(abilitie != null)
 		{
 			if(abilitie.IsHealHabilitie())
@@ -22,21 +23,23 @@ public class EnemySpawnCollisionManager : MonoBehaviour
 			else
 				healthSystem.Sethealth(healthSystem.GetHealth() - abilitie.GetPowerValue());
 		}
+		*/
 	}
 
 	private void OnTriggerEnter(Collider other)
-	{
+	{/*
 		Debug.Log("Esta trigeriando");
 		AbstractAbilities abilitie = other.GetComponent<AbstractAbilities>();
 		if (abilitie != null)
 		{
 			Debug.Log("Esta triggeriando con una habilidad");
-			/*
+			
 			if (abilitie.IsHealHabilitie())
 				healthSystem.Sethealth(healthSystem.GetHealth() + abilitie.GetPowerValue());
 			else
 				healthSystem.Sethealth(healthSystem.GetHealth() - abilitie.GetPowerValue());
-			*/
+			
 		}
+	*/
 	}
 }
