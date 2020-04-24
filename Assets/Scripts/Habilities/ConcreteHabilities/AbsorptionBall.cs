@@ -68,17 +68,10 @@ public class AbsorptionBall : AbstractAbilities
 		if (habilitie != null)
 		{
 			lastHabilitieContact = habilitie;
+			if (lastHabilitieContact.IsHealHabilitie())
+				this.isHealHabilitie = true;
 			if (InteractWith(habilitie))
 				return;
-		}
-
-		HealthSystem hasHealSystem = other.gameObject.GetComponent<HealthSystem>();
-		if(hasHealSystem != null)
-		{
-			if (isHealHabilitie)
-				hasHealSystem.Sethealth(hasHealSystem.GetHealth() + powerValue);
-			else
-				hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
 		}
 
 		base.OnTriggerEnter(other);

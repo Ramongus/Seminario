@@ -31,10 +31,12 @@ public class EnemySpawnCollisionManager : MonoBehaviour
 		if (abilitie != null)
 		{
 			Debug.Log("Esta triggeriando con una habilidad");
+			/*
 			if (abilitie.IsHealHabilitie())
 				healthSystem.Sethealth(healthSystem.GetHealth() + abilitie.GetPowerValue());
 			else
 				healthSystem.Sethealth(healthSystem.GetHealth() - abilitie.GetPowerValue());
+			*/
 		}
 	}
 }
