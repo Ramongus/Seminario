@@ -88,7 +88,8 @@ public class GoToPathPointState : MonoBehaviour, IState
 			index++;
 			return;
 		}
-		transform.forward = Vector3.Lerp(transform.forward, new Vector3(toPathIndex.x, 0, toPathIndex.z).normalized, rotationSpeed * Time.deltaTime);
+		Vector3 dirInterpolation = Vector3.Lerp(transform.forward, new Vector3(toPathIndex.x, 0, toPathIndex.z).normalized, rotationSpeed * Time.deltaTime);
+		transform.forward = new Vector3(dirInterpolation.x, 0, dirInterpolation.z).normalized;
 		moveBehaviour.SetVelocity(transform.forward);
 		animator.SetFloat("Speed", 1);
 	}

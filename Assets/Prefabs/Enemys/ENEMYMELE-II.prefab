@@ -10014,11 +10014,12 @@ GameObject:
   - component: {fileID: 7285189707898525561}
   - component: {fileID: 4452770757803362409}
   - component: {fileID: 4452770757803362410}
-  - component: {fileID: 4452770757803362411}
   - component: {fileID: 4452770757803362324}
+  - component: {fileID: 4452770757803362411}
+  - component: {fileID: 3192381204855318859}
   - component: {fileID: 4452770757803362325}
-  - component: {fileID: 4452770757803362326}
   - component: {fileID: 4452770757803362327}
+  - component: {fileID: 4452770757803362326}
   - component: {fileID: 4452770757803362408}
   - component: {fileID: 4452770757803362415}
   - component: {fileID: 4452770757803362414}
@@ -10028,7 +10029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &833221668910086659
 Transform:
   m_ObjectHideFlags: 0
@@ -10095,19 +10096,6 @@ CapsuleCollider:
   m_Height: 0.7143371
   m_Direction: 1
   m_Center: {x: 0.04662614, y: 0.44186777, z: -4.8474247e-10}
---- !u!114 &4452770757803362411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452770757803362320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92ac1c2fe36654e4d8cc04fdb14eace7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: Chase
 --- !u!114 &4452770757803362324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10121,6 +10109,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &4452770757803362411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452770757803362320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ac1c2fe36654e4d8cc04fdb14eace7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: Spawn
+--- !u!114 &3192381204855318859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452770757803362320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aad3602a426588458ef2bb8b801423a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Spawn
+  spawnTime: 3
+  defaultMaterial: {fileID: 2100000, guid: fcdb3185a33ac7948badf82d3edfe465, type: 2}
+  spawnMaterial: {fileID: 2100000, guid: 03a8a2a26e6d08e4ca0d73488e59f838, type: 2}
+  spawnDissapearValue: 3.8
+  spawnAppearValue: -5.2
+  render: {fileID: 6862730728750776343}
+  nextStateName: Chase
 --- !u!114 &4452770757803362325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,24 +10155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Chase
-  rotationSpeed: 1
-  raycastInitialPoint: {fileID: 4991014226655704793}
-  attackRange: 5
---- !u!114 &4452770757803362326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452770757803362320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7d0871451f0414bac807a9a97eb118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateName: Path
   rotationSpeed: 3
   raycastInitialPoint: {fileID: 4991014226655704793}
+  attackRange: 5
+  sightViewAngle: 100
 --- !u!114 &4452770757803362327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10168,6 +10175,21 @@ MonoBehaviour:
   damage: 50
   meleeAttackArea: {fileID: 4452770757803362414}
   timeToChangeState: 2
+--- !u!114 &4452770757803362326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452770757803362320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7d0871451f0414bac807a9a97eb118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Path
+  rotationSpeed: 3
+  raycastInitialPoint: {fileID: 4991014226655704793}
 --- !u!114 &4452770757803362408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15380,8 +15402,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcdb3185a33ac7948badf82d3edfe465, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 03a8a2a26e6d08e4ca0d73488e59f838, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

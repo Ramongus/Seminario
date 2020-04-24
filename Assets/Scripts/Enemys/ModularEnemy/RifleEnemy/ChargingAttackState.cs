@@ -38,6 +38,8 @@ public class ChargingAttackState : MonoBehaviour, IState
 	public void StateAwake()
 	{
 		timer = timeCharging;
+		if(rifleEnemyData.GetLineRenderer() == null)
+			rifleEnemyData.SetLineRenderer(Instantiate(rifleEnemyData.GetLineRendererPrefab()));
 	}
 
 	public void StateExecute()
@@ -45,7 +47,7 @@ public class ChargingAttackState : MonoBehaviour, IState
 		timer -= Time.deltaTime;
 		float opacityLineAmount = (timeCharging - timer) / timeCharging;
 		rifleEnemyData.SetOpacityToMaterial(opacityLineAmount);
-		Debug.Log(opacityLineAmount);
+		//Debug.Log(opacityLineAmount);
 		if (timer <= 0)
 		{
 			timer = timeCharging;

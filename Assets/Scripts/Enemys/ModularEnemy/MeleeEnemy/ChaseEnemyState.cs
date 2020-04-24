@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	[SerializeField] float rotationSpeed;
 	[SerializeField] Transform raycastInitialPoint;
 	[SerializeField] float attackRange;
+	[SerializeField] float sightViewAngle;
 	StateMachine myStateMachine;
 
 	Transform target;
@@ -42,10 +44,14 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	{
 		Debug.Log("ON CHASE STATE");
 		Vector3 toTarget = target.position - transform.position;
-		if(toTarget.magnitude < attackRange)
+		Vector3 toTargetIgnoringHeightDir = new Vector3(toTarget.x, 0, toTarget.z).normalized;
+		if (toTarget.magnitude < attackRange)
 		{
-			myStateMachine.SetState<MeleeAttackState>();
-			return;
+			if (IsInSightView(toTargetIgnoringHeightDir))
+			{
+				myStateMachine.SetState<MeleeAttackState>();
+				return;
+			}
 		}
 
 		Vector3 toTargetFromRayPoint = target.position - raycastInitialPoint.position;
@@ -59,9 +65,17 @@ public class ChaseEnemyState : MonoBehaviour, IState
 				return;
 			}
 		}
-		transform.forward = Vector3.Lerp(transform.forward, toTarget.normalized, rotationSpeed * Time.deltaTime);
+
+		transform.forward = Vector3.Lerp(transform.forward, toTargetIgnoringHeightDir, rotationSpeed * Time.deltaTime);
 		moveBehaviour.SetVelocity(transform.forward);
 		animator.SetFloat("Speed", 1);
+	}
+
+	private bool IsInSightView(Vector3 targetDir)
+	{
+		if (Vector3.Angle(transform.forward, targetDir) < sightViewAngle)
+			return true;
+		return false;
 	}
 
 	public void StateSleep()

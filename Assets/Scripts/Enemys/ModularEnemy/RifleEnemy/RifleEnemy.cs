@@ -14,8 +14,6 @@ public class RifleEnemy : MonoBehaviour
 
 	private void Awake()
 	{
-		currentLineRender = Instantiate(linePrefab);
-		currentLineRender.transform.position = lineCastPoint.position;
 		target = FindObjectOfType<Player>().transform;
 	}
 
@@ -39,11 +37,17 @@ public class RifleEnemy : MonoBehaviour
 	public void SetLineRenderer(LineRenderer line)
 	{
 		currentLineRender = line;
+		currentLineRender.transform.position = lineCastPoint.position;
 	}
 
 	public LineRenderer GetLineRenderer()
 	{
 		return currentLineRender;
+	}
+
+	public LineRenderer GetLineRendererPrefab()
+	{
+		return linePrefab;
 	}
 
 	public void SetLinePosition(Vector3 position)

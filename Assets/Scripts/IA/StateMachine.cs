@@ -101,4 +101,17 @@ public class StateMachine : MonoBehaviour {
 		}
 		return null;
 	}
+
+	public void SetStateByName(string name)
+	{
+		for (int i = 0; i < _states.Count; i++)
+		{
+			if (_states[i].GetStateName() == name)
+			{
+				_currentState.StateSleep();
+				_currentState = _states[i];
+				_currentState.StateAwake();
+			}
+		}
+	}
 }
