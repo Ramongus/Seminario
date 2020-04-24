@@ -50,7 +50,6 @@ public class SpawnEnemyState : MonoBehaviour, IState
 		timer -= Time.deltaTime;
 		float spawnCompleted = (spawnTime - timer) / spawnTime;
 		float spawnMaterialFillAmount = Mathf.Lerp(spawnDissapearValue, spawnAppearValue, spawnCompleted);
-		Debug.Log("_Teleport value: " + spawnMaterialFillAmount);
 		spawnMaterialInstance.SetFloat("_Teleport", spawnMaterialFillAmount);
 		if(timer <= 0)
 		{

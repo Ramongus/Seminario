@@ -33,6 +33,10 @@ public class RockMetheore : AbstractAbilities
 
 	override protected void OnCollisionEnter(Collision collision)
 	{
+		if (collision.gameObject.layer == 10)
+		{
+			isFalling = false;
+		}
 		impulseDir = Vector3.Normalize(this.transform.position - collision.transform.position);
 		impulseDir = new Vector3(impulseDir.x, 0, impulseDir.z);
 		if (isFalling)
@@ -50,10 +54,27 @@ public class RockMetheore : AbstractAbilities
 				return;
 		}
 
+
+		if (collision.gameObject.layer == 13 || collision.gameObject.layer == 12)
+		{
+			Explode();
+			if (isFalling)
+			{
+				HealthSystem hasHealSystem = collision.gameObject.GetComponent<HealthSystem>();
+				if (hasHealSystem != null)
+				{
+					if (isHealHabilitie)
+						hasHealSystem.Sethealth(hasHealSystem.GetHealth() + powerValue);
+					else
+						hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
+				}
+			}
+		}
+
+		//base.OnCollisionEnter(collision);
+
 		if(!isDevided)
 			OnImpact();
-		base.OnCollisionEnter(collision);
-
 	}
 
 	private void OnImpact()
@@ -66,7 +87,7 @@ public class RockMetheore : AbstractAbilities
 	{
 		fallingParticles.SetActive(false);
 		impactParticles.SetActive(true);
-		circleMarkerParticles.SetActive(true);
+		//circleMarkerParticles.SetActive(true);
 	}
 
 	private void SetDividedParticles()
@@ -122,9 +143,11 @@ public class RockMetheore : AbstractAbilities
 				rock.transform.Rotate(rock.transform.up * angleChange);
 				angleChange += 30;
 				rock.rigi.AddForce(rock.transform.forward * explodeDivisionForce, ForceMode.Impulse);
+				rock.powerValue = this.powerValue * 2;
 			}
 			angleChange = -30f;
 			Debug.Log("SE DESTRUYE POR IMPULSE INTERACTION");
+			Explode();
 			//Destroy(this.gameObject);
 		}
 	}
@@ -133,6 +156,9 @@ public class RockMetheore : AbstractAbilities
 	{
 		rockRender.SetActive(false);
 		destroyableFbx.SetActive(true);
+		destroyableFbx.GetComponent<Rigidbody>().isKinematic = false;
+		GetComponent<Collider>().enabled = false;
+		GetComponent<Rigidbody>().isKinematic = true;
 	}
 
 	private void DoDamage(IPlayer player)

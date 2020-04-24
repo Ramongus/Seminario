@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RamaScenes/RamaTest-FirstEnemy.unity
     guid: 9fdadbb0c93f55f4795be552d39c175c
+  - enabled: 1
+    path: Assets/Scenes/RamaScenes/RamaTest-FirstEnemy - copia.unity
+    guid: ee436b2be32878f48977dcf060e1e2ad
   m_configObjects: {}
