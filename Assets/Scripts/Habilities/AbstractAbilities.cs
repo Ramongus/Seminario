@@ -91,6 +91,15 @@ public abstract class AbstractAbilities : MonoBehaviour
 		*/
 		if(other.gameObject.layer == 12 || other.gameObject.layer == 13)
 		{
+			HealthSystem hasHealSystem = other.gameObject.GetComponent<HealthSystem>();
+			if (hasHealSystem != null)
+			{
+				if (isHealHabilitie)
+					hasHealSystem.Sethealth(hasHealSystem.GetHealth() + powerValue);
+				else
+					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
+			}
+
 			Destroy(gameObject);
 		}
 	}
@@ -99,6 +108,15 @@ public abstract class AbstractAbilities : MonoBehaviour
 	{
 		if (collision.gameObject.layer == 12 || collision.gameObject.layer == 13)
 		{
+			HealthSystem hasHealSystem = collision.gameObject.GetComponent<HealthSystem>();
+			if (hasHealSystem != null)
+			{
+				if (isHealHabilitie)
+					hasHealSystem.Sethealth(hasHealSystem.GetHealth() + powerValue);
+				else
+					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
+			}
+
 			Destroy(gameObject);
 		}
 	}
