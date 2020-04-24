@@ -4639,7 +4639,7 @@ MonoBehaviour:
   - {fileID: 529307504088512593, guid: d8a6e66d0152b2c41af8f00045ffeabc, type: 3}
   - {fileID: 2547655768500510507, guid: b5a27d6e305ea2e4e801896d411ace86, type: 3}
   - {fileID: 1515575908328283158, guid: 7d769b408bd4cd7458ae1ad3dee3ff17, type: 3}
-  - {fileID: 837337888657580424, guid: 16d983e28238a2e4596ef01c96dab7ed, type: 3}
+  - {fileID: 5539965993979478931, guid: 82d8897b1deb3e24084e0038d4858ce0, type: 3}
   habilitiesCooldowns:
   - 2
   - 1
@@ -4725,6 +4725,16 @@ PrefabInstance:
     - target: {fileID: 1965229117510880525, guid: a887b1833cfedd54eb3b1cc5d21a92bc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711061064156911925, guid: a887b1833cfedd54eb3b1cc5d21a92bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733305756194173198, guid: a887b1833cfedd54eb3b1cc5d21a92bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8054,7 +8064,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: Infinity, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0.0390625, y: 0.12109375, z: 0.03125, w: -0.04296875}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -29362,6 +29372,12 @@ PrefabInstance:
       propertyPath: behavioursToDeActivateOnDeath.Array.data[0]
       value: 
       objectReference: {fileID: 1434168125}
+    - target: {fileID: 1642723887388276904, guid: 97dedade534144c43b9f097c981c8834,
+        type: 3}
+      propertyPath: myHabilities.Array.data[4]
+      value: 
+      objectReference: {fileID: 5539965993979478931, guid: 82d8897b1deb3e24084e0038d4858ce0,
+        type: 3}
     - target: {fileID: 2808384195745847237, guid: 97dedade534144c43b9f097c981c8834,
         type: 3}
       propertyPath: m_IsActive
