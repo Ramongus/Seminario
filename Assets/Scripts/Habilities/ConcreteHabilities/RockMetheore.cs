@@ -26,9 +26,10 @@ public class RockMetheore : AbstractAbilities
 		isFalling = true;
 		myPowers.Add(Powers.Power.Smash);
 		powersInteractions.Add(Powers.Power.Impulse, ImpuseInteraction);
+		powersInteractions.Add(Powers.Power.Reflec, Explode);
 	}
 
-	public void OnCollisionEnter(Collision collision)
+	override protected void OnCollisionEnter(Collision collision)
 	{
 		impulseDir = Vector3.Normalize(this.transform.position - collision.transform.position);
 		impulseDir = new Vector3(impulseDir.x, 0, impulseDir.z);
@@ -49,6 +50,7 @@ public class RockMetheore : AbstractAbilities
 
 		if(!isDevided)
 			OnImpact();
+		base.OnCollisionEnter(collision);
 
 	}
 
@@ -121,6 +123,11 @@ public class RockMetheore : AbstractAbilities
 			angleChange = -30f;
 			Destroy(this.gameObject);
 		}
+	}
+
+	private void Explode()
+	{
+
 	}
 
 	private void DoDamage(IPlayer player)

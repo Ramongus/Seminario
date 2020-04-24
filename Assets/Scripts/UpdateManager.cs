@@ -7,23 +7,34 @@ public class UpdateManager : MonoBehaviour
 	List<IUpdate> wantsToUpdate;
 	List<IUpdate> updating;
 	List<IUpdate> wantsToStopUpdating;
+	bool update;
 
 	private void Awake()
 	{
+		update = true;
 		wantsToUpdate = new List<IUpdate>();
 		updating = new List<IUpdate>();
 		wantsToStopUpdating = new List<IUpdate>();
 		EventsManager.SuscribeToEvent("SuscribeToUpdateManager", AddToUpdateCicle);
 		EventsManager.SuscribeToEvent("UnsuscribeToUpdateManager", RemoveFromUpdateCicle);
+		EventsManager.SuscribeToEvent("OnPlayerDie", NoMoreUpdate);
 	}
 
     void Update()
     {
-		foreach (IUpdate item in updating)
-		{
-			item.MyUpdate();
+		if (update)
+		{	
+			foreach (IUpdate item in updating)
+			{
+				item.MyUpdate();
+			}
 		}
     }
+
+	public void NoMoreUpdate(params object[] parameters)
+	{
+		update = false;
+	}
 
 	private void LateUpdate()
 	{

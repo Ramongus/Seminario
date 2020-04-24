@@ -22,8 +22,9 @@ public class FireBall : AbstractAbilities
 		Destroy(this.gameObject);
 	}
 
-	private void Update()
+	override protected void Update()
 	{
+		base.Update();
 		transform.position += speed * transform.forward * Time.deltaTime;
 	}
 

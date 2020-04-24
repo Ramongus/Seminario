@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, IDamageable
 		_view = new PlayerView(GetComponent<Animator>(), healthBar);
 		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities);
 		_controller = new PlayerController(_model);
+		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);
 	}
 
 	public float GetHealth()
@@ -31,5 +32,19 @@ public class Player : MonoBehaviour, IDamageable
 	public void SetHealth(float health)
 	{
 		_model.SetHealth(health);
+	}
+
+	public void TurnOffComponents(params object[] parameters)
+	{
+		Collider[] colliders = GetComponents<Collider>();
+		foreach (Collider collider in colliders)
+		{
+			collider.enabled = false;
+		}
+
+		Rigidbody rigi = GetComponent<Rigidbody>();
+		rigi.isKinematic = true;
+
+		_controller = null;
 	}
 }
