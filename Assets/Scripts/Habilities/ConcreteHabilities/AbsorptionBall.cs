@@ -60,7 +60,7 @@ public class AbsorptionBall : AbstractAbilities
 		Debug.Log("Absorption Ball Detect Collision");
 	}
 
-	private void OnTriggerEnter(Collider other)
+	override protected void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Absorption Ball Detect Trigger");
 		AbstractAbilities habilitie = other.gameObject.GetComponent<AbstractAbilities>();
@@ -70,5 +70,6 @@ public class AbsorptionBall : AbstractAbilities
 			if (InteractWith(habilitie))
 				return;
 		}
+		base.OnTriggerEnter(other);
 	}
 }

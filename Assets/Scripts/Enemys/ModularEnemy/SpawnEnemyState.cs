@@ -16,14 +16,17 @@ public class SpawnEnemyState : MonoBehaviour, IState
 	[SerializeField] Collider[] collidersToActive;
 	float timer;
 
+	Material spawnMaterialInstance;
+
 	StateMachine myStateMachine;
 
 	private void Start()
 	{
+		spawnMaterialInstance = new Material(spawnMaterial);
 		SetStateMachine();
 		timer = spawnTime;
-		spawnMaterial.SetFloat("_Teleport", spawnDissapearValue);
-		SetMaterial(spawnMaterial);
+		spawnMaterialInstance.SetFloat("_Teleport", spawnDissapearValue);
+		SetMaterial(spawnMaterialInstance);
 	}
 
 	public string GetStateName()
@@ -38,7 +41,7 @@ public class SpawnEnemyState : MonoBehaviour, IState
 
 	public void StateAwake()
 	{
-		SetMaterial(spawnMaterial);
+		SetMaterial(spawnMaterialInstance);
 	}
 
 	public void StateExecute()
@@ -48,7 +51,7 @@ public class SpawnEnemyState : MonoBehaviour, IState
 		float spawnCompleted = (spawnTime - timer) / spawnTime;
 		float spawnMaterialFillAmount = Mathf.Lerp(spawnDissapearValue, spawnAppearValue, spawnCompleted);
 		Debug.Log("_Teleport value: " + spawnMaterialFillAmount);
-		spawnMaterial.SetFloat("_Teleport", spawnMaterialFillAmount);
+		spawnMaterialInstance.SetFloat("_Teleport", spawnMaterialFillAmount);
 		if(timer <= 0)
 		{
 			myStateMachine.SetStateByName(nextStateName);
