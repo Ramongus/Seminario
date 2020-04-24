@@ -73,10 +73,24 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	virtual protected void OnTriggerEnter(Collider other)
 	{
+		/*
 		AbstractEnemy enemy = other.gameObject.GetComponent<AbstractEnemy>();
 		if (enemy)
 		{
 			enemy.SetHp(enemy.GetHP() - powerValue);
+			Destroy(gameObject);
+		}
+		*/
+		if(other.gameObject.layer == 12 || other.gameObject.layer == 13)
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	protected virtual void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.layer == 12 || collision.gameObject.layer == 13)
+		{
 			Destroy(gameObject);
 		}
 	}
