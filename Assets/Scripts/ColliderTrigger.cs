@@ -14,6 +14,7 @@ public class ColliderTrigger : MonoBehaviour
 		{
 			//Player enters to trigger.
 			OnPlayerEnterTrigger?.Invoke(this, EventArgs.Empty);
+
 		}
 	}
 }
