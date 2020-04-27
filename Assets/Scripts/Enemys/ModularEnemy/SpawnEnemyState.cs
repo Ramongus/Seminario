@@ -7,20 +7,20 @@ public class SpawnEnemyState : MonoBehaviour, IState
 	[SerializeField] string stateName;
 	[SerializeField] float spawnTime;
 	[SerializeField] Material defaultMaterial;
-	[SerializeField] Material spawnMaterial;
-	[SerializeField] float spawnDissapearValue;
-	[SerializeField] float spawnAppearValue;
+	[SerializeField] protected Material spawnMaterial;
+	[SerializeField] protected float spawnDissapearValue;
+	[SerializeField] protected float spawnAppearValue;
 	[SerializeField] GameObject render;
 	[SerializeField] string nextStateName;
 
 	[SerializeField] Collider[] collidersToActive;
 	float timer;
 
-	Material spawnMaterialInstance;
+	protected Material spawnMaterialInstance;
 
 	StateMachine myStateMachine;
 
-	private void Start()
+	protected virtual void Start()
 	{
 		spawnMaterialInstance = new Material(spawnMaterial);
 		SetStateMachine();
@@ -41,10 +41,12 @@ public class SpawnEnemyState : MonoBehaviour, IState
 
 	public void StateAwake()
 	{
+		spawnMaterialInstance.SetFloat("_Teleport", spawnDissapearValue);
 		SetMaterial(spawnMaterialInstance);
+		timer = spawnTime;
 	}
 
-	public void StateExecute()
+	public virtual void StateExecute()
 	{
 		Debug.Log("ON SPAWN STATE");
 		timer -= Time.deltaTime;
@@ -58,7 +60,7 @@ public class SpawnEnemyState : MonoBehaviour, IState
 		}
 	}
 
-	public void StateSleep()
+	public virtual void StateSleep()
 	{
 		SetMaterial(defaultMaterial);
 		for (int i = 0; i < collidersToActive.Length; i++)
