@@ -1286,6 +1286,8 @@ GameObject:
   - component: {fileID: 588546308}
   - component: {fileID: 588546307}
   - component: {fileID: 588546306}
+  - component: {fileID: 588546310}
+  - component: {fileID: 588546309}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -1358,6 +1360,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 52.913002, y: -86.850006, z: 5.149}
+--- !u!114 &588546309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588546305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 49bfde09f8978b0459e9f32a6ad5ee9e, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &588546310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588546305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 588546308}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &594626772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5646,6 +5725,96 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapaIsla
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0033457
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3332912
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.1021152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135377956009865, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.017678017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.011745214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0044633
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3297682
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0960748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378370477924, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.055604786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.0026706937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.1015182
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811135378492660273, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.016999532
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.011354685
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.01124537
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.005601749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.3314445
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0916171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967911025107378017, guid: 872628976a7d5e54fad99be1fb1b8241,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.058611475
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872628976a7d5e54fad99be1fb1b8241, type: 3}
