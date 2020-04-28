@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel : ICastAbilities
+public class PlayerModel : ICastAbilities, IUpdate
 {
 	//Movement data
 	PlayerRotationUpdater rotationUpdater;
@@ -24,6 +25,12 @@ public class PlayerModel : ICastAbilities
 
 	List<AbstractAbilities> _abilities;
 
+	bool isDashing;
+	float dashDuration;
+	float dashDistance;
+	float dashTimer;
+	Vector3 dashInitialPosition;
+
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
@@ -40,6 +47,8 @@ public class PlayerModel : ICastAbilities
 		rotationUpdater = new PlayerRotationUpdater(aimPointer, _transform);
 
 		_view = view;
+
+		EventsManager.SuscribeToEvent("Dash", Dash);
 	}
 
 	//Model
@@ -57,6 +66,41 @@ public class PlayerModel : ICastAbilities
 		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
 		_currentDir = axisConverted;
 		_view.UpdateMovementAnimation(_currentDir);
+	}
+
+	public void Dash(params object[] parameters)
+	{
+		dashDistance = 5;
+		dashDuration = 0.3f;
+		if (!isDashing)
+		{
+			isDashing = true;
+			Collider[] colliders = _transform.gameObject.GetComponents<Collider>();
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				colliders[i].enabled = false;
+			}
+			dashTimer = dashDuration;
+			dashInitialPosition = _transform.position;
+			EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
+		}
+	}
+
+	public void MyUpdate()
+	{
+		dashTimer -= Time.deltaTime;
+		_transform.position = Vector3.Lerp(dashInitialPosition, dashInitialPosition + _transform.forward * dashDistance, (dashDuration - dashTimer) / dashDuration);
+		if(dashTimer <= 0)
+		{
+			isDashing = false;
+			Collider[] colliders = _transform.gameObject.GetComponents<Collider>();
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				colliders[i].enabled = true;
+			}
+			EventsManager.TriggerEvent("UnsuscribeToUpdateManager", this);
+		}
+		return;
 	}
 
 	//Toma las axis obtenida y la transforma para que sea la direccion real in game del player respescto de su foward
