@@ -16,16 +16,16 @@ public class PlayerController : IUpdate
 		EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
 	}
 
+	public void MyUpdate()
+	{
+		CheckInputs();
+	}
+
 	public void CheckInputs()
 	{
 		Vector3 axis = movementController.GetMovementAxis();
 		_playerModel.BaseMovement(axis);
 		abilitiesController.ManageAbilities();
 		dashController.CheckDash();
-	}
-
-	public void MyUpdate()
-	{
-		CheckInputs();
 	}
 }

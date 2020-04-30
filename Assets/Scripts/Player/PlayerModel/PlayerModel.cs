@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel : ICastAbilities, IUpdate
+public class PlayerModel : ICastAbilities
 {
 	//Movement data
 	PlayerRotationUpdater rotationUpdater;
@@ -30,8 +30,13 @@ public class PlayerModel : ICastAbilities, IUpdate
 	float dashDistance;
 	float dashTimer;
 	Vector3 dashInitialPosition;
+	Vector3 dashFinalPosition;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities)
+	Rigidbody _rigi;
+
+	LayerMask dashRayMask;
+
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, LayerMask dashRayMask)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
 		new AbilitiesManager(_abilities, this);
@@ -49,58 +54,68 @@ public class PlayerModel : ICastAbilities, IUpdate
 		_view = view;
 
 		EventsManager.SuscribeToEvent("Dash", Dash);
+		isDashing = false;
+		this.dashDuration = dashDuration;
+		this.dashDistance = dashDistance;
+
+		_rigi = _transform.gameObject.GetComponent<Rigidbody>();
+		this.dashRayMask = dashRayMask;
 	}
 
 	//Model
 	public void BaseMovement(Vector3 axis)
 	{
-		rotationUpdater.UpdateRotation();
+		if (!isDashing)
+		{
+			rotationUpdater.UpdateRotation();
 		
-		//ACA HACEMOS QUE SI ESTA YENDO PARA ATRAS VAYA MAS LENTO
-		float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -_transform.forward);
-		if (proyectionAxisOnGoingBackDir > 0)
-			axis -= (axis * proyectionAxisOnGoingBackDir)/2;
-		//ACA TERMINA
+			//ACA HACEMOS QUE SI ESTA YENDO PARA ATRAS VAYA MAS LENTO
+			float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -_transform.forward);
+			if (proyectionAxisOnGoingBackDir > 0)
+				axis -= (axis * proyectionAxisOnGoingBackDir)/2;
+			//ACA TERMINA
 
-		_transform.position += axis * movementSpeed * Time.deltaTime;
-		Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
-		_currentDir = axisConverted;
-		_view.UpdateMovementAnimation(_currentDir);
+			//Movement by transform DEPRECATED
+			//_transform.position += axis * movementSpeed * Time.deltaTime;
+
+			_rigi.velocity = axis * movementSpeed;
+
+			Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
+			_currentDir = axisConverted;
+			_view.UpdateMovementAnimation(_currentDir);
+		}
+		else
+		{
+			float timeBooster = (dashFinalPosition - dashInitialPosition).magnitude / dashDistance;
+			dashTimer -= Time.deltaTime / timeBooster;
+			_transform.position = Vector3.Lerp(dashInitialPosition, dashFinalPosition, (dashDuration - dashTimer) / dashDuration);
+			if(dashTimer <= 0)
+			{
+				isDashing = false;
+			}
+
+		}
 	}
 
 	public void Dash(params object[] parameters)
 	{
-		dashDistance = 5;
-		dashDuration = 0.3f;
+		Debug.Log("Triyiing dash");
 		if (!isDashing)
 		{
 			isDashing = true;
-			Collider[] colliders = _transform.gameObject.GetComponents<Collider>();
-			for (int i = 0; i < colliders.Length; i++)
-			{
-				colliders[i].enabled = false;
-			}
 			dashTimer = dashDuration;
 			dashInitialPosition = _transform.position;
-			EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
-		}
-	}
 
-	public void MyUpdate()
-	{
-		dashTimer -= Time.deltaTime;
-		_transform.position = Vector3.Lerp(dashInitialPosition, dashInitialPosition + _transform.forward * dashDistance, (dashDuration - dashTimer) / dashDuration);
-		if(dashTimer <= 0)
-		{
-			isDashing = false;
-			Collider[] colliders = _transform.gameObject.GetComponents<Collider>();
-			for (int i = 0; i < colliders.Length; i++)
+			RaycastHit hit;
+			if (Physics.Raycast(_transform.position, _transform.forward, out hit, dashDistance, dashRayMask))
 			{
-				colliders[i].enabled = true;
+				dashFinalPosition = hit.point;
 			}
-			EventsManager.TriggerEvent("UnsuscribeToUpdateManager", this);
+			else
+			{
+				dashFinalPosition = dashInitialPosition + _transform.forward * dashDistance;
+			}
 		}
-		return;
 	}
 
 	//Toma las axis obtenida y la transforma para que sea la direccion real in game del player respescto de su foward
