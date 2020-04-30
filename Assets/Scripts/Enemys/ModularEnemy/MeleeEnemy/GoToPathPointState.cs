@@ -48,6 +48,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 	public void StateAwake()
 	{
 		//moveBehaviour.SetVelocity(transform.forward);
+		Debug.Log("Se traba aca");
 		index = 0;
 		path = GetNewPath();
 		foreach (var item in path)
@@ -75,8 +76,10 @@ public class GoToPathPointState : MonoBehaviour, IState
 			path = GetNewPath();
 			index = 0;
 		}
-
-		FollowPath();
+		if (path != null)
+			FollowPath();
+		else
+			path = GetNewPath();
 	}
 
 	private void FollowPath()
