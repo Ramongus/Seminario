@@ -3,37 +3,69 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class AStar
+public class AStar : IUpdate
 {
+	private static AStar _instance;
+	public static AStar Instance
+	{
+		get
+		{
+			if(_instance == null)
+			{
+				_instance = new AStar();
+			}
+			return _instance;
+		}
+	}
+
 	private ANode initialNode;
 	private ANode finalNode;
-
 	private List<ANode> closedNodes;
 	private List<ANode> openNodes;
 	private Stack<ANode> pathNodes;
+	private Stack<ANode> resultPath;
 
+	private Queue<IUsePathfinding> requestPath;
+	private bool isDoingPath;
 
-	public AStar()
+	private AStar()
 	{
+		requestPath = new Queue<IUsePathfinding>();
 		closedNodes = new List<ANode>();
 		openNodes = new List<ANode>();
 		pathNodes = new Stack<ANode>();
+		resultPath = new Stack<ANode>();
+		EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
+		Debug.Log("A* Initialized");
 	}
 
-	public void SetInitialNode(ANode node)
+	public void MyUpdate()
 	{
-		initialNode = node;
+		Debug.Log("A* is updating");
+		while(requestPath.Count > 0)
+		{
+			if (!isDoingPath)
+			{
+				IUsePathfinding actualRequest = requestPath.Dequeue();
+				SetInitialNode(actualRequest.GetInitialNode());
+				SeTFinalNode(actualRequest.GetFinalNode());
+				actualRequest.SetPath(GetPath());
+			}
+		}
 	}
 
-	public void SeTFinalNode(ANode node)
+	public void AddRequester(IUsePathfinding requester)
 	{
-		finalNode = node;
+		requestPath.Enqueue(requester);
 	}
 
 	public Stack<ANode> GetPath()
 	{
+		Debug.LogWarning("GettingPath");
+		isDoingPath = true;
 		pathNodes.Clear();
-		pathNodes = ExecuteDijkstra(initialNode, finalNode);
+		pathNodes = new Stack<ANode>(ExecuteDijkstra(initialNode, finalNode));
+		isDoingPath = false;
 		return pathNodes;
 	}
 
@@ -49,10 +81,10 @@ public class AStar
 			item.Reset();
 		}
 
-		Stack<ANode> resultPath = new Stack<ANode>();
 		//Limpiamos las listas.
 		closedNodes.Clear();
 		openNodes.Clear();
+		resultPath.Clear();
 
 		//Agregamos nuestro nodo inicial a la lista de los nodos a visitar
 		openNodes.Add(initialNode);
@@ -60,8 +92,11 @@ public class AStar
 		initialNode.G = 0;
 		initialNode.previous = null;
 
+		int iterations = 0;
+
 		while (openNodes.Count > 0)
 		{
+			iterations++;
 			//Tomamos un elemento de la lista de openNodes. Vamos a conseguir el nodo con menor F.
 			ANode current = LookForLowerF();
 
@@ -72,7 +107,6 @@ public class AStar
 				//si me lo guardo en un stack ya lo invierto.
 				while (current != null)
 				{
-					Debug.LogWarning("Stack Pushing Node: " + current);
 					resultPath.Push(current);
 					current = current.previous;
 				}
@@ -135,15 +169,13 @@ public class AStar
 		return nextNode;
 	}
 
-	private void OnDrawGizmos()
+	private void SetInitialNode(ANode node)
 	{
-		Gizmos.color = Color.yellow;
+		initialNode = node;
+	}
 
-		Gizmos.color = Color.green;
-
-		foreach (var item in pathNodes)
-		{
-			Gizmos.DrawSphere(item.transform.position, 0.3f);
-		}
+	private void SeTFinalNode(ANode node)
+	{
+		finalNode = node;
 	}
 }

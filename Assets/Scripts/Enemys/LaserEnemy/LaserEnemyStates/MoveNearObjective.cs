@@ -21,7 +21,7 @@ public class MoveNearObjective : State
 	public MoveNearObjective(StateMachineClassic sm, List<ANode> availableNodes, Transform owner, Transform objective, float distanceToMoveArround, float speed) : base(sm)
 	{
 		nodes = new List<ANode>(availableNodes);
-		pathfinder = new AStar();
+		//pathfinder = new AStar();
 		this.owner = owner;
 		this.distanceToMoveArround = distanceToMoveArround;
 		this.objective = objective;
@@ -41,8 +41,8 @@ public class MoveNearObjective : State
 
 		if(finalNode != null && initialNode != null)
 		{
-			pathfinder.SeTFinalNode(finalNode);
-			pathfinder.SetInitialNode(initialNode);
+			//pathfinder.SeTFinalNode(finalNode);
+			//pathfinder.SetInitialNode(initialNode);
 		}
 
 		//Stack<ANode> pathInStack = new Stack<ANode>(pathfinder.GetPath());

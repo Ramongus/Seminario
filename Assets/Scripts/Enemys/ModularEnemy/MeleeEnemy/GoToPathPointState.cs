@@ -3,66 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToPathPointState : MonoBehaviour, IState
+public class GoToPathPointState : MonoBehaviour, IState, IUsePathfinding
 {
 	[SerializeField] string stateName;
 	[SerializeField] float rotationSpeed;
 	[SerializeField] Transform raycastInitialPoint;
 	[SerializeField] LayerMask raycastLayerMask;
-
 	List<ANode> nodes;
 	List<Transform> path;
-
 	StateMachine myStateMachine;
-
 	int index;
-
 	IMoveBehaviour moveBehaviour;
-
 	Transform target;
-
-	AStar pathfinder;
-
 	Animator animator;
 
 	private void Start()
 	{
 		SetStateMachine();
 		target = FindObjectOfType<Player>().transform;
-		pathfinder = new AStar();
 		nodes = new List<ANode>(FindObjectOfType<NodesList>().GetNodes());
 		moveBehaviour = GetComponent<IMoveBehaviour>();
 		animator = GetComponent<Animator>();
 	}
 
-	public string GetStateName()
-	{
-		return stateName;
-	}
-
-	public void SetStateMachine()
-	{
-		myStateMachine = GetComponent<StateMachine>() ?? throw new MissingComponentException("Non state machine component attached");
-	}
-
 	public void StateAwake()
 	{
-		//moveBehaviour.SetVelocity(transform.forward);
-		Debug.Log("Se traba aca");
 		index = 0;
-		path = GetNewPath();
-		foreach (var item in path)
-		{
-			Debug.Log(item);
-		}
+		SetNewPath();
 	}
 
 	public void StateExecute()
 	{
-		Debug.Log("ON PATH STATE");
 		Vector3 toTargetFromRayPoint = target.position - raycastInitialPoint.position;
+		Debug.DrawLine(raycastInitialPoint.position, raycastInitialPoint.position + new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized * 100);
 		RaycastHit hit;
-		if(Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit, Mathf.Infinity, raycastLayerMask))
+		if(Physics.Raycast(raycastInitialPoint.position, new Vector3(toTargetFromRayPoint.x, 0, toTargetFromRayPoint.z).normalized, out hit, 100, raycastLayerMask))
 		{
 			Player player = hit.collider.GetComponent<Player>();
 			if(player != null)
@@ -71,15 +46,21 @@ public class GoToPathPointState : MonoBehaviour, IState
 				return;
 			}
 		}
-		if (IsEndPath())
-		{
-			path = GetNewPath();
-			index = 0;
-		}
+
 		if (path != null)
+		{
+			if (IsEndPath())
+			{
+				SetNewPath();
+				index = 0;
+			}
 			FollowPath();
-		else
-			path = GetNewPath();
+		}
+	}
+
+	public void StateSleep()
+	{
+		index = 0;
 	}
 
 	private void FollowPath()
@@ -98,12 +79,10 @@ public class GoToPathPointState : MonoBehaviour, IState
 		animator.SetFloat("Speed", 1);
 	}
 
-	private List<Transform> GetNewPath()
+	private void SetNewPath()
 	{
-		pathfinder.SeTFinalNode(GetFinalNode());
-		pathfinder.SetInitialNode(GetInitialNode());
-		List<ANode> pathNodes = new List<ANode>(pathfinder.GetPath().ToArray());
-		return ConvertNodeListToTransformList(pathNodes);
+		path = null;
+		AStar.Instance.AddRequester(this);
 	}
 
 	private bool IsEndPath()
@@ -115,17 +94,12 @@ public class GoToPathPointState : MonoBehaviour, IState
 		return false;
 	}
 
-	public void StateSleep()
+	public void SetPath(Stack<ANode> path)
 	{
-		index = 0;
+		this.path = ConvertNodeListToTransformList(new List<ANode>(path.ToArray()));
 	}
 
-	public void SetPath(List<Transform> path)
-	{
-		this.path = new List<Transform>(path);
-	}
-
-	private ANode GetFinalNode()
+	public ANode GetFinalNode()
 	{
 		ANode candidateNode = null;
 		float distanceDifference = Mathf.Infinity;
@@ -138,6 +112,10 @@ public class GoToPathPointState : MonoBehaviour, IState
 				candidateNode = node;
 			}
 		}
+		if(candidateNode == null)
+		{
+			Debug.LogError("ES EL FINAL NODE QUE ESTA DEVOLVIENDO NULO!");
+		}
 		return candidateNode;
 	}
 
@@ -147,7 +125,7 @@ public class GoToPathPointState : MonoBehaviour, IState
 		return Mathf.Abs(distanceToNode);
 	}
 
-	private ANode GetInitialNode()
+	public ANode GetInitialNode()
 	{
 		ANode candidateNode = null;
 		float nearestDistance = Mathf.Infinity;
@@ -160,6 +138,10 @@ public class GoToPathPointState : MonoBehaviour, IState
 				nearestDistance = distance;
 				candidateNode = node;
 			}
+		}
+		if (candidateNode == null)
+		{
+			Debug.LogError("ES EL #INITIAL# NODE QUE ESTA DEVOLVIENDO NULO!");
 		}
 		return candidateNode;
 	}
@@ -177,5 +159,15 @@ public class GoToPathPointState : MonoBehaviour, IState
 			list.Add(node.transform);
 		}
 		return list;
+	}
+
+	public string GetStateName()
+	{
+		return stateName;
+	}
+
+	public void SetStateMachine()
+	{
+		myStateMachine = GetComponent<StateMachine>() ?? throw new MissingComponentException("Non state machine component attached");
 	}
 }

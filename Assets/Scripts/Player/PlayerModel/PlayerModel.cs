@@ -99,7 +99,6 @@ public class PlayerModel : ICastAbilities
 
 	public void Dash(params object[] parameters)
 	{
-		Debug.Log("Triyiing dash");
 		if (!isDashing)
 		{
 			isDashing = true;

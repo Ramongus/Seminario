@@ -36,6 +36,7 @@ public class ANode : MonoBehaviour
 	public void Reset()
 	{
 		G = Mathf.Infinity;
+		H = 0;
 		previous = null;
 	}
 

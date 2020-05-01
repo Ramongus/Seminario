@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class StateMachine : MonoBehaviour {
-
+	
 	[SerializeField] protected string defaultState;
     protected IState _currentState;
     protected List<IState> _states = new List<IState>();

@@ -38,12 +38,10 @@ public class ChaseEnemyState : MonoBehaviour, IState
 
 	public void StateAwake()
 	{
-		
 	}
 
 	public void StateExecute()
 	{
-		Debug.Log("ON CHASE STATE");
 		Vector3 toTarget = target.position - transform.position;
 		Vector3 toTargetIgnoringHeightDir = new Vector3(toTarget.x, 0, toTarget.z).normalized;
 		if (toTarget.magnitude < attackRange)
@@ -81,7 +79,6 @@ public class ChaseEnemyState : MonoBehaviour, IState
 
 	public void StateSleep()
 	{
-		Debug.Log("StateSleeps - Chase");
 		moveBehaviour.SetVelocity(Vector3.zero);
 		animator.SetFloat("Speed", 0);
 	}

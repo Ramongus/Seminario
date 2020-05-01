@@ -81,14 +81,6 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	virtual protected void OnTriggerEnter(Collider other)
 	{
-		/*
-		AbstractEnemy enemy = other.gameObject.GetComponent<AbstractEnemy>();
-		if (enemy)
-		{
-			enemy.SetHp(enemy.GetHP() - powerValue);
-			Destroy(gameObject);
-		}
-		*/
 		IDamageable player = other.GetComponent<IDamageable>();
 		if(player != null)
 		{
@@ -110,7 +102,6 @@ public abstract class AbstractAbilities : MonoBehaviour
 					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
 			}
 
-			Debug.Log("SE DESTRUYE POR Trigger INTERACTION");
 			Destroy(gameObject);
 		}
 	}
