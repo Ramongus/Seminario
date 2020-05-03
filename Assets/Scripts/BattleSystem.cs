@@ -77,10 +77,10 @@ public class BattleSystem : MonoBehaviour
 			if(timer > 0)
 			{
 				timer -= Time.deltaTime;
-				if(timer <= 0)
-				{
-					SpawnEnemies();
-				}
+			}
+			if(timer <= 0)
+			{
+				SpawnEnemies();
 			}
 		}
 		

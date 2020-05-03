@@ -29,6 +29,8 @@ public class Mirror : AbstractAbilities
 		{
 			lastHabilitieContact.transform.Rotate(Vector3.up * angleWithZAxis);
 		}
+
+		lastHabilitieContact.SetPowerValue(lastHabilitieContact.GetPowerValue() + powerValue);
 	}
 
 	private void BreakMirror()

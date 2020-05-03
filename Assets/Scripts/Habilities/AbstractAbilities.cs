@@ -67,6 +67,11 @@ public abstract class AbstractAbilities : MonoBehaviour
 		return powerValue;
 	}
 
+	public virtual void SetPowerValue(float finalPowerValue)
+	{
+		powerValue = finalPowerValue;
+	}
+
 	public bool IsHealHabilitie()
 	{
 		return isHealHabilitie;
