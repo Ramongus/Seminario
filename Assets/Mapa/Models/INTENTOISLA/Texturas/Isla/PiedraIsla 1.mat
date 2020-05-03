@@ -43,7 +43,7 @@ Material:
     - _ASEOutlineWidth: 0.42
     - _IntesitySpec: 0.817
     - _Power: 1
-    - _RimOffset: 2.43
+    - _RimOffset: -22.33
     - _SpecSomething: 1
     - __dirty: 0
     m_Colors:
