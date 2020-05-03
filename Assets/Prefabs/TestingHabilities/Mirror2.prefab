@@ -4816,7 +4816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: Mirror
-  powerValue: 10
+  powerValue: 50
   isHealHabilitie: 0
   initialHeight: 0
   cooldown: 0

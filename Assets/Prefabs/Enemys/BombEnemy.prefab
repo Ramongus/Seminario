@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8833011492344276740}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BombSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 8833011492949811615}
   - component: {fileID: 8833011492949811612}
   - component: {fileID: 8833011492949811613}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BombEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,6 +193,7 @@ MonoBehaviour:
   spawnAppearValue: -1.3
   render: {fileID: 8833011492949811593}
   nextStateName: Waiting
+  enemyCanvas: {fileID: 0}
   collidersToActive:
   - {fileID: 8833011492949811586}
 --- !u!114 &8833011492949811614
@@ -247,6 +248,7 @@ MonoBehaviour:
   spawnAppearValue: -1.3
   render: {fileID: 8833011492949811593}
   nextStateName: ChangePosiiton
+  enemyCanvas: {fileID: 0}
   collidersToActive: []
 --- !u!114 &8833011492949811613
 MonoBehaviour:

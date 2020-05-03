@@ -3400,13 +3400,15 @@ GameObject:
   - component: {fileID: 534416986}
   - component: {fileID: 534416987}
   - component: {fileID: 534416988}
+  - component: {fileID: 3469460338745339258}
+  - component: {fileID: 7298046044022955904}
   m_Layer: 13
   m_Name: RifleIDLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2228551885936867079
 Transform:
   m_ObjectHideFlags: 0
@@ -3535,10 +3537,11 @@ MonoBehaviour:
   spawnTime: 3
   defaultMaterial: {fileID: 2100000, guid: fcdb3185a33ac7948badf82d3edfe465, type: 2}
   spawnMaterial: {fileID: 2100000, guid: 03a8a2a26e6d08e4ca0d73488e59f838, type: 2}
-  spawnDissapearValue: 3
-  spawnAppearValue: -3
+  spawnDissapearValue: 3.2
+  spawnAppearValue: -3.3
   render: {fileID: 2487655779751543944}
   nextStateName: ChargingAttack
+  enemyCanvas: {fileID: 6433687594266443460}
   collidersToActive:
   - {fileID: 534416986}
 --- !u!54 &534416985
@@ -3601,6 +3604,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4106b2ef850f6a34e89f9fe4fa4b3866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3469460338745339258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933587161038832916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56916e1fdc40e854680e57107606fe8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: Dissapear
+  spawnTime: 1
+  defaultMaterial: {fileID: 2100000, guid: fcdb3185a33ac7948badf82d3edfe465, type: 2}
+  spawnMaterial: {fileID: 2100000, guid: 03a8a2a26e6d08e4ca0d73488e59f838, type: 2}
+  spawnDissapearValue: 3.2
+  spawnAppearValue: -3.3
+  render: {fileID: 2487655779751543944}
+  nextStateName: ChangePoint
+  enemyCanvas: {fileID: 6433687594266443460}
+  collidersToActive: []
+--- !u!114 &7298046044022955904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933587161038832916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa09df21b3fdb4b46bd5a265fb4ab8b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: ChangePoint
+  minDistanceToTarget: 7
+  maxDistanceToTarget: 15
+  target: {fileID: 0}
+  timeChoosingPos: 2
 --- !u!1 &2992315041674377293
 GameObject:
   m_ObjectHideFlags: 0

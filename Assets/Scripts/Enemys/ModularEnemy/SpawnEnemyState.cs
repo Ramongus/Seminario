@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class SpawnEnemyState : MonoBehaviour, IState
 {
-	[SerializeField] string stateName;
-	[SerializeField] float spawnTime;
-	[SerializeField] Material defaultMaterial;
+	[SerializeField] protected string stateName;
+	[SerializeField] protected float spawnTime;
+	[SerializeField] protected Material defaultMaterial;
 	[SerializeField] protected Material spawnMaterial;
 	[SerializeField] protected float spawnDissapearValue;
 	[SerializeField] protected float spawnAppearValue;
-	[SerializeField] GameObject render;
-	[SerializeField] string nextStateName;
+	[SerializeField] protected GameObject render;
+	[SerializeField] protected string nextStateName;
+	[SerializeField] protected GameObject enemyCanvas;
 
-	[SerializeField] Collider[] collidersToActive;
-	float timer;
+	[SerializeField] protected Collider[] collidersToActive;
+	protected float timer;
 
 	protected Material spawnMaterialInstance;
 
-	StateMachine myStateMachine;
+	protected StateMachine myStateMachine;
 
 	protected virtual void Start()
 	{
-		spawnMaterialInstance = new Material(spawnMaterial);
 		SetStateMachine();
 		timer = spawnTime;
+		spawnMaterialInstance = new Material(spawnMaterial);
 		spawnMaterialInstance.SetFloat("_Teleport", spawnDissapearValue);
 		SetMaterial(spawnMaterialInstance);
 	}
@@ -39,7 +40,7 @@ public class SpawnEnemyState : MonoBehaviour, IState
 		myStateMachine = GetComponent<StateMachine>();
 	}
 
-	public void StateAwake()
+	public virtual void StateAwake()
 	{
 		Debug.Log("ON SPAWN STATE");
 		spawnMaterialInstance.SetFloat("_Teleport", spawnDissapearValue);
@@ -62,13 +63,19 @@ public class SpawnEnemyState : MonoBehaviour, IState
 
 	public virtual void StateSleep()
 	{
+		if (enemyCanvas != null)
+			enemyCanvas.SetActive(true);
 		SetMaterial(defaultMaterial);
 		for (int i = 0; i < collidersToActive.Length; i++)
 		{
 			collidersToActive[i].enabled = true;
 		}
 		if(GetComponent<Rigidbody>() != null)
+		{
 			GetComponent<Rigidbody>().isKinematic = false;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
+
 	}
 
 	public void SetMaterial(Material currentMaterial)

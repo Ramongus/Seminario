@@ -69,7 +69,8 @@ public class AttackRifleEnemyState : MonoBehaviour, IState
 				}
 			}
 			timer = timeToAttack;
-			myStateMachine.SetState<ChargingAttackState>();
+			rifleEnemyData.SetLineColor(new Color(0f, 0f, 0f, 0f));
+			myStateMachine.SetState<DissapearState>();
 		}
 	}
 
