@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7839754365293031949
 Transform:
   m_ObjectHideFlags: 0
@@ -5141,7 +5141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8928707891667017058
 Transform:
   m_ObjectHideFlags: 0
@@ -9922,6 +9922,7 @@ GameObject:
   - component: {fileID: 6059951822886035833}
   - component: {fileID: 6059951822886035834}
   - component: {fileID: 1642723887388276904}
+  - component: {fileID: 1434168121}
   m_Layer: 11
   m_Name: MageTest
   m_TagString: Untagged
@@ -9978,7 +9979,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &6059951822886035834
 CapsuleCollider:
@@ -10016,7 +10017,33 @@ MonoBehaviour:
   - {fileID: 1515575908328283158, guid: 7d769b408bd4cd7458ae1ad3dee3ff17, type: 3}
   - {fileID: 529307504088512593, guid: d8a6e66d0152b2c41af8f00045ffeabc, type: 3}
   - {fileID: 3602285740065977516, guid: 7c041ceb3bd3c4a49a76325a0c9b4beb, type: 3}
-  - {fileID: 837337888657580424, guid: 16d983e28238a2e4596ef01c96dab7ed, type: 3}
+  - {fileID: 5539965993979478931, guid: 82d8897b1deb3e24084e0038d4858ce0, type: 3}
+  dashDuration: 0.3
+  dashDistance: 10
+  rayMaskLayers:
+    serializedVersion: 2
+    m_Bits: 12288
+  mesh: {fileID: 3359352563443186955}
+  dashTrailParticle: {fileID: 0}
+--- !u!114 &1434168121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826196805228464517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2855a069f55194dad0c2ad61e5f50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handsParticle:
+  - {fileID: 5350107301457883300}
+  - {fileID: 5990429435312979707}
+  - {fileID: 1508466806221646038}
+  - {fileID: 3007975275320053304}
+  - {fileID: 2808384195745847237}
+  startIndex: 2
 --- !u!1 &3007975275320053304
 GameObject:
   m_ObjectHideFlags: 0
@@ -15168,7 +15195,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048697914391814417}
   serializedVersion: 6
-  lengthInSec: 0.5
+  lengthInSec: 0.4
   simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 0
@@ -15243,7 +15270,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15412,7 +15439,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 2
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -29927,7 +29954,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8165553087789196203}
   serializedVersion: 6
-  lengthInSec: 0.5
+  lengthInSec: 0.4
   simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 0
@@ -30002,7 +30029,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -30171,7 +30198,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 2
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2

@@ -36,7 +36,13 @@ public class PlayerModel : ICastAbilities
 
 	LayerMask dashRayMask;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, LayerMask dashRayMask)
+	Collider playerCol;
+
+	GameObject mesh;
+
+	GameObject dashTrailParticles;
+
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, LayerMask dashRayMask, GameObject mesh, GameObject dashTrailParticles)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
 		new AbilitiesManager(_abilities, this);
@@ -60,6 +66,10 @@ public class PlayerModel : ICastAbilities
 
 		_rigi = _transform.gameObject.GetComponent<Rigidbody>();
 		this.dashRayMask = dashRayMask;
+
+		this.mesh = mesh;
+		playerCol = _transform.gameObject.GetComponent<Collider>();
+		this.dashTrailParticles = dashTrailParticles;
 	}
 
 	//Model
@@ -67,6 +77,10 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing)
 		{
+			playerCol.enabled = true;
+			mesh.SetActive(true);//Deberia estar en el view
+			dashTrailParticles.SetActive(false);//Deberia estar en el view
+
 			rotationUpdater.UpdateRotation();
 		
 			//ACA HACEMOS QUE SI ESTA YENDO PARA ATRAS VAYA MAS LENTO
@@ -79,6 +93,9 @@ public class PlayerModel : ICastAbilities
 			//_transform.position += axis * movementSpeed * Time.deltaTime;
 
 			_rigi.velocity = axis * movementSpeed;
+
+			//_rigi.velocity += axis * movementSpeed;
+			//_rigi.velocity = Vector3.ClampMagnitude(_rigi.velocity, movementSpeed);
 
 			Vector3 axisConverted = GetAxisConvertedToPlayerFowardReferece(axis, _transform.forward);
 			_currentDir = axisConverted;
@@ -101,6 +118,10 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing)
 		{
+			playerCol.enabled = false;
+			mesh.SetActive(false);//Deberia estar en el view
+			dashTrailParticles.SetActive(true);//Deberia estar en el view
+
 			isDashing = true;
 			dashTimer = dashDuration;
 			dashInitialPosition = _transform.position;

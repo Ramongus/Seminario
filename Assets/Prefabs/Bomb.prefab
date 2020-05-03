@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a328395b24c7347addfc14cd50be33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 4
-  explodeRadius: 3
+  lifetime: 20
+  explodeRadius: 5
   explodeParticles: {fileID: 8326211002515394719, guid: dfb90d8b91585df44a0bd4b5c0b21d76,
     type: 3}
   explosionDamage: 20

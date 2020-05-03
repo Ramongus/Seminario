@@ -14,6 +14,8 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] float dashDuration;
 	[SerializeField] float dashDistance;
 	[SerializeField] LayerMask rayMaskLayers;
+	[SerializeField] GameObject mesh;
+	[SerializeField] GameObject dashTrailParticle;
 
 	PlayerView _view;
 	PlayerModel _model;
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour, IDamageable
 	private void Awake()
 	{
 		_view = new PlayerView(GetComponent<Animator>(), healthBar);
-		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, rayMaskLayers);
+		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, rayMaskLayers, mesh, dashTrailParticle);
 		_controller = new PlayerController(_model);
 		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);
 	}
