@@ -17,8 +17,9 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] GameObject mesh;
 	[SerializeField] GameObject dashTrailParticle;
 
+	[SerializeField] PlayerModel _model;
+
 	PlayerView _view;
-	PlayerModel _model;
 	PlayerController _controller;
 
 	private void Awake()

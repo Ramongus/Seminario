@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+[Serializable]
 public class PlayerModel : ICastAbilities
 {
 	//Movement data
@@ -42,6 +44,10 @@ public class PlayerModel : ICastAbilities
 
 	GameObject dashTrailParticles;
 
+	Vignette vignette;
+	ColorParameter vignetteInitialColor;
+	FloatParameter vignetteInitialIntensity;
+
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, LayerMask dashRayMask, GameObject mesh, GameObject dashTrailParticles)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
@@ -70,6 +76,10 @@ public class PlayerModel : ICastAbilities
 		this.mesh = mesh;
 		playerCol = _transform.gameObject.GetComponent<Collider>();
 		this.dashTrailParticles = dashTrailParticles;
+
+		Camera.main.gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out vignette);
+		vignetteInitialColor = vignette.color;
+		vignetteInitialIntensity = vignette.intensity;
 	}
 
 	//Model
@@ -80,6 +90,9 @@ public class PlayerModel : ICastAbilities
 			playerCol.enabled = true;
 			mesh.SetActive(true);//Deberia estar en el view
 			dashTrailParticles.SetActive(false);//Deberia estar en el view
+
+			vignette.intensity.Override(0.2f);
+			vignette.color.Override(new Color(0,0,0,1));
 
 			rotationUpdater.UpdateRotation();
 		
@@ -121,6 +134,9 @@ public class PlayerModel : ICastAbilities
 			playerCol.enabled = false;
 			mesh.SetActive(false);//Deberia estar en el view
 			dashTrailParticles.SetActive(true);//Deberia estar en el view
+
+			vignette.intensity.Override(0.4f);
+			vignette.color.Override(new Color(0.5f, 0.1f, 0.9f, 1));
 
 			isDashing = true;
 			dashTimer = dashDuration;
