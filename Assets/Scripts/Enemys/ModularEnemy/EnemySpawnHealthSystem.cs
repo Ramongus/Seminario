@@ -45,7 +45,7 @@ public class EnemySpawnHealthSystem : HealthSystem
 	private void Die()
 	{
 		health = 0;
-		GetComponent<Animator>().SetTrigger("Die");
+		GetComponent<Animator>()?.SetTrigger("Die");
 		if (hasDestroyableFBX)
 		{
 			render.SetActive(false);
