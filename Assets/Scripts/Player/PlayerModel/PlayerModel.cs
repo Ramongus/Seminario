@@ -31,6 +31,8 @@ public class PlayerModel : ICastAbilities
 	float dashDuration;
 	float dashDistance;
 	float dashTimer;
+	float dashCooldown;
+	float dashCooldownTimer;
 	Vector3 dashInitialPosition;
 	Vector3 dashFinalPosition;
 
@@ -48,7 +50,7 @@ public class PlayerModel : ICastAbilities
 	ColorParameter vignetteInitialColor;
 	FloatParameter vignetteInitialIntensity;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, LayerMask dashRayMask, GameObject mesh, GameObject dashTrailParticles)
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, GameObject dashTrailParticles)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
 		new AbilitiesManager(_abilities, this);
@@ -69,6 +71,8 @@ public class PlayerModel : ICastAbilities
 		isDashing = false;
 		this.dashDuration = dashDuration;
 		this.dashDistance = dashDistance;
+		this.dashCooldown = dashCooldown;
+		dashCooldownTimer = 0;
 
 		_rigi = _transform.gameObject.GetComponent<Rigidbody>();
 		this.dashRayMask = dashRayMask;
@@ -87,6 +91,8 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing)
 		{
+			dashCooldownTimer -= Time.deltaTime;
+
 			playerCol.enabled = true;
 			mesh.SetActive(true);//Deberia estar en el view
 			dashTrailParticles.SetActive(false);//Deberia estar en el view
@@ -121,6 +127,7 @@ public class PlayerModel : ICastAbilities
 			_transform.position = Vector3.Lerp(dashInitialPosition, dashFinalPosition, (dashDuration - dashTimer) / dashDuration);
 			if(dashTimer <= 0)
 			{
+				dashCooldownTimer = dashCooldown;
 				isDashing = false;
 			}
 
@@ -129,7 +136,7 @@ public class PlayerModel : ICastAbilities
 
 	public void Dash(params object[] parameters)
 	{
-		if (!isDashing)
+		if (!isDashing && dashCooldownTimer <= 0)
 		{
 			playerCol.enabled = false;
 			mesh.SetActive(false);//Deberia estar en el view

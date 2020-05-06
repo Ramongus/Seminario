@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] List<AbstractAbilities> myHabilities;
 	[SerializeField] float dashDuration;
 	[SerializeField] float dashDistance;
+	[SerializeField] float dashCooldown;
 	[SerializeField] LayerMask rayMaskLayers;
 	[SerializeField] GameObject mesh;
 	[SerializeField] GameObject dashTrailParticle;
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour, IDamageable
 	private void Awake()
 	{
 		_view = new PlayerView(GetComponent<Animator>(), healthBar);
-		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, rayMaskLayers, mesh, dashTrailParticle);
+		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, dashCooldown, rayMaskLayers, mesh, dashTrailParticle);
 		_controller = new PlayerController(_model);
 		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);
 	}
