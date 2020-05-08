@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6708024622276221124}
   m_LocalRotation: {x: -0.7859802, y: 0.2387791, z: -0.03557335, w: 0.56916976}
   m_LocalPosition: {x: 323.93, y: -19.511354, z: -347.23}
-  m_LocalScale: {x: 2.3150315, y: 2.3150342, z: 2.3150344}
+  m_LocalScale: {x: 2.2856, y: 2.2856, z: 2.2856}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3875,7 +3875,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    maxLights: 20
+    maxLights: 10
   TrailModule:
     enabled: 0
     mode: 0

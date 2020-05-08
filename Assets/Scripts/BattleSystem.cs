@@ -53,7 +53,7 @@ public class BattleSystem : MonoBehaviour
 
 	private void StopBattle()
 	{
-		//Destroy(this.gameObject);
+		EventsManager.TriggerEvent("SoulCompleted");
 	}
 
 	public bool AreWavesOver()
