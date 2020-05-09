@@ -44,13 +44,14 @@ public class PlayerModel : ICastAbilities
 
 	GameObject mesh;
 
-	GameObject dashTrailParticles;
+	ParticleSystem dashTrailParticles;
+	ParticleSystem.MinMaxCurve initialDashParticleRateOverDistance;
 
 	Vignette vignette;
 	ColorParameter vignetteInitialColor;
 	FloatParameter vignetteInitialIntensity;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, GameObject dashTrailParticles)
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles)
 	{
 		_abilities = new List<AbstractAbilities>(playerAbilities);
 		new AbilitiesManager(_abilities, this);
@@ -80,6 +81,8 @@ public class PlayerModel : ICastAbilities
 		this.mesh = mesh;
 		playerCol = _transform.gameObject.GetComponent<Collider>();
 		this.dashTrailParticles = dashTrailParticles;
+		var emission = dashTrailParticles.emission;
+		initialDashParticleRateOverDistance = emission.rateOverDistance;
 
 		Camera.main.gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out vignette);
 		vignetteInitialColor = vignette.color;
@@ -95,7 +98,8 @@ public class PlayerModel : ICastAbilities
 
 			playerCol.enabled = true;
 			mesh.SetActive(true);//Deberia estar en el view
-			dashTrailParticles.SetActive(false);//Deberia estar en el view
+			var emission = dashTrailParticles.emission; //Deberia estar en el view
+			emission.rateOverDistance = 0;
 
 			vignette.intensity.Override(0.2f);
 			vignette.color.Override(new Color(0,0,0,1));
@@ -140,7 +144,8 @@ public class PlayerModel : ICastAbilities
 		{
 			playerCol.enabled = false;
 			mesh.SetActive(false);//Deberia estar en el view
-			dashTrailParticles.SetActive(true);//Deberia estar en el view
+			var emission = dashTrailParticles.emission; //Deberia estar en el view
+			emission.rateOverDistance = initialDashParticleRateOverDistance;
 
 			vignette.intensity.Override(0.4f);
 			vignette.color.Override(new Color(0.5f, 0.1f, 0.9f, 1));
