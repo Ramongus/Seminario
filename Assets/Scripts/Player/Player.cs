@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] float dashCooldown;
 	[SerializeField] LayerMask rayMaskLayers;
 	[SerializeField] GameObject mesh;
-	[SerializeField] GameObject dashTrailParticle;
+	[SerializeField] ParticleSystem dashTrailParticle;
 
 	[SerializeField] PlayerModel _model;
 
