@@ -66,7 +66,9 @@ public class GoToPathPointState : MonoBehaviour, IState, IUsePathfinding
 	private void FollowPath()
 	{
 		float range = 2f;
-		Vector3 toPathIndex = path[index].position - transform.position;
+		Vector3 toPathIndex = new Vector3();
+		if (path != null)
+			toPathIndex = path[index].position - transform.position;
 		float distanceToNextWaypoint = toPathIndex.magnitude;
 		if(distanceToNextWaypoint < range)
 		{

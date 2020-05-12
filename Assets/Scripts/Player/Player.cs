@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDamageable
 {
+	[SerializeField] Animator canvasAnimator;
 	[SerializeField] Image healthBar;
 	[SerializeField] float maxHP;
 	[SerializeField] float aimSensitivity;
@@ -18,14 +19,13 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] GameObject mesh;
 	[SerializeField] ParticleSystem dashTrailParticle;
 
-	[SerializeField] PlayerModel _model;
-
+	PlayerModel _model;
 	PlayerView _view;
 	PlayerController _controller;
 
 	private void Awake()
 	{
-		_view = new PlayerView(GetComponent<Animator>(), healthBar);
+		_view = new PlayerView(GetComponent<Animator>(), healthBar, canvasAnimator);
 		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, dashCooldown, rayMaskLayers, mesh, dashTrailParticle);
 		_controller = new PlayerController(_model);
 		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);

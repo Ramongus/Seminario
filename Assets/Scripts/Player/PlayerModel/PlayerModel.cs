@@ -204,6 +204,8 @@ public class PlayerModel : ICastAbilities
 
 	public void SetHealth(float health)
 	{
+		if (health < _currentHp) _view.DamagedVignetteAnimation();
+
 		if (health >= _maxHP)
 			_currentHp = _maxHP;
 		else if (health <= 0)

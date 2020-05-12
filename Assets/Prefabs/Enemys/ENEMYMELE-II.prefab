@@ -11359,7 +11359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad29167d791d3345a5b6f1790d380ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
 --- !u!114 &4452770757803362411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11409,13 +11409,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateName: Chase
-  rotationSpeed: 3
+  rotationSpeed: 5
   raycastInitialPoint: {fileID: 4991014226655704793}
   attackRange: 5
   sightViewAngle: 100
   layerRay:
     serializedVersion: 2
     m_Bits: 6144
+  avoidanceAmount: 1
+  obstacleRadiusDetection: 1
 --- !u!114 &4452770757803362327
 MonoBehaviour:
   m_ObjectHideFlags: 0
