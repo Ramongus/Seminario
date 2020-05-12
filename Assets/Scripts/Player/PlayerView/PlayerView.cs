@@ -12,13 +12,15 @@ public class PlayerView
 	// -etc..
 	Image _healthBar;
 	Animator _animator;
+	Animator _canvasAnimator;
 
 	PlayerModel _model;
 
-	public PlayerView(Animator animator, Image healthBar)
+	public PlayerView(Animator animator, Image healthBar, Animator canvasAnimator)
 	{
 		_animator = animator;
 		_healthBar = healthBar;
+		_canvasAnimator = canvasAnimator;
 		//EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
 		EventsManager.SuscribeToEvent("AbilitieCasted", SetSpellCastAnimation);
 	}
@@ -36,6 +38,11 @@ public class PlayerView
 	public void UpdateHealthBar(float fillAmount)
 	{
 		_healthBar.fillAmount = fillAmount;
+	}
+
+	public void DamagedVignetteAnimation()
+	{
+		_canvasAnimator.SetTrigger("Damaged");
 	}
 
 	public void SetSpellCastAnimation(params object[] parameters)

@@ -11,6 +11,8 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	[SerializeField] float attackRange;
 	[SerializeField] float sightViewAngle;
 	[SerializeField] LayerMask layerRay;
+	[SerializeField] float avoidanceAmount;
+	[SerializeField] float obstacleRadiusDetection;
 	StateMachine myStateMachine;
 
 	Transform target;
@@ -65,9 +67,33 @@ public class ChaseEnemyState : MonoBehaviour, IState
 			}
 		}
 
-		transform.forward = Vector3.Lerp(transform.forward, toTargetIgnoringHeightDir, rotationSpeed * Time.deltaTime);
+		Vector3 avoidanceDir = GetObstacleAvoidanceDir();
+		Vector3 avoidanceDirHeightIgnored = new Vector3(avoidanceDir.x, 0, avoidanceDir.z).normalized;
+		Vector3 finalAvoidance = avoidanceDirHeightIgnored * avoidanceAmount;
+		Debug.DrawLine(transform.position, transform.position + finalAvoidance, Color.yellow);
+		transform.forward = Vector3.Lerp(transform.forward, (toTargetIgnoringHeightDir + finalAvoidance).normalized, rotationSpeed * Time.deltaTime);
 		moveBehaviour.SetVelocity(transform.forward);
 		animator.SetFloat("Speed", 1);
+	}
+
+	private Vector3 GetObstacleAvoidanceDir()
+	{
+		Collider[] nearObjects = Physics.OverlapSphere(transform.position, obstacleRadiusDetection);
+		List<Collider> obstaclesFiltered = new List<Collider>();
+		for (int i = 0; i < nearObjects.Length; i++)
+		{
+			if (nearObjects[i].gameObject.layer == 12)
+			{
+				obstaclesFiltered.Add(nearObjects[i]);
+				Debug.Log(nearObjects[i]);
+			}
+		}
+		Vector3 finalDir = new Vector3();
+		foreach (var item in obstaclesFiltered)
+		{
+			finalDir += (transform.position - item.ClosestPoint(transform.position));
+		}
+		return finalDir.normalized;
 	}
 
 	private bool IsInSightView(Vector3 targetDir)
@@ -81,5 +107,11 @@ public class ChaseEnemyState : MonoBehaviour, IState
 	{
 		moveBehaviour.SetVelocity(Vector3.zero);
 		animator.SetFloat("Speed", 0);
+	}
+
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(transform.position, transform.position + transform.forward * obstacleRadiusDetection);
 	}
 }
