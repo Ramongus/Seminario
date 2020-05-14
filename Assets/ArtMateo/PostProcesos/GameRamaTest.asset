@@ -135,7 +135,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   preset:
-    overrideState: 0
+    overrideState: 1
     value: 2
   maximumIterationCount:
     overrideState: 0
@@ -147,14 +147,14 @@ MonoBehaviour:
     overrideState: 0
     value: 8
   maximumMarchDistance:
-    overrideState: 0
-    value: 100
+    overrideState: 1
+    value: 100.24
   distanceFade:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0
   vignette:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     value: 3.1
   aperture:
     overrideState: 1
-    value: 6.45
+    value: 6.54
   focalLength:
     overrideState: 0
     value: 50
@@ -261,7 +261,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: -60
   intensityX:
     overrideState: 1
     value: 1
