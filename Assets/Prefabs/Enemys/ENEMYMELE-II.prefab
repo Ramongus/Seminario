@@ -11415,7 +11415,7 @@ MonoBehaviour:
   sightViewAngle: 100
   layerRay:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 14336
   avoidanceAmount: 1
   obstacleRadiusDetection: 1
 --- !u!114 &4452770757803362327
@@ -11451,7 +11451,7 @@ MonoBehaviour:
   raycastInitialPoint: {fileID: 4991014226655704793}
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 14336
 --- !u!114 &4452770757803362408
 MonoBehaviour:
   m_ObjectHideFlags: 0
