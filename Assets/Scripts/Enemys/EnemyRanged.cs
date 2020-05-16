@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRanged : EnemyWrapper
+public abstract class EnemyRanged : EnemyWrapper
 {
 	[Header("Enemy Ranged Properties")]
-	[SerializeField] float attackRange;
-	[SerializeField] GameObject objective;
-	[SerializeField] float attackCooldown;
+	[SerializeField] protected float attackRange;
+	[SerializeField] protected GameObject objective;
+	[SerializeField] protected float attackCooldown;
+	[SerializeField] protected EnemyRangedAttack attackPrefab;
 
-	public bool IsOnObjectiveOnRange()
+	public abstract void RePosition();
+
+	public virtual bool IsObjectiveOnRange()
 	{
 		return Vector3.Distance(this.transform.position, objective.transform.position) <= attackRange;
 	}
 
-	public virtual void RePosition()
+	public virtual void Attack()
 	{
-
+		EnemyRangedAttack attack = Instantiate(attackPrefab);
+		attack.PositionAttack(this.gameObject, objective);
 	}
 }
+

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyWrapper : MonoBehaviour
+public abstract class EnemyWrapper : MonoBehaviour
 {
 	[Header("Spawn Properties")]
 	[SerializeField] protected float spawnTime;
@@ -18,11 +18,6 @@ public class EnemyWrapper : MonoBehaviour
 	protected float timer;
 	protected Material spawnMaterialInstance;
 	protected bool isSpawning;
-
-	private void Awake()
-	{
-		Spawn();
-	}
 
 	public virtual void Spawn()
 	{
@@ -70,5 +65,10 @@ public class EnemyWrapper : MonoBehaviour
 	protected void SetMaterial(Material currentMaterial)
 	{
 		render.GetComponent<Renderer>().material = currentMaterial;
+	}
+
+	public bool IsSpawning()
+	{
+		return isSpawning;
 	}
 }

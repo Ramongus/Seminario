@@ -33,5 +33,6 @@ public class RangedAttackMetheorite : EnemyRangedAttack
 		Player player = collision.gameObject.GetComponent<Player>();
 		if (player == null) return;
 		player.SetHealth(player.GetHealth() - damage);
+		Destroy(this.gameObject);
 	}
 }
