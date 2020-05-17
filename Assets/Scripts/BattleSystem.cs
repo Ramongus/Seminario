@@ -70,6 +70,7 @@ public class BattleSystem : MonoBehaviour
 	private class Wave
 	{
 		[SerializeField] EnemySpawn[] enemysToSpawn;
+		[SerializeField] EnemyWrapper[] enemys;
 		[SerializeField] float timer;
 
 		public void Update()
@@ -89,6 +90,10 @@ public class BattleSystem : MonoBehaviour
 			for (int i = 0; i < enemysToSpawn.Length; i++)
 			{
 				enemysToSpawn[i].SpawnEnemy();
+			}
+			for (int i = 0; i < enemys.Length; i++)
+			{
+				enemys[i].gameObject.SetActive(true);
 			}
 		}
 

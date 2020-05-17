@@ -8,28 +8,18 @@ public class StateMachineClassic {
     State _currentState;
     List<State> _states = new List<State>();
 
-    /// <summary>
-    /// Llama al execute del estado actual.
-    /// </summary>
 	public void Update()
     {
         if (_currentState != null)
             _currentState.Execute();
     }
 
-    /// <summary>
-    /// Llama al LateExecute del estado actual.
-    /// </summary>
     public void LateUpdate()
     {
         if (_currentState != null)
             _currentState.LateExecute();
     }
 
-    /// <summary>
-    /// Agrega un estado.
-    /// </summary>
-    /// <param name="s">El estado a agregar.</param>
     public void AddState(State s)
     {
         _states.Add(s);
@@ -37,9 +27,6 @@ public class StateMachineClassic {
             _currentState = s;
     }
 
-    /// <summary>
-    /// Cambia de estado.
-    /// </summary>
     public void SetState<T>() where T : State
     {
         for (int i = 0; i < _states.Count; i++)
@@ -58,11 +45,6 @@ public class StateMachineClassic {
         return _currentState.GetType() == typeof(T);
     }
 
-    /// <summary>
-    /// Busca el índice de un estado por su tipo.
-    /// </summary>
-    /// <param name="t">Tipo de estado.</param>
-    /// <returns>Devuelve el índice.</returns>
     private int SearchState(Type t)
     {
         int ammountOfStates = _states.Count;

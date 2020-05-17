@@ -6,21 +6,25 @@ public abstract class EnemyRanged : EnemyWrapper
 {
 	[Header("Enemy Ranged Properties")]
 	[SerializeField] protected float attackRange;
-	[SerializeField] protected GameObject objective;
+	[SerializeField] public GameObject objective;
 	[SerializeField] protected float attackCooldown;
 	[SerializeField] protected EnemyRangedAttack attackPrefab;
+	[SerializeField] public Animator animator;
+	[SerializeField] public float rotationSpeed;
+	[SerializeField] protected float speed;
+	[SerializeField] protected float angleOfSight;
 
 	public abstract void RePosition();
-
-	public virtual bool IsObjectiveOnRange()
-	{
-		return Vector3.Distance(this.transform.position, objective.transform.position) <= attackRange;
-	}
+	public abstract bool CheckAttackConditions();
 
 	public virtual void Attack()
 	{
 		EnemyRangedAttack attack = Instantiate(attackPrefab);
 		attack.PositionAttack(this.gameObject, objective);
 	}
-}
 
+	public void SetVelocity(Vector3 velocity)
+	{
+		GetComponent<Rigidbody>().velocity = velocity * speed;
+	}
+}
