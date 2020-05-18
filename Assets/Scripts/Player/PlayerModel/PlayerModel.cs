@@ -51,8 +51,13 @@ public class PlayerModel : ICastAbilities
 	ColorParameter vignetteInitialColor;
 	FloatParameter vignetteInitialIntensity;
 
+	bool isCastingSpell;
+
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles)
 	{
+		EventsManager.SuscribeToEvent("StartCastingSpell", StartCastingSpell);
+		EventsManager.SuscribeToEvent("StopCastingSpell", StopCastingSpell);
+
 		_abilities = new List<AbstractAbilities>(playerAbilities);
 		new AbilitiesManager(_abilities, this);
 
@@ -94,6 +99,8 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing)
 		{
+			rotationUpdater.UpdateRotation();
+			if (isCastingSpell) return;
 			dashCooldownTimer -= Time.deltaTime;
 
 			playerCol.enabled = true;
@@ -104,7 +111,6 @@ public class PlayerModel : ICastAbilities
 			vignette.intensity.Override(0.2f);
 			vignette.color.Override(new Color(0,0,0,1));
 
-			rotationUpdater.UpdateRotation();
 		
 			//ACA HACEMOS QUE SI ESTA YENDO PARA ATRAS VAYA MAS LENTO
 			float proyectionAxisOnGoingBackDir = Vector3.Dot(axis, -_transform.forward);
@@ -140,7 +146,7 @@ public class PlayerModel : ICastAbilities
 
 	public void Dash(params object[] parameters)
 	{
-		if (!isDashing && dashCooldownTimer <= 0)
+		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell)
 		{
 			playerCol.enabled = false;
 			mesh.SetActive(false);//Deberia estar en el view
@@ -222,5 +228,21 @@ public class PlayerModel : ICastAbilities
 	public Vector3 GetPosition()
 	{
 		return _transform.position;
+	}
+
+	public void StartCastingSpell(params object[] parameters)
+	{
+		BaseMovement(Vector3.zero);
+		isCastingSpell = true;
+	}
+
+	public void StopCastingSpell(params object[] parameters)
+	{
+		isCastingSpell = false;
+	}
+
+	public bool IsCastingAbilitie()
+	{
+		return isCastingSpell;
 	}
 }

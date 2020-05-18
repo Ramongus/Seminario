@@ -11,7 +11,7 @@ public class PlayerController : IUpdate
 	{
 		_playerModel = model;
 		movementController = new PlayerMovementController();
-		abilitiesController = new PlayerAbilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer());
+		abilitiesController = new PlayerAbilitiesController(_playerModel.GetAimSensitivity(), _playerModel.GetAimPointer(), model);
 		dashController = new PlayerDashController();
 		EventsManager.TriggerEvent("SuscribeToUpdateManager", this);
 	}
@@ -24,8 +24,8 @@ public class PlayerController : IUpdate
 	public void CheckInputs()
 	{
 		Vector3 axis = movementController.GetMovementAxis();
-		_playerModel.BaseMovement(axis);
 		abilitiesController.ManageAbilities();
+		_playerModel.BaseMovement(axis);
 		dashController.CheckDash();
 	}
 }
