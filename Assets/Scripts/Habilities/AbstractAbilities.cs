@@ -20,7 +20,7 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	virtual protected void Awake()
 	{
-		lifetime = 10;
+		lifetime = 60;
 		myPowers = new List<Powers.Power>();
 		powersInteractions = new Dictionary<Powers.Power, Action>();
 		StartCoroutine(AutoDestruction());
