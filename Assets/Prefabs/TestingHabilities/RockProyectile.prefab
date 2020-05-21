@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7687831069687889885}
   - component: {fileID: 3904224182535996190}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: ProjectileBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19201,7 +19201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: Rock
-  powerValue: 20
+  powerValue: 40
   isHealHabilitie: 0
   initialHeight: 2
   cooldown: 0
