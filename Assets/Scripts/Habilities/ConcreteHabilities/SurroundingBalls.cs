@@ -10,7 +10,7 @@ public class SurroundingBalls : AbstractAbilities
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
 	{
 		Player player = FindObjectOfType<Player>();
-		float circleAngle = 90f / ballsCount;
+		float circleAngle = 360 / ballPrefab.circleRotationSpeed / ballsCount;
 		for (int i = 0; i < ballsCount; i++)
 		{
 			BallSurrounding ball = Instantiate(ballPrefab);

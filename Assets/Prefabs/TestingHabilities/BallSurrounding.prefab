@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a85c86ee1d5fbca459f2bb33cd2cb35a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   cooldown: 1
   rangeDetection: 15
   distanceFromOwner: 3
-  rotationSpeed: 4
+  circleRotationSpeed: 2
   upDownMovementRadius: 0.5
   upDownSpeed: 8
   owner: {fileID: 0}
@@ -122,6 +122,8 @@ MonoBehaviour:
     m_Bits: 10240
   enemysLayerNumber: 13
   attackSpeed: 30
+  scaleOnAtack: {x: 1, y: 0.55, z: 1.5}
+  rotateSelfSpeed: 2
   t: 0
   t2: 0
 --- !u!54 &-4344783135381330066
