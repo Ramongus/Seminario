@@ -8,13 +8,16 @@ public class BallSurrounding : AbstractAbilities
 	[Header("Ball Ssurround Values")]
 	[SerializeField] float rangeDetection;
 	[SerializeField] float distanceFromOwner;
-	[SerializeField] float rotationSpeed;
+	[SerializeField] public float circleRotationSpeed;
 	[SerializeField] float upDownMovementRadius;
 	[SerializeField] float upDownSpeed;
 	[SerializeField] public Transform owner;
 	[SerializeField] LayerMask enemyAndPlayerLayerMask;
 	[SerializeField] int enemysLayerNumber;
 	[SerializeField] float attackSpeed;
+	[SerializeField] Vector3 scaleOnAtack;
+	[SerializeField] public float rotateSelfSpeed;
+	Vector3 rotateSelfDirection;
 	Transform target;
 	public float t;
 	public float t2;
@@ -36,6 +39,7 @@ public class BallSurrounding : AbstractAbilities
 	{
 		base.Awake();
 		currentState = SurroundingBallState.Idle;
+		rotateSelfDirection = new Vector3(UnityEngine.Random.Range(0, 9), UnityEngine.Random.Range(0, 9), UnityEngine.Random.Range(0, 9)).normalized;
 	}
 
 	protected override void Update()
@@ -61,9 +65,10 @@ public class BallSurrounding : AbstractAbilities
 	{
 		t += Time.deltaTime;
 		t2 += Time.deltaTime;
-		float circleSin = Mathf.Sin(t * rotationSpeed);
-		float circleCos = Mathf.Cos(t * rotationSpeed);
+		float circleSin = Mathf.Sin(t * circleRotationSpeed * Mathf.PI);
+		float circleCos = Mathf.Cos(t * circleRotationSpeed);
 		float upDownSin = Mathf.Sin(t2 * upDownSpeed);
+		transform.Rotate(rotateSelfDirection * rotateSelfSpeed);
 		transform.position = owner.position + new Vector3(circleSin, 0, circleCos) * distanceFromOwner + Vector3.up * initialHeight + Vector3.up * upDownSin * upDownMovementRadius;
 	}
 
@@ -98,6 +103,8 @@ public class BallSurrounding : AbstractAbilities
 		Rigidbody rigi = GetComponent<Rigidbody>();
 		Vector3 targetDir = (target.position - transform.position).normalized;
 		targetDir = new Vector3(targetDir.x, 0, targetDir.z).normalized;
+		transform.localScale = scaleOnAtack;
+		transform.forward = targetDir;
 		rigi.AddForce(targetDir * attackSpeed, ForceMode.Impulse);
 		currentState = SurroundingBallState.Attacking;
 		//transform.position += targetDir * attackSpeed * Time.deltaTime;
