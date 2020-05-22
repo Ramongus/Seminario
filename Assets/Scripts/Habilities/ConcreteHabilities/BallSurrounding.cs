@@ -6,7 +6,7 @@ using UnityEngine;
 public class BallSurrounding : AbstractAbilities
 {
 	[Header("Ball Ssurround Values")]
-	[SerializeField] GameObject attackParticles;
+	[SerializeField] ParticleSystem attackParticles;
 	[SerializeField] float rangeDetection;
 	[SerializeField] float distanceFromOwner;
 	[SerializeField] public float circleRotationSpeed;
@@ -113,6 +113,7 @@ public class BallSurrounding : AbstractAbilities
 
 	protected override void DestroySpell()
 	{
+		attackParticles.loop = false;
 		attackParticles.transform.parent = null;
 		base.DestroySpell();
 	}
