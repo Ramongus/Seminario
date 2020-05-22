@@ -142,7 +142,7 @@ MonoBehaviour:
   isHealHabilitie: 0
   initialHeight: 2
   cooldown: 1
-  attackParticles: {fileID: 8355415336864830264}
+  attackParticles: {fileID: 3083742021130749301}
   rangeDetection: 15
   distanceFromOwner: 3
   circleRotationSpeed: 2
@@ -217,7 +217,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
