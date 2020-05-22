@@ -65,7 +65,7 @@ public class BallSurrounding : AbstractAbilities
 	{
 		t += Time.deltaTime;
 		t2 += Time.deltaTime;
-		float circleSin = Mathf.Sin(t * circleRotationSpeed * Mathf.PI);
+		float circleSin = Mathf.Sin(t * circleRotationSpeed);
 		float circleCos = Mathf.Cos(t * circleRotationSpeed);
 		float upDownSin = Mathf.Sin(t2 * upDownSpeed);
 		transform.Rotate(rotateSelfDirection * rotateSelfSpeed);
