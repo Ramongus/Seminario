@@ -92,7 +92,7 @@ public abstract class AbstractAbilities : MonoBehaviour
 			if (isHealHabilitie)
 			{
 				player.SetHealth(player.GetHealth() + powerValue);
-				Destroy(this.gameObject);
+				DestroySpell();
 			}
 		}
 
@@ -107,7 +107,7 @@ public abstract class AbstractAbilities : MonoBehaviour
 					hasHealSystem.Sethealth(hasHealSystem.GetHealth() - powerValue);
 			}
 
-			Destroy(gameObject);
+			DestroySpell();
 		}
 	}
 
@@ -126,8 +126,13 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 			Debug.Log("SE DESTRUYE POR Collision INTERACTION");
 			Debug.Log(collision.gameObject);
-			Destroy(gameObject);
+			DestroySpell();
 		}
+	}
+
+	protected virtual void DestroySpell()
+	{
+		Destroy(gameObject);
 	}
 
 	public abstract void SetInitiation(Vector3 castPos, Vector3 playerPos);

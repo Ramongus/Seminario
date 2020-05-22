@@ -6,6 +6,7 @@ using UnityEngine;
 public class BallSurrounding : AbstractAbilities
 {
 	[Header("Ball Ssurround Values")]
+	[SerializeField] GameObject attackParticles;
 	[SerializeField] float rangeDetection;
 	[SerializeField] float distanceFromOwner;
 	[SerializeField] public float circleRotationSpeed;
@@ -108,6 +109,12 @@ public class BallSurrounding : AbstractAbilities
 		rigi.AddForce(targetDir * attackSpeed, ForceMode.Impulse);
 		currentState = SurroundingBallState.Attacking;
 		//transform.position += targetDir * attackSpeed * Time.deltaTime;
+	}
+
+	protected override void DestroySpell()
+	{
+		attackParticles.transform.parent = null;
+		base.DestroySpell();
 	}
 
 	public override void SetInitiation(Vector3 castPos, Vector3 playerPos)
