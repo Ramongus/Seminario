@@ -22,6 +22,7 @@ public class TripleRock : AbstractAbilities
 	{
 		Player player = FindObjectOfType<Player>();
 		EventsManager.TriggerEvent("StartCastingSpell");
+		EventsManager.TriggerEvent("CastTripleAttack");
 		for (int i = 0; i < rockQuantity; i++)
 		{
 			var rock = Instantiate(rockPrefab);

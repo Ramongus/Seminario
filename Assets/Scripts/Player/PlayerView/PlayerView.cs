@@ -23,6 +23,7 @@ public class PlayerView
 		_canvasAnimator = canvasAnimator;
 		//EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
 		EventsManager.SuscribeToEvent("AbilitieCasted", SetSpellCastAnimation);
+		EventsManager.SuscribeToEvent("CastTripleAttack", SetTripleRockAnimation);
 	}
 
 	public void UpdateMovementAnimation(Vector3 axis)
@@ -48,6 +49,11 @@ public class PlayerView
 	public void SetSpellCastAnimation(params object[] parameters)
 	{
 		_animator.SetTrigger("Attack");
+	}
+
+	public void SetTripleRockAnimation(params object[] parameters)
+	{
+		_animator.SetTrigger("TripleAttack");
 	}
 
 	public void DieAnimation()
@@ -83,4 +89,6 @@ public class PlayerView
 	{
 		Debug.LogWarning("Damaged animation its not already implemented");
 	}
+
+
 }

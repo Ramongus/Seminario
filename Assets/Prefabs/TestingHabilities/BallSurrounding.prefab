@@ -14416,7 +14416,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a85c86ee1d5fbca459f2bb33cd2cb35a, type: 2}
+  - {fileID: 2100000, guid: e1a1271afb239df4e9ff46258002b7f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14467,7 +14467,7 @@ MonoBehaviour:
   isHealHabilitie: 0
   initialHeight: 2
   cooldown: 1
-  attackParticles: {fileID: 7943240822881407806}
+  attackParticles: {fileID: 1732817500113718197}
   rangeDetection: 15
   distanceFromOwner: 3
   circleRotationSpeed: 2
