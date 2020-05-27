@@ -54,4 +54,10 @@ public class Player : MonoBehaviour, IDamageable
 
 		_controller = null;
 	}
+
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(transform.position, transform.forward * dashDistance + transform.position);
+	}
 }
