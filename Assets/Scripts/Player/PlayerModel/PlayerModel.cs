@@ -104,6 +104,7 @@ public class PlayerModel : ICastAbilities
 			dashCooldownTimer -= Time.deltaTime;
 
 			playerCol.enabled = true;
+			_rigi.isKinematic = false;
 			mesh.SetActive(true);//Deberia estar en el view
 			var emission = dashTrailParticles.emission; //Deberia estar en el view
 			emission.rateOverDistance = 0;
@@ -121,7 +122,8 @@ public class PlayerModel : ICastAbilities
 			//Movement by transform DEPRECATED
 			//_transform.position += axis * movementSpeed * Time.deltaTime;
 
-			_rigi.velocity = axis * movementSpeed;
+			Vector3 movementXZ = axis * movementSpeed;
+			_rigi.velocity = new Vector3(movementXZ.x, _rigi.velocity.y, movementXZ.z);
 
 			//_rigi.velocity += axis * movementSpeed;
 			//_rigi.velocity = Vector3.ClampMagnitude(_rigi.velocity, movementSpeed);
@@ -149,6 +151,7 @@ public class PlayerModel : ICastAbilities
 		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell)
 		{
 			playerCol.enabled = false;
+			_rigi.isKinematic = true;
 			mesh.SetActive(false);//Deberia estar en el view
 			var emission = dashTrailParticles.emission; //Deberia estar en el view
 			emission.rateOverDistance = initialDashParticleRateOverDistance;
