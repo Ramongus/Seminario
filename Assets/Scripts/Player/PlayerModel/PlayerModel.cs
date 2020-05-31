@@ -263,8 +263,16 @@ public class PlayerModel : ICastAbilities
 			playerCol.enabled = false;
 			_rigi.velocity = new Vector3(0, _rigi.velocity.y, 0);
 			_view.FallingAnimation();
+			EventsManager.TriggerEvent("RestartLevel");
 			return false;
 		}
 		return true;
+	}
+
+	public void SetInitialValues()
+	{
+		playerCol.enabled = true;
+		_rigi.velocity = Vector3.zero;
+		_view.SetIdleAnimation();
 	}
 }

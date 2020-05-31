@@ -73,6 +73,8 @@ public class Player : MonoBehaviour, IDamageable
 		_controller = null;
 	}
 
+	public void SetInitialValues() { _model.SetInitialValues(); }
+
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.blue;
