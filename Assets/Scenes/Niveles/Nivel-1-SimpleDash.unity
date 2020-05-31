@@ -227,7 +227,7 @@ MonoBehaviour:
     m_Bits: 12288
   mesh: {fileID: 580265737}
   dashTrailParticle: {fileID: 244755468}
-  floorCheckDistance: 0.32
+  floorCheckDistance: 1.25
   arenaLayer:
     serializedVersion: 2
     m_Bits: 1024

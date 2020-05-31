@@ -15,6 +15,7 @@ public class LevelRestarter : MonoBehaviour
 
 	private void RestartLevel(object[] parameters)
 	{
+		Debug.Log("Se llama");
 		StartCoroutine(CountDownToRestartLevel());
 	}
 

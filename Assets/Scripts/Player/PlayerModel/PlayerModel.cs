@@ -54,6 +54,7 @@ public class PlayerModel : ICastAbilities
 	FloatParameter vignetteInitialIntensity;
 
 	bool isCastingSpell;
+	bool isFalling;
 
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles, Player player)
 	{
@@ -263,7 +264,9 @@ public class PlayerModel : ICastAbilities
 			playerCol.enabled = false;
 			_rigi.velocity = new Vector3(0, _rigi.velocity.y, 0);
 			_view.FallingAnimation();
-			EventsManager.TriggerEvent("RestartLevel");
+			if(!isFalling)
+				EventsManager.TriggerEvent("RestartLevel");
+			isFalling = true;
 			return false;
 		}
 		return true;
@@ -271,6 +274,7 @@ public class PlayerModel : ICastAbilities
 
 	public void SetInitialValues()
 	{
+		isFalling = false;
 		playerCol.enabled = true;
 		_rigi.velocity = Vector3.zero;
 		_view.SetIdleAnimation();
