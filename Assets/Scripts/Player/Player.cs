@@ -19,6 +19,24 @@ public class Player : MonoBehaviour, IDamageable
 	[SerializeField] GameObject mesh;
 	[SerializeField] ParticleSystem dashTrailParticle;
 
+	[SerializeField] float floorCheckDistance;
+	public float FloorCheckDistance
+	{
+		get
+		{
+			return floorCheckDistance;
+		} 
+	}
+
+	[SerializeField] LayerMask arenaLayer;
+	public LayerMask ArenaLayer
+	{
+		get
+		{
+			return arenaLayer;
+		}
+	}
+
 	PlayerModel _model;
 	PlayerView _view;
 	PlayerController _controller;
@@ -26,7 +44,7 @@ public class Player : MonoBehaviour, IDamageable
 	private void Awake()
 	{
 		_view = new PlayerView(GetComponent<Animator>(), healthBar, canvasAnimator);
-		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, dashCooldown, rayMaskLayers, mesh, dashTrailParticle);
+		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, dashCooldown, rayMaskLayers, mesh, dashTrailParticle, this);
 		_controller = new PlayerController(_model);
 		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);
 	}
@@ -59,5 +77,8 @@ public class Player : MonoBehaviour, IDamageable
 	{
 		Gizmos.color = Color.blue;
 		Gizmos.DrawLine(transform.position, transform.forward * dashDistance + transform.position);
+
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(transform.position, -transform.up * FloorCheckDistance + transform.position);
 	}
 }

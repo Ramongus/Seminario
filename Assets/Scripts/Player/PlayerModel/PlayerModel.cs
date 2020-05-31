@@ -7,6 +7,8 @@ using UnityEngine.Rendering.PostProcessing;
 [Serializable]
 public class PlayerModel : ICastAbilities
 {
+	Player _player;
+
 	//Movement data
 	PlayerRotationUpdater rotationUpdater;
 	Transform _transform;
@@ -53,7 +55,7 @@ public class PlayerModel : ICastAbilities
 
 	bool isCastingSpell;
 
-	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles)
+	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles, Player player)
 	{
 		EventsManager.SuscribeToEvent("StartCastingSpell", StartCastingSpell);
 		EventsManager.SuscribeToEvent("StopCastingSpell", StopCastingSpell);
@@ -92,6 +94,8 @@ public class PlayerModel : ICastAbilities
 		Camera.main.gameObject.GetComponent<PostProcessVolume>().profile.TryGetSettings(out vignette);
 		vignetteInitialColor = vignette.color;
 		vignetteInitialIntensity = vignette.intensity;
+
+		_player = player;
 	}
 
 	//Model
@@ -99,15 +103,18 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing)
 		{
-			rotationUpdater.UpdateRotation();
-			if (isCastingSpell) return;
-			dashCooldownTimer -= Time.deltaTime;
-
 			playerCol.enabled = true;
 			_rigi.isKinematic = false;
 			mesh.SetActive(true);//Deberia estar en el view
 			var emission = dashTrailParticles.emission; //Deberia estar en el view
 			emission.rateOverDistance = 0;
+
+			if (!CheckFloor()) return;
+
+			rotationUpdater.UpdateRotation();
+			if (isCastingSpell) return;
+			dashCooldownTimer -= Time.deltaTime;
+
 
 			vignette.intensity.Override(0.2f);
 			vignette.color.Override(new Color(0,0,0,1));
@@ -148,7 +155,7 @@ public class PlayerModel : ICastAbilities
 
 	public void Dash(params object[] parameters)
 	{
-		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell)
+		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell && CheckFloor())
 		{
 			playerCol.enabled = false;
 			_rigi.isKinematic = true;
@@ -247,5 +254,17 @@ public class PlayerModel : ICastAbilities
 	public bool IsCastingAbilitie()
 	{
 		return isCastingSpell;
+	}
+
+	public bool CheckFloor()
+	{
+		if(!Physics.Raycast(_transform.position, -_transform.up, _player.FloorCheckDistance, _player.ArenaLayer, QueryTriggerInteraction.Ignore))
+		{
+			playerCol.enabled = false;
+			_rigi.velocity = new Vector3(0, _rigi.velocity.y, 0);
+			_view.FallingAnimation();
+			return false;
+		}
+		return true;
 	}
 }
