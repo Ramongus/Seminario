@@ -47,6 +47,7 @@ public class Player : MonoBehaviour, IDamageable
 		_model = new PlayerModel(transform, movementSpeed, aimPointer, aimSensitivity, _view, maxHP, myHabilities, dashDuration, dashDistance, dashCooldown, rayMaskLayers, mesh, dashTrailParticle, this);
 		_controller = new PlayerController(_model);
 		EventsManager.SuscribeToEvent("OnPlayerDie", TurnOffComponents);
+		EventsManager.SuscribeToEvent("PlayerResurrect", TurnOnComponents);
 	}
 
 	public float GetHealth()
@@ -70,7 +71,21 @@ public class Player : MonoBehaviour, IDamageable
 		Rigidbody rigi = GetComponent<Rigidbody>();
 		rigi.isKinematic = true;
 
-		_controller = null;
+		//_controller = null;
+	}
+
+	public void TurnOnComponents(params object[] parameters)
+	{
+		Collider[] colliders = GetComponents<Collider>();
+		foreach (Collider collider in colliders)
+		{
+			collider.enabled = true;
+		}
+
+		Rigidbody rigi = GetComponent<Rigidbody>();
+		rigi.isKinematic = false;
+
+		//_controller = new PlayerController(_model);
 	}
 
 	public void SetInitialValues() { _model.SetInitialValues(); }

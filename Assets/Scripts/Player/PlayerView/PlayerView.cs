@@ -24,6 +24,7 @@ public class PlayerView
 		//EventsManager.SuscribeToEvent("FireHabilitie", SetSpellCastAnimation);
 		EventsManager.SuscribeToEvent("AbilitieCasted", SetSpellCastAnimation);
 		EventsManager.SuscribeToEvent("CastTripleAttack", SetTripleRockAnimation);
+		EventsManager.SuscribeToEvent("PlayerResurrect", SetIdleAnimation);
 	}
 
 	public void UpdateMovementAnimation(Vector3 axis)
@@ -38,6 +39,7 @@ public class PlayerView
 
 	public void UpdateHealthBar(float fillAmount)
 	{
+		if (_healthBar == null) return;
 		_healthBar.fillAmount = fillAmount;
 	}
 
@@ -66,9 +68,10 @@ public class PlayerView
 		//_animator.SetTrigger("Falling");
 	}
 
-	public void SetIdleAnimation()
+	public void SetIdleAnimation(params object[] parameters)
 	{
 		_animator.SetFloat("Speed", 0);
+		_animator.SetTrigger("Idle");
 	}
 
 	private void SetMovingAnimation(Vector3 axis)

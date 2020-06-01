@@ -10,6 +10,7 @@ public class LevelRestarter : MonoBehaviour
 
 	private void Awake()
 	{
+		EventsManager.SuscribeToEvent("OnPlayerDie", RestartLevel);
 		EventsManager.SuscribeToEvent("RestartLevel", RestartLevel);
 		EventsManager.SuscribeToEvent("StopAllCoroutines", StopCoroutines);
 	}
@@ -37,5 +38,6 @@ public class LevelRestarter : MonoBehaviour
 		player.transform.position = playerSpawnPositionAndRotation.position;
 		player.transform.rotation = playerSpawnPositionAndRotation.rotation;
 		player.SetInitialValues();
+		EventsManager.TriggerEvent("PlayerResurrect");
 	}
 }
