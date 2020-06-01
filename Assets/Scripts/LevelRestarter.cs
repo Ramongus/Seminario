@@ -11,6 +11,12 @@ public class LevelRestarter : MonoBehaviour
 	private void Awake()
 	{
 		EventsManager.SuscribeToEvent("RestartLevel", RestartLevel);
+		EventsManager.SuscribeToEvent("StopAllCoroutines", StopCoroutines);
+	}
+
+	private void StopCoroutines(object[] parameters)
+	{
+		StopAllCoroutines();
 	}
 
 	private void RestartLevel(object[] parameters)
