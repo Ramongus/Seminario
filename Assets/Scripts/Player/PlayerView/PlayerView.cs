@@ -61,16 +61,21 @@ public class PlayerView
 		_animator.SetTrigger("Die");
 	}
 
+	public void FallingAnimation()
+	{
+		//_animator.SetTrigger("Falling");
+	}
+
+	public void SetIdleAnimation()
+	{
+		_animator.SetFloat("Speed", 0);
+	}
+
 	private void SetMovingAnimation(Vector3 axis)
 	{
 		_animator.SetFloat("Speed", 1);
 		_animator.SetFloat("zAxis", axis.z);
 		_animator.SetFloat("xAxis", axis.x);
-	}
-
-	private void SetIdleAnimation()
-	{
-		_animator.SetFloat("Speed", 0);
 	}
 
 	private bool IsChangingPosition(Vector3 axis)
