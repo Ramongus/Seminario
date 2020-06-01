@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/RamaScenes/RamaTest-FirstEnemy - copia.unity
     guid: ee436b2be32878f48977dcf060e1e2ad
   - enabled: 1
-    path: Assets/Scenes/Niveles/Nivel-1-SimpleDash.unity
+    path: Assets/Scenes/Niveles/Nivel 1-SimpleDash.unity
     guid: 292794b7f9aeab24fa96cdd1ba79c9a7
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 2.unity
