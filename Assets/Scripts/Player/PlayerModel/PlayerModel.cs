@@ -55,6 +55,7 @@ public class PlayerModel : ICastAbilities
 
 	bool isCastingSpell;
 	bool isFalling;
+	bool isDead;
 
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles, Player player)
 	{
@@ -102,10 +103,9 @@ public class PlayerModel : ICastAbilities
 	//Model
 	public void BaseMovement(Vector3 axis)
 	{
+		if (isDead) return;
 		if (!isDashing)
 		{
-			playerCol.enabled = true;
-			_rigi.isKinematic = false;
 			mesh.SetActive(true);//Deberia estar en el view
 			var emission = dashTrailParticles.emission; //Deberia estar en el view
 			emission.rateOverDistance = 0;
@@ -149,6 +149,8 @@ public class PlayerModel : ICastAbilities
 			{
 				dashCooldownTimer = dashCooldown;
 				isDashing = false;
+				playerCol.enabled = true;
+				_rigi.isKinematic = false;
 			}
 
 		}
@@ -156,7 +158,7 @@ public class PlayerModel : ICastAbilities
 
 	public void Dash(params object[] parameters)
 	{
-		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell && CheckFloor())
+		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell && CheckFloor() && !isDead)
 		{
 			playerCol.enabled = false;
 			_rigi.isKinematic = true;
@@ -227,9 +229,10 @@ public class PlayerModel : ICastAbilities
 			_currentHp = _maxHP;
 		else if (health <= 0)
 		{
+			SetDieValues();
+			if (_currentHp > 0)
+				EventsManager.TriggerEvent("RestartLevel");
 			_currentHp = 0;
-			_view.DieAnimation();
-			EventsManager.TriggerEvent("OnPlayerDie");
 		}
 		else
 			_currentHp = health;
@@ -261,9 +264,7 @@ public class PlayerModel : ICastAbilities
 	{
 		if(!Physics.Raycast(_transform.position, -_transform.up, _player.FloorCheckDistance, _player.ArenaLayer, QueryTriggerInteraction.Ignore))
 		{
-			playerCol.enabled = false;
-			_rigi.velocity = new Vector3(0, _rigi.velocity.y, 0);
-			_view.FallingAnimation();
+			SetFallingValues();
 			if(!isFalling)
 				EventsManager.TriggerEvent("RestartLevel");
 			isFalling = true;
@@ -274,9 +275,27 @@ public class PlayerModel : ICastAbilities
 
 	public void SetInitialValues()
 	{
+		isDead = false;
 		isFalling = false;
 		playerCol.enabled = true;
+		SetHealth(_maxHP);
+		_view.SetIdleAnimation();
 		_rigi.velocity = Vector3.zero;
 		_view.SetIdleAnimation();
+	}
+
+	public void SetDieValues()
+	{
+		isDead = true;
+		playerCol.enabled = false;
+		_rigi.isKinematic = true;
+		_view.DieAnimation();
+	}
+
+	public void SetFallingValues()
+	{
+		_rigi.velocity = new Vector3(0, _rigi.velocity.y, 0);
+		playerCol.enabled = false;
+		_view.FallingAnimation();
 	}
 }

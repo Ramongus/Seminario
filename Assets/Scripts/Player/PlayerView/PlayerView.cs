@@ -31,7 +31,7 @@ public class PlayerView
 	{
 		if (!IsChangingPosition(axis))
 		{
-			SetIdleAnimation();
+			SetMovingAnimation(Vector3.zero);
 			return;
 		}
 		SetMovingAnimation(axis);
@@ -70,13 +70,15 @@ public class PlayerView
 
 	public void SetIdleAnimation(params object[] parameters)
 	{
-		_animator.SetFloat("Speed", 0);
 		_animator.SetTrigger("Idle");
 	}
 
 	private void SetMovingAnimation(Vector3 axis)
 	{
-		_animator.SetFloat("Speed", 1);
+		if(IsChangingPosition(axis))
+			_animator.SetFloat("Speed", 1);
+		else
+			_animator.SetFloat("Speed", 0);
 		_animator.SetFloat("zAxis", axis.z);
 		_animator.SetFloat("xAxis", axis.x);
 	}
