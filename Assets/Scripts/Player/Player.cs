@@ -88,7 +88,9 @@ public class Player : MonoBehaviour, IDamageable
 		//_controller = new PlayerController(_model);
 	}
 
-	public void SetInitialValues() { _model.SetInitialValues(); }
+	public void SetInitialValues() {
+		_model.SetInitialValues();
+	}
 
 	private void OnDrawGizmosSelected()
 	{

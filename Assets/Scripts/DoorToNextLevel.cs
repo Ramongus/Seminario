@@ -11,6 +11,7 @@ public class DoorToNextLevel : MonoBehaviour
 		if(player != null)
 		{
 			EventsManager.TriggerEvent("StopAllCoroutines");
+			EventsManager.DeleteAllSuscribedEvents();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}

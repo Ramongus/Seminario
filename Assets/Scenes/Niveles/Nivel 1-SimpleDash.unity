@@ -549,7 +549,7 @@ Transform:
   m_LocalScale: {x: 4.8189054, y: 2.9527, z: 0.11981}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!1 &1140441172
 GameObject:
@@ -582,8 +582,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 191049044}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1211677373}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -660,7 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211677373}
   m_Layer: 0
-  m_Name: ScriptsNeeded
+  m_Name: ObjectsNeedForPlaying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,6 +680,8 @@ Transform:
   - {fileID: 2069843064}
   - {fileID: 1999928715}
   - {fileID: 1833053509}
+  - {fileID: 1951148941}
+  - {fileID: 1140441173}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -806,7 +808,7 @@ Transform:
   - {fileID: 1353273051}
   - {fileID: 1731804200}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!1 &1353273050
 GameObject:
@@ -1028,7 +1030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 45.392002, y: 0, z: 0}
 --- !u!1 &1731804199
 GameObject:
@@ -1194,8 +1196,8 @@ Transform:
   m_LocalPosition: {x: -0.85, y: 0.185, z: -1.6}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1211677373}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 43.375004, z: 0}
 --- !u!1 &1999928714
 GameObject:
@@ -1396,7 +1398,7 @@ PrefabInstance:
     - target: {fileID: 6275784017966347491, guid: ebe508861d6041541a6f9f0267beb4a3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6275784017966347491, guid: ebe508861d6041541a6f9f0267beb4a3,
         type: 3}

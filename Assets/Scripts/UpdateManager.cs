@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,9 +19,11 @@ public class UpdateManager : MonoBehaviour
 		EventsManager.SuscribeToEvent("SuscribeToUpdateManager", AddToUpdateCicle);
 		EventsManager.SuscribeToEvent("UnsuscribeToUpdateManager", RemoveFromUpdateCicle);
 		EventsManager.SuscribeToEvent("OnPlayerDie", NoMoreUpdate);
+		EventsManager.SuscribeToEvent("PlayerResurrect", UpdateAgain);
 	}
 
-    void Update()
+
+	void Update()
     {
 		if (update)
 		{	
@@ -30,6 +33,11 @@ public class UpdateManager : MonoBehaviour
 			}
 		}
     }
+
+	private void UpdateAgain(object[] parameters)
+	{
+		update = true;
+	}
 
 	public void NoMoreUpdate(params object[] parameters)
 	{
