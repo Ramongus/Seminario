@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 06a4e50a283cffe4eb936eb510c21789, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2deea59ad957e844fa735885f08f2d59, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 88922a8d97989bf4a8619782bc73ab91, type: 3}
+        m_Texture: {fileID: 2800000, guid: b5c6c5d6e8f00b343886f6c97dff49d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ToonRamp:
