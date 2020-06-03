@@ -4,6 +4,7 @@ public class PlayerAbilitieSelectorController
 {
 	public void UpdateChangeHabilitie()
 	{
+		/*
 		if (Input.GetButtonDown("NextHabilitie"))
 		{
 			EventsManager.TriggerEvent("NextHabilitie");
@@ -13,5 +14,6 @@ public class PlayerAbilitieSelectorController
 		{
 			EventsManager.TriggerEvent("PreviousHabilitie");
 		}
+		*/
 	}
 }
