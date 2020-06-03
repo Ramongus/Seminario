@@ -94,7 +94,7 @@ public class LaserEnemy_R : MonoBehaviour
 			sm.SetState<LaserEnemy_R_CastLaserState>();
 	}
 
-	private void OnDrawGizmosSelected()
+	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.blue;
 		Gizmos.color = new Color(Gizmos.color.r, Gizmos.color.g, Gizmos.color.b, 0.3f);
