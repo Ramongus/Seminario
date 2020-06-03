@@ -16,7 +16,14 @@ public class AbilitiesManager
 		habilitieIndex = 2;
 		EventsManager.SuscribeToEvent("NextHabilitie", ChangeToNextHabilitie);
 		EventsManager.SuscribeToEvent("PreviousHabilitie", ChangeToPreviousHabilitie);
+		EventsManager.SuscribeToEvent("SelectAbilitie", ChangeToAbilitie);
 		EventsManager.SuscribeToEvent("FireHabilitie", CastHabilitie);
+	}
+
+	private void ChangeToAbilitie(object[] parameters)
+	{
+		var index = (int)parameters[0];
+		habilitieIndex = index;
 	}
 
 	public void CastHabilitie(params object[] parameters)
