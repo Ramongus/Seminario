@@ -28,7 +28,7 @@ public class GhostEnemy_R_ChaseState : State
 		GetObstacle(dir);
 		if(obstacle != null)
 		{
-			Vector3 opDirOfObstacle = (owner.transform.position - obstacle.position).normalized;
+			Vector3 opDirOfObstacle = (owner.transform.position - obstacle.GetComponent<Collider>().ClosestPoint(owner.transform.position)).normalized;
 			dir += new Vector3(opDirOfObstacle.x, 0, opDirOfObstacle.z).normalized;
 		}
 		owner.transform.forward = Vector3.Lerp(owner.transform.forward, dir, owner.rotationSpeed * Time.deltaTime);
@@ -37,30 +37,22 @@ public class GhostEnemy_R_ChaseState : State
 
 	private void GetObstacle(Vector3 dir)
 	{
-		RaycastHit hit;
 		Collider[] obstaclesNear;
-		if (Physics.Raycast(owner.raySpawnPoint.position, dir, out hit, 100, owner.obstaclesLayer))
+		obstaclesNear = Physics.OverlapSphere(owner.transform.position, owner.radiusForNearObstacles, owner.obstaclesLayer);
+		if (obstaclesNear.Length > 0)
 		{
-			obstacle = hit.transform;
-			return;
-		}
-		else
-		{
-			obstaclesNear = Physics.OverlapSphere(owner.transform.position, owner.radiusForNearObstacles, owner.obstaclesLayer);
-			if (obstaclesNear.Length > 0)
+			Debug.Log("Hay un obstaculo cerca");
+			float distanceToNearest = Mathf.Infinity;
+			foreach (var item in obstaclesNear)
 			{
-				float distanceToNearest = Mathf.Infinity;
-				foreach (var item in obstaclesNear)
+				float distance = Vector3.Distance(item.transform.position, owner.transform.position);
+				if (distance < distanceToNearest)
 				{
-					float distance = Vector3.Distance(item.transform.position, owner.transform.position);
-					if(distance < distanceToNearest)
-					{
-						distanceToNearest = distance;
-						obstacle = item.transform;
-					}
+					distanceToNearest = distance;
+					obstacle = item.transform;
 				}
-				return;
 			}
+			return;
 		}
 		obstacle = null;
 		return;

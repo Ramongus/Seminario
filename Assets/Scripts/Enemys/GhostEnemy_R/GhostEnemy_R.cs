@@ -12,6 +12,7 @@ public class GhostEnemy_R : MonoBehaviour
 	public LayerMask obstaclesLayer;
 	public Transform raySpawnPoint;
 	public float radiusForNearObstacles;
+	public float attackRange;
 
 	Vector3 initialPosition;
 	Quaternion initialRotation;
@@ -39,6 +40,8 @@ public class GhostEnemy_R : MonoBehaviour
 	{
 		sm.Update();
 	}
+
+
 
 	private void OnDrawGizmos()
 	{
