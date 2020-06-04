@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserEnemy_R : BaseEnemy_R_Damagable
+public class LaserEnemy_R : MonoBehaviour
 {
 	StateMachineClassic sm;
 	Animator anim;
@@ -18,9 +18,8 @@ public class LaserEnemy_R : BaseEnemy_R_Damagable
 	public Transform raySpawnPoint;
 	public float range;
 
-	protected override void Awake()
+	private void Awake()
 	{
-		base.Awake();
 		sm = new StateMachineClassic();
 		sm.AddState(new LaserEnemy_R_CastLaserState(sm, this));
 		sm.AddState(new LaserEnemy_R_IdleState(sm, this));

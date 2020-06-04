@@ -94,11 +94,6 @@ public abstract class AbstractAbilities : MonoBehaviour
 				player.SetHealth(player.GetHealth() + powerValue);
 				DestroySpell();
 			}
-			else
-			{
-				player.SetHealth(player.GetHealth() - powerValue);
-				DestroySpell();
-			}
 		}
 
 		if(other.gameObject.layer == 12 || other.gameObject.layer == 13)
@@ -118,21 +113,6 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	protected virtual void OnCollisionEnter(Collision collision)
 	{
-		IDamageable player = collision.gameObject.GetComponent<IDamageable>();
-		if (player != null)
-		{
-			if (isHealHabilitie)
-			{
-				player.SetHealth(player.GetHealth() + powerValue);
-				DestroySpell();
-			}
-			else
-			{
-				player.SetHealth(player.GetHealth() - powerValue);
-				DestroySpell();
-			}
-		}
-
 		if (collision.gameObject.layer == 12 || collision.gameObject.layer == 13)
 		{
 			HealthSystem hasHealSystem = collision.gameObject.GetComponent<HealthSystem>();
