@@ -57,6 +57,9 @@ public class PlayerModel : ICastAbilities
 	bool isFalling;
 	bool isDead;
 
+	float fallingTimer;
+	float fallingMaxTime;
+
 	public PlayerModel(Transform playerT, float movSpeed, Transform aimPointer, float aimSensitivity, PlayerView view, float maxHp, List<AbstractAbilities> playerAbilities, float dashDuration, float dashDistance, float dashCooldown, LayerMask dashRayMask, GameObject mesh, ParticleSystem dashTrailParticles, Player player)
 	{
 		EventsManager.SuscribeToEvent("StartCastingSpell", StartCastingSpell);
@@ -98,6 +101,7 @@ public class PlayerModel : ICastAbilities
 		vignetteInitialIntensity = vignette.intensity;
 
 		_player = player;
+		fallingMaxTime = _player.MaxFallingTime;
 	}
 
 	//Model
@@ -264,12 +268,18 @@ public class PlayerModel : ICastAbilities
 	{
 		if(!Physics.Raycast(_transform.position, -_transform.up, _player.FloorCheckDistance, _player.ArenaLayer, QueryTriggerInteraction.Ignore))
 		{
-			SetFallingValues();
-			if(!isFalling)
-				EventsManager.TriggerEvent("RestartLevel");
-			isFalling = true;
-			return false;
+			fallingTimer -= Time.deltaTime;
+			if(fallingTimer <= 0)
+			{
+				SetFallingValues();
+				if(!isFalling)
+					EventsManager.TriggerEvent("RestartLevel");
+				isFalling = true;
+				return false;
+			}
+			return true;
 		}
+		fallingTimer = fallingMaxTime;
 		return true;
 	}
 
