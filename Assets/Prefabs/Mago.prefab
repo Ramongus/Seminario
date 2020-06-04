@@ -29528,7 +29528,6 @@ GameObject:
   - component: {fileID: 6275784017966347488}
   - component: {fileID: 6275784017966347489}
   - component: {fileID: 6275784017966347495}
-  - component: {fileID: 6275784017966347492}
   - component: {fileID: 6275784017966347490}
   m_Layer: 11
   m_Name: Mago
@@ -29627,25 +29626,7 @@ MonoBehaviour:
   arenaLayer:
     serializedVersion: 2
     m_Bits: 1024
---- !u!114 &6275784017966347492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6275784017966347493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2855a069f55194dad0c2ad61e5f50d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handsParticle:
-  - {fileID: 6275784017261967398}
-  - {fileID: 6275784017749582965}
-  - {fileID: 6275784018391133147}
-  - {fileID: 6275784017410686323}
-  - {fileID: 6275784017046569720}
-  startIndex: 2
+  maxFallingTime: 0.15
 --- !u!65 &6275784017966347490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29657,8 +29638,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12488377, y: 0.12783337, z: 0.4162923}
-  m_Center: {x: 0.035492603, y: 0.007046859, z: -0.005876224}
+  m_Size: {x: 0.12488377, y: 1.0391085, z: 0.4162923}
+  m_Center: {x: 0.0354926, y: 0.4626844, z: -0.005876224}
 --- !u!1 &6275784017983052682
 GameObject:
   m_ObjectHideFlags: 0
