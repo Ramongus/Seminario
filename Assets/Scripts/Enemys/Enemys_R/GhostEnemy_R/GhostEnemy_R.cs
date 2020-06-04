@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostEnemy_R : MonoBehaviour
+public class GhostEnemy_R : BaseEnemy_R_Damagable
 {
 	public Player target;
 	public float speed;
@@ -18,8 +18,9 @@ public class GhostEnemy_R : MonoBehaviour
 	Quaternion initialRotation;
 	StateMachineClassic sm;
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		initialPosition = transform.position;
 		initialRotation = transform.rotation;
 		rigi = GetComponent<Rigidbody>();
@@ -40,8 +41,6 @@ public class GhostEnemy_R : MonoBehaviour
 	{
 		sm.Update();
 	}
-
-
 
 	private void OnDrawGizmos()
 	{
