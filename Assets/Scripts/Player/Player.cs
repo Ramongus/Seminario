@@ -37,6 +37,9 @@ public class Player : MonoBehaviour, IDamageable
 		}
 	}
 
+	[SerializeField] float maxFallingTime;
+	public float MaxFallingTime { get { return maxFallingTime; } }
+
 	PlayerModel _model;
 	PlayerView _view;
 	PlayerController _controller;

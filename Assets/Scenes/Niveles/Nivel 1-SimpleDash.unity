@@ -1503,5 +1503,10 @@ PrefabInstance:
       propertyPath: aimPointer
       value: 
       objectReference: {fileID: 2069843064}
+    - target: {fileID: 6275784017966347495, guid: ebe508861d6041541a6f9f0267beb4a3,
+        type: 3}
+      propertyPath: maxFallingTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebe508861d6041541a6f9f0267beb4a3, type: 3}
