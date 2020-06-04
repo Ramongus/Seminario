@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83cf2a69dd5c2a24c942a66a0f580a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 20
   target: {fileID: 0}
   speed: 8
   rotationSpeed: 3.99
@@ -116,6 +117,7 @@ MonoBehaviour:
     m_Bits: 4096
   raySpawnPoint: {fileID: 5148598375245930482}
   radiusForNearObstacles: 3
+  attackRange: 0
 --- !u!54 &5148598375137957616
 Rigidbody:
   m_ObjectHideFlags: 0

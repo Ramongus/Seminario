@@ -19202,7 +19202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: Rock
-  powerValue: 40
+  powerValue: 10
   isHealHabilitie: 0
   initialHeight: 2
   cooldown: 0
