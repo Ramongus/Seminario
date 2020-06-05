@@ -88,6 +88,7 @@ public class LaserEnemy_R : BaseEnemy_R_Damagable
 
 	protected override void Die()
 	{
+		GetComponent<Collider>().enabled = false;
 		Explode();
 	}
 
