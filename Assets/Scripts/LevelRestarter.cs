@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelRestarter : MonoBehaviour
 {
@@ -28,8 +29,11 @@ public class LevelRestarter : MonoBehaviour
 
 	IEnumerator CountDownToRestartLevel()
 	{
+
 		yield return new WaitForSeconds(timeToRestartAfterFalling);
-		RePositionPlayer();
+		EventsManager.DeleteAllSuscribedEvents();
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+		//RePositionPlayer();
 	}
 
 	private void RePositionPlayer()

@@ -13,8 +13,23 @@ EditorBuildSettings:
     guid: 7d9f573922c4b064e92eda901423fff8
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 3.unity
-    guid: 6c26385c4d819b64f8098df178176743
+    guid: cc4269cb3fb6441459290f34d00926e2
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 4.unity
-    guid: cc4269cb3fb6441459290f34d00926e2
+    guid: 6c26385c4d819b64f8098df178176743
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 5.unity
+    guid: ca0ce5edec9e3f844b1d1823b0c812c7
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 6.unity
+    guid: dfe9b34b9e0eb4c42b2d2efadb70db34
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 7.unity
+    guid: 9d47edfc78682f345b6bfe97802e5e0f
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 8.unity
+    guid: 634208e33952b9f47a1ec1157441f387
+  - enabled: 1
+    path: "Assets/Scenes/Niveles/Nivel 9-PortalesDemostraci\xF3n.unity"
+    guid: 4b94d5cd29e77da418601a7158aa05d7
   m_configObjects: {}

@@ -28,8 +28,8 @@ public class GhostEnemy_R_ChaseState : State
 		GetObstacle(dir);
 		if(obstacle != null)
 		{
-			Vector3 opDirOfObstacle = (owner.transform.position - obstacle.GetComponent<Collider>().ClosestPoint(owner.transform.position)).normalized;
-			dir += new Vector3(opDirOfObstacle.x, 0, opDirOfObstacle.z).normalized;
+			Vector3 opDirOfObstacle = (owner.transform.position - obstacle.GetComponent<Collider>().bounds.center).normalized;
+			dir += (new Vector3(opDirOfObstacle.x, 0, opDirOfObstacle.z).normalized * owner.avoidanceWeight).normalized;
 		}
 		owner.transform.forward = Vector3.Lerp(owner.transform.forward, dir, owner.rotationSpeed * Time.deltaTime);
 		owner.rigi.velocity = owner.transform.forward * owner.speed;

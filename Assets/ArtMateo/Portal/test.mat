@@ -34,4 +34,5 @@ Material:
     - _pow: 1
     - _rangeT: 100
     - _timer: 5.8
-    m_Colors: []
+    m_Colors:
+    - _Color0: {r: 0, g: 0.9898968, b: 1, a: 0}
