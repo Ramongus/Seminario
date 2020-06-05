@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0
     - _IntesitySpec: 0.44
-    - _Power: 0.8
+    - _Power: 1
     - _RimOffset: 0.41
     - _SpecSomething: 0.51
     - __dirty: 0
