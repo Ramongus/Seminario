@@ -5038,12 +5038,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6551568090d62934f84e9fd9e32cb947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   castingTime: 3
   obstaclesLayer:
     serializedVersion: 2
     m_Bits: 4096
   raySpawnPoint: {fileID: 4429794965612818447}
   range: 17.58
+  explodeRender: {fileID: 4429794965825169140}
+  currentRender: {fileID: 2304759771767475002}
 --- !u!1 &1582536089745407683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,7 +5157,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03a8a2a26e6d08e4ca0d73488e59f838, type: 2}
+  - {fileID: 2100000, guid: fcdb3185a33ac7948badf82d3edfe465, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
