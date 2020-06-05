@@ -18,6 +18,10 @@ public class LaserEnemy_R : BaseEnemy_R_Damagable
 	public Transform raySpawnPoint;
 	public float range;
 
+	[Header("Explosion values")]
+	[SerializeField] GameObject explodeRender;
+	[SerializeField] GameObject currentRender;
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -63,26 +67,6 @@ public class LaserEnemy_R : BaseEnemy_R_Damagable
 		anim.SetTrigger("Casting");
 	}
 
-	/*
-	private void OnTriggerEnter(Collider other)
-	{
-		Player player = other.GetComponent<Player>();
-		if(player != null)
-		{
-			SetCastingAttackState();
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		Player player = other.GetComponent<Player>();
-		if (player != null)
-		{
-			SetIdleState();
-		}
-	}
-	*/
-
 	private void SetIdleState()
 	{
 		if (!sm.IsActualState<LaserEnemy_R_IdleState>())
@@ -93,6 +77,19 @@ public class LaserEnemy_R : BaseEnemy_R_Damagable
 	{
 		if(!sm.IsActualState<LaserEnemy_R_CastLaserState>())
 			sm.SetState<LaserEnemy_R_CastLaserState>();
+	}
+
+	private void Explode()
+	{
+		currentRender.SetActive(false);
+		explodeRender.SetActive(true);
+		Destroy(this);
+	}
+
+	protected override void Die()
+	{
+		GetComponent<Collider>().enabled = false;
+		Explode();
 	}
 
 	private void OnDrawGizmos()

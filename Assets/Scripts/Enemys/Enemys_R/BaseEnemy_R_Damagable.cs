@@ -26,7 +26,7 @@ public class BaseEnemy_R_Damagable : MonoBehaviour, IDamageable
 			Die();
 	}
 
-	private void Die()
+	protected virtual void Die()
 	{
 		Destroy(this.gameObject);
 	}
