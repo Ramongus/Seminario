@@ -86,17 +86,18 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	virtual protected void OnTriggerEnter(Collider other)
 	{
-		IDamageable player = other.GetComponent<IDamageable>();
-		if(player != null)
+		IDamageable damageable = other.GetComponent<IDamageable>();
+		if(damageable != null)
 		{
 			if (isHealHabilitie)
 			{
-				player.SetHealth(player.GetHealth() + powerValue);
+				damageable.SetHealth(damageable.GetHealth() + powerValue);
 				DestroySpell();
 			}
 			else
 			{
-				player.SetHealth(player.GetHealth() - powerValue);
+				if (other.GetComponent<Player>() != null) return;
+				damageable.SetHealth(damageable.GetHealth() - powerValue);
 				DestroySpell();
 			}
 		}
@@ -118,17 +119,18 @@ public abstract class AbstractAbilities : MonoBehaviour
 
 	protected virtual void OnCollisionEnter(Collision collision)
 	{
-		IDamageable player = collision.gameObject.GetComponent<IDamageable>();
-		if (player != null)
+		IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+		if (damageable != null)
 		{
 			if (isHealHabilitie)
 			{
-				player.SetHealth(player.GetHealth() + powerValue);
+				damageable.SetHealth(damageable.GetHealth() + powerValue);
 				DestroySpell();
 			}
 			else
 			{
-				player.SetHealth(player.GetHealth() - powerValue);
+				if (collision.transform.GetComponent<Player>() != null) return;
+				damageable.SetHealth(damageable.GetHealth() - powerValue);
 				DestroySpell();
 			}
 		}
