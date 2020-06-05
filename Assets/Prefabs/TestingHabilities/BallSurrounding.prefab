@@ -14463,7 +14463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   habilitieName: BallSurrounding
-  powerValue: 30
+  powerValue: 5
   isHealHabilitie: 0
   initialHeight: 2
   cooldown: 1
