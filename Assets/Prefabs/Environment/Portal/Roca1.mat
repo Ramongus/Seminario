@@ -37,6 +37,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
+    - _Float0: 0
+    - _GrosorDeEmissive: 1.23
+    - _Power: 23
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.50765395, g: 0.84706676, b: 0.8679245, a: 0}
+    - _Color: {r: 0.039215688, g: 1, b: 0, a: 0}
