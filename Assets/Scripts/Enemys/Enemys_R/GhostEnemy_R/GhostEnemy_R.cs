@@ -13,6 +13,7 @@ public class GhostEnemy_R : BaseEnemy_R_Damagable
 	public Transform raySpawnPoint;
 	public float radiusForNearObstacles;
 	public float attackRange;
+	public float avoidanceWeight;
 
 	Vector3 initialPosition;
 	Quaternion initialRotation;
@@ -39,7 +40,15 @@ public class GhostEnemy_R : BaseEnemy_R_Damagable
 
 	private void Update()
 	{
+		if(GetTargetDistance() <= attackRange)
+			KillTarget();
 		sm.Update();
+	}
+
+	private void KillTarget()
+	{
+		target.SetHealth(0);
+		Destroy(this.gameObject);
 	}
 
 	private void OnDrawGizmos()
@@ -47,5 +56,11 @@ public class GhostEnemy_R : BaseEnemy_R_Damagable
 		Gizmos.color = Color.red;
 		Gizmos.color = new Color(Gizmos.color.r, Gizmos.color.g, Gizmos.color.b, 0.3f);
 		Gizmos.DrawSphere(transform.position, radiusForNearObstacles);
+	}
+
+	private float GetTargetDistance()
+	{
+		Vector3 targetIgnoringHeight = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+		return Vector3.Distance(transform.position, targetIgnoringHeight);
 	}
 }
