@@ -74,7 +74,7 @@ Shader "New Amplify Shader"
 }
 /*ASEBEGIN
 Version=17200
-0;408.6667;888;273;4207.777;837.4502;5.348872;True;False
+0;408.6667;842;273;4084.753;837.4502;5.348872;True;False
 Node;AmplifyShaderEditor.SamplerNode;6;-1925.505,-557.5795;Inherit;True;Property;_Mascara;Mascara;1;0;Create;True;0;0;False;0;-1;f0b04ea351bfbf34b853ce87c00df228;f0b04ea351bfbf34b853ce87c00df228;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;9;-1510.009,-546.5549;Inherit;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SamplerNode;2;-1679.762,-284.5579;Inherit;True;Property;_TextureSample0;Texture Sample 0;0;0;Create;True;0;0;False;0;-1;46750e2c11874594b9eda369421130cd;394160f2cd4feaa47b329e88b47f2086;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -90,4 +90,4 @@ WireConnection;7;1;9;0
 WireConnection;0;0;7;0
 WireConnection;0;2;17;0
 ASEEND*/
-//CHKSM=CA399E3EA6F2863FC6B82AB322D176372A725E3C
+//CHKSM=00318DAD05FE5B82CFA00F4FA1240065E8A4BF56

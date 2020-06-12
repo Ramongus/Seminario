@@ -68,7 +68,7 @@ Shader "New Amplify Shader"
 }
 /*ASEBEGIN
 Version=17200
-0;408.6667;888;273;1587.802;149.7009;2.251193;True;False
+0;408.6667;842;273;1664.911;174.5691;2.518593;True;False
 Node;AmplifyShaderEditor.SamplerNode;1;-939.8281,-79.2952;Inherit;True;Property;_TextureSample0;Texture Sample 0;0;0;Create;True;0;0;False;0;-1;None;c602c2afde921c443bd64fe3f182f11c;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;3;-537.257,27.2634;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.ColorNode;5;-705.334,196.9828;Inherit;False;Constant;_Color0;Color 0;1;0;Create;True;0;0;False;0;0.509434,0.01886791,1,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -79,4 +79,4 @@ WireConnection;4;0;3;0
 WireConnection;4;1;5;0
 WireConnection;0;0;4;0
 ASEEND*/
-//CHKSM=BEFA98ABD703397D1685DBF4C8AF8E25A7818A5D
+//CHKSM=13ED56B16E29515A7088B95FC9F79DE6AD2605D0
