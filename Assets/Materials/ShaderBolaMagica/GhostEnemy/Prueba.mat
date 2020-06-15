@@ -35,10 +35,10 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 4.81
     - _Speed: 0
-    - __dirty: 0
+    - __dirty: 1
     m_Colors:
     - _COLOR: {r: 0.028301895, g: 1, b: 0.77268314, a: 0}
     - _COLOR_: {r: 0.028301895, g: 1, b: 0.77268314, a: 0}
     - _COLOR_BRILLANTE: {r: 0.028301895, g: 1, b: 0.77268314, a: 0}
     - _Color0: {r: 0.028301895, g: 1, b: 0.77268314, a: 0}
-    - _RestoDelCuerpo: {r: 0.27723384, g: 0.8396226, b: 0.72168064, a: 0}
+    - _RestoDelCuerpo: {r: 0.27723378, g: 0.8396226, b: 0.72168064, a: 0}

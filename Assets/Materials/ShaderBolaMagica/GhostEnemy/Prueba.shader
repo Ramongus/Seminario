@@ -52,7 +52,7 @@ Shader "Prueba"
 }
 /*ASEBEGIN
 Version=17200
-0;408.6667;842;273;2478.58;-150.04;2.794127;True;False
+0;408.6667;842;273;2888.729;-68.52779;3.441981;True;False
 Node;AmplifyShaderEditor.SamplerNode;1;-1679.127,-68.36965;Inherit;True;Property;_TextureSample0;Texture Sample 0;1;0;Create;True;0;0;False;0;-1;None;28884867ab519454c93865ef9890993f;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ColorNode;3;-888.5219,-194.6509;Inherit;False;Property;_COLOR_BRILLANTE;COLOR_BRILLANTE;2;0;Create;True;0;0;False;0;0.02830189,1,0.7726831,0;0.02830189,1,0.7726831,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;4;-948.4693,50.37465;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
@@ -74,4 +74,4 @@ WireConnection;0;0;14;0
 WireConnection;0;2;2;0
 WireConnection;0;10;23;0
 ASEEND*/
-//CHKSM=5088E650B1A7579998A5488CA7D192B71E3A2915
+//CHKSM=487CAC1FF17E8CE893CC691B4B30C59F4E1E1981
