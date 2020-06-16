@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ToonShader
+  m_Shader: {fileID: 4800000, guid: e6b7f42ffc0b652438fd0b5feefc9cdc, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 17bf72ec73a38cb479b90a200e03b5b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Specular:
+        m_Texture: {fileID: 2800000, guid: 8ccc09e27049be54e9cbb8dd8b5c8bad, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: f4baef908ed4fab4aa5fa225973ae502, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonRamp:
+        m_Texture: {fileID: 2800000, guid: bd952669f59071240a33a8d43c8e39ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ASEOutlineWidth: 0.007
+    - _IntesitySpec: 0.615
+    - _Power: 1
+    - _RimOffset: -2.66
+    - _SpecSomething: 1
+    - __dirty: 0
+    m_Colors:
+    - _ASEOutlineColor: {r: 0.40652487, g: 0.04903879, b: 0.5471698, a: 0}
+    - _Rim: {r: 1, g: 1, b: 1, a: 0}
+    - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Tint: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}
