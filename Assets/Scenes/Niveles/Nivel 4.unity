@@ -11115,6 +11115,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostPersonaje
       objectReference: {fileID: 0}
+    - target: {fileID: 4053887705337733928, guid: 6f2c1c6f41e13d845b8163826d784b6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f2c1c6f41e13d845b8163826d784b6f, type: 3}
 --- !u!1001 &2060309393
