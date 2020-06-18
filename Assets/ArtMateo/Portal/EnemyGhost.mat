@@ -27,6 +27,6 @@ Material:
     - __dirty: 0
     - _offsetForce1: 1.84
     - _pow: 0.4
-    - _rangeT: 72
+    - _rangeT: 11
     m_Colors:
     - _Color0: {r: 0.07342471, g: 0.20754719, b: 0.20754719, a: 0}
