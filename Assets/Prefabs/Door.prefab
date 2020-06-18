@@ -140,6 +140,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8.346549
       objectReference: {fileID: 0}
+    - target: {fileID: 313478820788214079, guid: a112b11589e3f374bae7e249e944c37b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca70cf0b9daaf064ab80ab9bce1eaf13, type: 2}
+    - target: {fileID: 313478820847364893, guid: a112b11589e3f374bae7e249e944c37b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca70cf0b9daaf064ab80ab9bce1eaf13, type: 2}
     - target: {fileID: 313478821138410269, guid: a112b11589e3f374bae7e249e944c37b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -165,6 +175,11 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 313478821289159059, guid: a112b11589e3f374bae7e249e944c37b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca70cf0b9daaf064ab80ab9bce1eaf13, type: 2}
     - target: {fileID: 313478822034240334, guid: a112b11589e3f374bae7e249e944c37b,
         type: 3}
       propertyPath: m_IsTrigger
