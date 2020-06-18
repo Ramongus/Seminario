@@ -33,9 +33,11 @@ public class LevelRestarter : MonoBehaviour
 		yield return new WaitForSeconds(timeToRestartAfterFalling);
 		EventsManager.DeleteAllSuscribedEvents();
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+		StopAllCoroutines();
 		//RePositionPlayer();
 	}
 
+	/*
 	private void RePositionPlayer()
 	{
 		Player player = FindObjectOfType<Player>();
@@ -44,4 +46,5 @@ public class LevelRestarter : MonoBehaviour
 		player.SetInitialValues();
 		EventsManager.TriggerEvent("PlayerResurrect");
 	}
+	*/
 }
