@@ -164,7 +164,7 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell && CheckFloor() && !isDead)
 		{
-			Vector3 dashDir = _rigi.velocity.normalized;
+			Vector3 dashDir = _transform.forward;
 			playerCol.enabled = false;
 			_rigi.isKinematic = true;
 			mesh.SetActive(false);//Deberia estar en el view
