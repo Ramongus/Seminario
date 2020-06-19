@@ -4898,6 +4898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostAnimChase
       objectReference: {fileID: 0}
+    - target: {fileID: 862217528567030124, guid: fe944d019cab99848887ae74527d7b62,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4145361576149939505, guid: fe944d019cab99848887ae74527d7b62,
         type: 3}
       propertyPath: m_IsActive
