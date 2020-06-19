@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5148598375137957580}
   - component: {fileID: 5148598375137957617}
   - component: {fileID: 5148598375137957616}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GhostEnemy_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5148598375137957579}
-  m_LocalRotation: {x: -0, y: 0.9096803, z: -0, w: 0.41530934}
+  m_LocalRotation: {x: 0, y: 0.9096788, z: 0, w: 0.41531256}
   m_LocalPosition: {x: -14.97, y: 3.07, z: 9.14}
   m_LocalScale: {x: 2.4231, y: 2.4231, z: 2.4231}
   m_Children:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   target: {fileID: 0}
-  speed: 10
+  speed: 10.6
   rotationSpeed: 6
   rigi: {fileID: 0}
   obstaclesLayer:
@@ -148,8 +148,8 @@ MonoBehaviour:
     m_Bits: 4096
   raySpawnPoint: {fileID: 5148598375245930482}
   radiusForNearObstacles: 3
-  attackRange: 2
-  avoidanceWeight: 0
+  attackRange: 2.5
+  avoidanceWeight: 2
 --- !u!54 &5148598375137957616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5148598375245930482}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RaySpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
