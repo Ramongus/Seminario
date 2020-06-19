@@ -164,6 +164,7 @@ public class PlayerModel : ICastAbilities
 	{
 		if (!isDashing && dashCooldownTimer <= 0 && !isCastingSpell && CheckFloor() && !isDead)
 		{
+			Vector3 dashDir = _rigi.velocity.normalized;
 			playerCol.enabled = false;
 			_rigi.isKinematic = true;
 			mesh.SetActive(false);//Deberia estar en el view
@@ -178,13 +179,14 @@ public class PlayerModel : ICastAbilities
 			dashInitialPosition = _transform.position;
 
 			RaycastHit hit;
-			if (Physics.Raycast(_transform.position, _transform.forward, out hit, dashDistance, dashRayMask))
+
+			if (Physics.Raycast(_transform.position, dashDir, out hit, dashDistance, dashRayMask))
 			{
 				dashFinalPosition = hit.point;
 			}
 			else
 			{
-				dashFinalPosition = dashInitialPosition + _transform.forward * dashDistance;
+				dashFinalPosition = dashInitialPosition + dashDir * dashDistance;
 			}
 		}
 	}
