@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Niveles/Nivel 9-PortalesDemostraci\xF3n.unity"
     guid: 4b94d5cd29e77da418601a7158aa05d7
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 10.unity
+    guid: 4f7dd4af571c15b4eb9d3f7cd8f841f0
   m_configObjects: {}
