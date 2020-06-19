@@ -249,7 +249,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279219685}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -577,7 +577,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020763392}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -1080,7 +1080,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.3199624
-  m_Center: {x: -0.24, y: 1.71, z: 1}
+  m_Center: {x: 0.03, y: 1.71, z: 0.2}
 --- !u!114 &5148598375137957617
 MonoBehaviour:
   m_ObjectHideFlags: 0
