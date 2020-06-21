@@ -4826,6 +4826,11 @@ PrefabInstance:
       propertyPath: aimPointer
       value: 
       objectReference: {fileID: 2069843064}
+    - target: {fileID: 8619991933445173728, guid: 62dc093ed15f536438ae5fb4952dc299,
+        type: 3}
+      propertyPath: dashDistance
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62dc093ed15f536438ae5fb4952dc299, type: 3}
 --- !u!1001 &8632064126784189544

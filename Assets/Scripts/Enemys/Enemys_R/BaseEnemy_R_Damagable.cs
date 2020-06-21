@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy_R_Damagable : MonoBehaviour, IDamageable
+public class BaseEnemy_R_Damagable : GridEntity, IDamageable
 {
 	[Header("Damageable Interface")]
 	[SerializeField] float maxHealth;
 	float health;
 
-	protected virtual void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		health = maxHealth;
 	}
 

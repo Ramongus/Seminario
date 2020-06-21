@@ -29,5 +29,10 @@ public class PlayerAbilitieActivator
 			EventsManager.TriggerEvent("SelectAbilitie", 1);
 			EventsManager.TriggerEvent("FireHabilitie", aimPointer.position);
 		}
+
+		if (Input.GetKeyUp(KeyCode.R))
+		{
+			EventsManager.TriggerEvent("CreateQuery", 0, aimPointer.position);
+		}
 	}
 }

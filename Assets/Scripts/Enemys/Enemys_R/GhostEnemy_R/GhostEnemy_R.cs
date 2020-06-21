@@ -38,8 +38,9 @@ public class GhostEnemy_R : BaseEnemy_R_Damagable
 		transform.rotation = initialRotation;
 	}
 
-	private void Update()
+	protected override void Update()
 	{
+		base.Update();
 		if(GetTargetDistance() <= attackRange)
 			KillTarget();
 		sm.Update();
