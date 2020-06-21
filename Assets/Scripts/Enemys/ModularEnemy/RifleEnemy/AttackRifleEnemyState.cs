@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackRifleEnemyState : MonoBehaviour, IState
+public class AttackRifleEnemyState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] float timeToAttack;

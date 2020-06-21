@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DissapearState : MonoBehaviour, IState
+public class DissapearState : MonoBehaviour, IStateMono
 {
 	[SerializeField] protected string stateName;
 	[SerializeField] protected float spawnTime;

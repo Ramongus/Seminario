@@ -241,7 +241,7 @@ public class EnemyRangedMetheoriteSpawner_PathfindingState : State, IUsePathfind
 	private void SetNewPath()
 	{
 		path = null;
-		AStar.Instance.AddRequester(this);
+		MyAStar.Instance.AddRequester(this);
 	}
 
 	public ANode GetFinalNode()

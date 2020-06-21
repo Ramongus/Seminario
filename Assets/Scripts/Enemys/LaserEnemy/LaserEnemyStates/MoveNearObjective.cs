@@ -6,7 +6,7 @@ public class MoveNearObjective : State
 {
 	WaypointsUtilities waypointsUtilities;
 	List<ANode> nodes;
-	AStar pathfinder;
+	MyAStar pathfinder;
 	Transform owner;
 	float distanceToMoveArround;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargingAttackState : MonoBehaviour, IState
+public class ChargingAttackState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	StateMachine myStateMachine;

@@ -1,10 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using FSM;
 using UnityEngine;
 
-public class PatrolEnemy : StaticEnemy
-{
+public class PatrolState : MonoBaseState {
+
+    private Player _player;
+
+	[SerializeField] float sightRange;
+	[SerializeField] LayerMask obstacleLayer;
+
 	[SerializeField] float movSpeed;
 	[SerializeField] Transform[] waypoints;
 	[SerializeField] bool bounce;
@@ -13,14 +17,37 @@ public class PatrolEnemy : StaticEnemy
 	int nextWaypoint = 0;
 	bool isGoingBack;
 
-	private void Awake()
-	{
-		if (waypoints.Length < 2) Debug.LogError("Waypoints list has to be at least of 2 waypoints!, in: " + this.name);
-	}
-
-	void Update()
-    {
+	private void Awake() {
+        _player = FindObjectOfType<Player>();
+    }
+    
+    public override void UpdateLoop() {
+		Debug.LogWarning("PATROL STATE");
 		Patrol();
+    }
+
+    public override IState ProcessInput() {
+		var playerPosAtMyHeight = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
+		var delta = (playerPosAtMyHeight - transform.position);
+
+		var sqrDistance = delta.sqrMagnitude;
+		var dir = delta.normalized;
+		var dist = delta.magnitude;
+
+		bool isOnSight = true;
+		RaycastHit hit;
+		Physics.Raycast(transform.position, dir, out hit, dist, obstacleLayer);
+		if (hit.collider != null)
+		{
+			isOnSight = false;
+		}
+
+		if (sqrDistance < sightRange * sightRange && isOnSight) {
+			Debug.Log("TO CHASE STATE");
+            return Transitions["OnChaseState"];
+        }
+
+        return this;
     }
 
 	private void Patrol()
@@ -44,7 +71,7 @@ public class PatrolEnemy : StaticEnemy
 		if (isGoingBack) nextWaypoint--;
 		else nextWaypoint++;
 
-		if(nextWaypoint >= waypoints.Length)
+		if (nextWaypoint >= waypoints.Length)
 		{
 			if (bounce)
 			{
@@ -56,7 +83,7 @@ public class PatrolEnemy : StaticEnemy
 				nextWaypoint = 0;
 			}
 		}
-		else if(nextWaypoint < 0)
+		else if (nextWaypoint < 0)
 		{
 			isGoingBack = false;
 			nextWaypoint = 1;

@@ -13,7 +13,7 @@ public class LaserEnemyModel
 	{
 		_view = view;
 		_stateMachine = new StateMachineClassic();
-		_stateMachine.AddState(new PatrolState(_stateMachine, owner, speed, patrolWaypoints, patrolLoop));
+		_stateMachine.AddState(new MyPatrolState(_stateMachine, owner, speed, patrolWaypoints, patrolLoop));
 		_stateMachine.AddState(new MoveNearObjective(_stateMachine, availableNodes, owner, objective, distArroundPlayer, speed));
 		_stateMachine.AddState(new ChargeAttack(_stateMachine, attack, owner, objective, castPoint, entity));
 	}

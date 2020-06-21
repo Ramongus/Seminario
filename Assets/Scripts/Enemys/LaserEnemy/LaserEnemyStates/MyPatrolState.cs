@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolState : State
+public class MyPatrolState : State
 {
 	Transform owner;
 	Vector3 currentDir;
@@ -13,7 +13,7 @@ public class PatrolState : State
 	bool goingBack;
 	List<Transform> waypoints;
 
-	public PatrolState(StateMachineClassic sm, Transform owner, float speed, List<Transform> waypoints, bool loop) : base(sm)
+	public MyPatrolState(StateMachineClassic sm, Transform owner, float speed, List<Transform> waypoints, bool loop) : base(sm)
 	{
 		this.waypoints = new List<Transform>(waypoints);
 		index = 0;

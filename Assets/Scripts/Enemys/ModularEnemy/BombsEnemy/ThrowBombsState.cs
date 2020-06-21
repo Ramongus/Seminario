@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowBombsState : MonoBehaviour, IState
+public class ThrowBombsState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] TripleBombAttack bombCaster;

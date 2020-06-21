@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class AStar : IUpdate
+public class MyAStar : IUpdate
 {
-	private static AStar _instance;
-	public static AStar Instance
+	private static MyAStar _instance;
+	public static MyAStar Instance
 	{
 		get
 		{
 			if(_instance == null)
 			{
-				_instance = new AStar();
+				_instance = new MyAStar();
 			}
 			return _instance;
 		}
@@ -28,7 +28,7 @@ public class AStar : IUpdate
 	private Queue<IUsePathfinding> requestPath;
 	private bool isDoingPath;
 
-	private AStar()
+	private MyAStar()
 	{
 		requestPath = new Queue<IUsePathfinding>();
 		closedNodes = new List<ANode>();

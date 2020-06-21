@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttackState : MonoBehaviour, IState
+public class MyMeleeAttackState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] float damage;

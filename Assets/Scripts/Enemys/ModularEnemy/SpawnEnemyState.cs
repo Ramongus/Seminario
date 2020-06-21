@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemyState : MonoBehaviour, IState
+public class SpawnEnemyState : MonoBehaviour, IStateMono
 {
 	[SerializeField] protected string stateName;
 	[SerializeField] protected float spawnTime;

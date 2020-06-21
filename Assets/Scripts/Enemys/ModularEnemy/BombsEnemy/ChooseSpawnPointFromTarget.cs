@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseSpawnPointFromTarget : MonoBehaviour, IState
+public class ChooseSpawnPointFromTarget : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] float minDistanceToTarget;

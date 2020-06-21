@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseEnemyState : MonoBehaviour, IState
+public class ChaseEnemyState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] float rotationSpeed;
@@ -50,7 +50,7 @@ public class ChaseEnemyState : MonoBehaviour, IState
 		{
 			if (IsInSightView(toTargetIgnoringHeightDir))
 			{
-				myStateMachine.SetState<MeleeAttackState>();
+				myStateMachine.SetState<MyMeleeAttackState>();
 				return;
 			}
 		}

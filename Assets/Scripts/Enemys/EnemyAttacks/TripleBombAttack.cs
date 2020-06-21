@@ -38,6 +38,11 @@ public class TripleBombAttack : MonoBehaviour, IAttack
 	}
 	*/
 
+	private void Awake()
+	{
+		target = FindObjectOfType<Player>().transform;
+	}
+
 	private void Start()
 	{
 		Attack();

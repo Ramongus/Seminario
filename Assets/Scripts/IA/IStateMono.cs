@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IState {
+public interface IStateMono {
 
 	/// <summary>
 	/// Funcion para setear a que maquina de estado pertenece este estado.

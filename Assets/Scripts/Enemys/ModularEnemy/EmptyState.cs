@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptyState : MonoBehaviour, IState
+public class EmptyState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 

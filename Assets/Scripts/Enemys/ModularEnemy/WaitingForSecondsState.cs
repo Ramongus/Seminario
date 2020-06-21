@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitingForSecondsState : MonoBehaviour, IState
+public class WaitingForSecondsState : MonoBehaviour, IStateMono
 {
 	[SerializeField] string stateName;
 	[SerializeField] float timeToWait;

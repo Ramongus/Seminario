@@ -6,12 +6,12 @@ using System;
 public class StateMachine : MonoBehaviour {
 	
 	[SerializeField] protected string defaultState;
-    protected IState _currentState;
-    protected List<IState> _states = new List<IState>();
+    protected IStateMono _currentState;
+    protected List<IStateMono> _states = new List<IStateMono>();
 
 	protected virtual void Awake()
 	{
-		IState[] allStates = GetComponents<IState>();
+		IStateMono[] allStates = GetComponents<IStateMono>();
 		for (int i = 0; i < allStates.Length; i++)
 		{
 			AddState(allStates[i]);
@@ -44,7 +44,7 @@ public class StateMachine : MonoBehaviour {
     /// Agrega un estado.
     /// </summary>
     /// <param name="s">El estado a agregar.</param>
-    protected void AddState(IState s)
+    protected void AddState(IStateMono s)
     {
         _states.Add(s);
         if (_currentState == null)
@@ -54,7 +54,7 @@ public class StateMachine : MonoBehaviour {
     /// <summary>
     /// Cambia de estado.
     /// </summary>
-    public void SetState<T>() where T : IState
+    public void SetState<T>() where T : IStateMono
     {
         for (int i = 0; i < _states.Count; i++)
         {
@@ -67,7 +67,7 @@ public class StateMachine : MonoBehaviour {
         }
     }
 
-    public bool IsActualState<T>() where T : IState
+    public bool IsActualState<T>() where T : IStateMono
     {
         return _currentState.GetType() == typeof(T);
     }
@@ -90,7 +90,7 @@ public class StateMachine : MonoBehaviour {
 	/// </summary>
 	/// <param name="name">El nombre del estado a buscar</param>
 	/// <returns></returns>
-	protected IState FindStateByName(string name)
+	protected IStateMono FindStateByName(string name)
 	{
 		for (int i = 0; i < _states.Count; i++)
 		{

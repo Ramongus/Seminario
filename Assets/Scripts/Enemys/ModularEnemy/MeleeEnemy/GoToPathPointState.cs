@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToPathPointState : MonoBehaviour, IState, IUsePathfinding
+public class GoToPathPointState : MonoBehaviour, IStateMono, IUsePathfinding
 {
 	[SerializeField] string stateName;
 	[SerializeField] float rotationSpeed;
@@ -84,7 +84,7 @@ public class GoToPathPointState : MonoBehaviour, IState, IUsePathfinding
 	private void SetNewPath()
 	{
 		path = null;
-		AStar.Instance.AddRequester(this);
+		MyAStar.Instance.AddRequester(this);
 	}
 
 	private bool IsEndPath()
