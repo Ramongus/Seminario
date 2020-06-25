@@ -27,7 +27,7 @@ public class PatrolState : MonoBaseState {
     }
 
     public override IState ProcessInput() {
-		var playerPosAtMyHeight = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
+		/*var playerPosAtMyHeight = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
 		var delta = (playerPosAtMyHeight - transform.position);
 
 		var sqrDistance = delta.sqrMagnitude;
@@ -45,7 +45,7 @@ public class PatrolState : MonoBaseState {
 		if (sqrDistance < sightRange * sightRange && isOnSight) {
 			Debug.Log("TO CHASE STATE");
             return Transitions["OnChaseState"];
-        }
+        }*/
 
         return this;
     }

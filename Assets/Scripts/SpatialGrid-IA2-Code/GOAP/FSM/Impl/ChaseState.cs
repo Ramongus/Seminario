@@ -33,7 +33,7 @@ public class ChaseState : MonoBaseState {
     }
 
 	public override IState ProcessInput() {
-		var playerPosAtMyHeight = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
+		/*var playerPosAtMyHeight = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
 		var sqrDistance = (playerPosAtMyHeight - transform.position).sqrMagnitude;
 		var dist = (playerPosAtMyHeight - transform.position).magnitude;
 
@@ -59,7 +59,7 @@ public class ChaseState : MonoBaseState {
 
 		if (sqrDistance < meleeDistance * meleeDistance && Transitions.ContainsKey("OnMeleeAttackState")) {
             return Transitions["OnMeleeAttackState"];
-        }
+        }*/
 
         return this;
     }

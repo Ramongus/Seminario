@@ -3121,9 +3121,15 @@ MonoBehaviour:
   meleeAttackState: {fileID: 1631909849}
   rangeAttackState: {fileID: 1631909852}
   chargeManaState: {fileID: 1631909854}
+  distanceToChooseMelee: 9
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  sightRange: 10
+  range: 8
+  nearDistance: 2
   maxMana: 50
   mana: 40
-  distanceToChooseMelee: 9
 --- !u!135 &1631909846
 SphereCollider:
   m_ObjectHideFlags: 0

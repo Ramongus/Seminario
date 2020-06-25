@@ -25,7 +25,7 @@ public class RangeAttackState : MonoBaseState {
 			owner.mana -= manaCost;
 		}
 
-		EventsManager.TriggerEvent("RePlan", owner);
+		//EventsManager.TriggerEvent("RePlan", owner);
     }
 
     public override IState ProcessInput() {
