@@ -183,12 +183,6 @@ public class SpatialGrid : MonoBehaviour
 					   .Select(row => Tuple.Create(new Vector3(x, 0, row),
 												   new Vector3(x + cellWidth * width, 0, row)));
 
-		//equivalente de rows
-		/*for (int i = 0; i <= height; i++)
-        {
-            Gizmos.DrawLine(new Vector3(x, 0, z + cellHeight * i), new Vector3(x + cellWidth * width,0, z + cellHeight * i));
-        }*/
-
 		var cols = Util.Generate(x, curr => curr + cellWidth)
 					   .Select(col => Tuple.Create(new Vector3(col, 0, z),
 												   new Vector3(col, 0, z + cellHeight * height)));
@@ -233,6 +227,7 @@ public class SpatialGrid : MonoBehaviour
 				{
 					foreach (var n in elem.Where(x => x != ent).Where(x => x != null))
 					{
+                        if (ent == null) return;
 						Gizmos.DrawLine(ent.transform.position, n.transform.position);
 						connections++;
 					}
