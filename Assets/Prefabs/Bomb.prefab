@@ -4881,7 +4881,7 @@ MonoBehaviour:
   explodeRadius: 5
   explodeParticles: {fileID: 8326211002515394719, guid: dfb90d8b91585df44a0bd4b5c0b21d76,
     type: 3}
-  explosionDamage: 20
+  explosionDamage: 100
   explodeField: {fileID: 3356304377988076573, guid: 04c7c33ae8ed7c74499d3c02c7e0d71f,
     type: 3}
 --- !u!1001 &8119414210601178197

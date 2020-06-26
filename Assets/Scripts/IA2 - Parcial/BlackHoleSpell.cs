@@ -9,7 +9,6 @@ public class BlackHoleSpell : MonoBehaviour, IQuery
 	public SpatialGrid targetGrid;
 	public IEnumerable<GridEntity> selected = new List<GridEntity>();
 	public float r;
-
 	private QueryManager queryManager;
 
 	private void Awake()
@@ -19,7 +18,7 @@ public class BlackHoleSpell : MonoBehaviour, IQuery
 		queryManager.AddQuery(this);
 	}
 
-	public IEnumerable<GridEntity> Query()
+    public IEnumerable<GridEntity> Query()
 	{
 		Debug.LogWarning("LA QUERY SE EJECUTA");
 		return targetGrid.Query(
@@ -30,29 +29,35 @@ public class BlackHoleSpell : MonoBehaviour, IQuery
 
 	public void DoSpeelEffect(IEnumerable<GridEntity> entitysInSpellRange)
 	{
-		bool destroy = false;
+        bool destroy = false;
 		//SI LE APLICO EL EFECTO A ALGUNO
-		if(entitysInSpellRange.Count() > 0)
+		if(entitysInSpellRange.Any())
 		{
 			queryManager.RemoveQuery(this);
 			destroy = true;
 		}
-
-		foreach (var entitys in entitysInSpellRange)
+        //IA2-P3
+        var orderEntities = entitysInSpellRange.Where(x => x.gameObject.activeInHierarchy).OrderBy(x => x.weight);
+		foreach (var entitys in orderEntities)
 		{
 			Destroy(entitys.gameObject);
 		}
 
-		if (destroy) Destroy(this.gameObject);
+
+		if (destroy) StartCoroutine("TimerToDestroy");
 
 	}
 
 	void OnDrawGizmos()
 	{
 		if (targetGrid == null) return;
-
-		//Flatten the sphere we're going to draw
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawWireSphere(transform.position, r);
 	}
+
+    public IEnumerator TimerToDestroy()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
+    }
 }

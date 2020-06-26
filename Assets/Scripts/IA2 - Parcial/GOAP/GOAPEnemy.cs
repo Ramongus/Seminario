@@ -4,6 +4,7 @@ using UnityEngine;
 using FSM;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 //IA2-P2
 public class GOAPEnemy : MonoBehaviour
@@ -21,6 +22,8 @@ public class GOAPEnemy : MonoBehaviour
     Player player;
     public float distanceToChooseMelee;
 
+
+    public Image manaImage;
     public float rotSpeed;
     
     float sqrDistance;
@@ -34,10 +37,12 @@ public class GOAPEnemy : MonoBehaviour
     [Header("Mana Values")] public float maxMana;
     public float mana;
 
+    public bool justReplaned;
     private void Awake()
     {
         EventsManager.SuscribeToEvent("RePlan", RePlan);
         player = FindObjectOfType<Player>();
+        manaImage.fillAmount = maxMana / 50;
     }
 
     //Update que actualice el estado de nuestras variables constantemente
@@ -85,6 +90,7 @@ public class GOAPEnemy : MonoBehaviour
         
         if (CheckIfNextStateIsInPlan()) return;
         Debug.LogWarning("RE planeo");
+        justReplaned = true;
         EventsManager.TriggerEvent("RePlan", this);
     }
 
@@ -248,7 +254,7 @@ public class GOAPEnemy : MonoBehaviour
     }
 
     private void PlanAndExecute()
-    {
+    { 
         actions = new List<GOAPAction>
         {
             new GOAPAction("Patrol")

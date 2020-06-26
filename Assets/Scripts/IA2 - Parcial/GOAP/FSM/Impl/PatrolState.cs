@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using FSM;
 using UnityEditor.UIElements;
 using UnityEngine;
+using System.Linq;
 //IA2-P2
 public class PatrolState : MonoBaseState {
 
@@ -13,8 +14,11 @@ public class PatrolState : MonoBaseState {
 
 	[SerializeField] float movSpeed;
 	[SerializeField] Transform[] waypoints;
-	[SerializeField] bool bounce;
+    [SerializeField] Transform[] waypointsReplan;
+    [SerializeField] bool bounce;
 	[SerializeField] float range;
+
+
 
 	int nextWaypoint = 0;
 	bool isGoingBack;
@@ -26,7 +30,8 @@ public class PatrolState : MonoBaseState {
     
     public override void UpdateLoop() {
 		Debug.LogWarning("PATROL STATE");
-		Patrol();
+        NewWaypointsReplan();
+        Patrol();
     }
 
     public override IState ProcessInput() {
@@ -51,6 +56,17 @@ public class PatrolState : MonoBaseState {
         }*/
 
         return this;
+    }
+
+    private void NewWaypointsReplan()
+    {
+        if (owner.justReplaned)
+        {
+            //IA2-P3
+            var newWayPoints = waypoints.Concat(waypointsReplan);
+            waypoints = newWayPoints.ToArray();
+            owner.justReplaned = false;
+        }
     }
 
 	private void Patrol()
@@ -98,5 +114,7 @@ public class PatrolState : MonoBaseState {
 		Vector3 dir = toNextWaypoint.normalized;
 		transform.forward = Vector3.Lerp(transform.forward,dir, owner.rotSpeed * Time.deltaTime);
 		transform.position += transform.forward * movSpeed * Time.deltaTime;
+        var t = transform.Find("ENEMYMELE");
+        t.GetComponent<Animator>().SetFloat("Speed", 1);
 	}
 }

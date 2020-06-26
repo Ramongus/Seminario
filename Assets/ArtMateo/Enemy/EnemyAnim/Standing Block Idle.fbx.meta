@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: c2fb506baeb8b154b8f5412f286bacc1
+guid: 17a02ee3936264b44b7ab6f960e18acc
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Attack
+    second: ChargeMana
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
+      name: ChargeMana
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 70
+      lastFrame: 83
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

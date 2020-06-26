@@ -23,7 +23,10 @@ public class RangeAttackState : MonoBaseState {
 			var attack = Instantiate(attackPrefab);
 			attack.transform.position = this.transform.position;
 			owner.mana -= manaCost;
-		}
+            owner.manaImage.fillAmount = owner.mana / 50;
+            var t = transform.Find("ENEMYMELE");
+            t.GetComponent<Animator>().SetTrigger("AreaAttack");
+        }
 	}
 
     public override IState ProcessInput() {

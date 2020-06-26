@@ -18,7 +18,11 @@ public class ChargeManaState : MonoBaseState {
 		owner.mana += Time.deltaTime * manaChargeScale;
 		owner.mana = Mathf.Clamp(owner.mana, 0, owner.maxMana);
 		Debug.Log("Cargando el/la mana....");
+        var t = transform.Find("ENEMYMELE");
+        owner.manaImage.fillAmount = owner.mana / 50;
+        t.GetComponent<Animator>().SetFloat("Speed",0);
     }
+
 
     public override IState ProcessInput() {
 

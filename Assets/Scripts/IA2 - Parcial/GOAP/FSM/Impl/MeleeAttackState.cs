@@ -9,7 +9,9 @@ public class MeleeAttackState : MonoBaseState {
     public override void UpdateLoop() {
         if (!targetKilled) {
             Debug.Log("Ataco");
-			FindObjectOfType<Player>().SetHealth(0);
+            var t = transform.Find("ENEMYMELE");
+            t.GetComponent<Animator>().SetTrigger("MyAttack");
+            FindObjectOfType<Player>().SetHealth(0);
 			targetKilled = true;
         }
     }
