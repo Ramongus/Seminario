@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using FSM;
 using UnityEngine;
-
+//IA2-P2
 public class ChaseState : MonoBaseState {
 
 	private GOAPEnemy owner;
@@ -29,7 +29,9 @@ public class ChaseState : MonoBaseState {
 
 		dir = new Vector3(dir.x, 0, dir.z).normalized;
 
-        transform.position += dir * (speed * Time.deltaTime);
+		transform.forward = Vector3.Lerp(transform.forward, dir, owner.rotSpeed * Time.deltaTime);
+		
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
 	public override IState ProcessInput() {

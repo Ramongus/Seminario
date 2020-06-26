@@ -14,6 +14,8 @@ public class GoapPlanner {
 
     private int _watchdog;
 
+    private List<GOAPState> myPlan = new List<GOAPState>();
+
     public void Run(GOAPState                    from, GOAPState to, IEnumerable<GOAPAction> actions,
                     Func<IEnumerator, Coroutine> startCoroutine) {
         _watchdog = _WATCHDOG_MAX;
@@ -46,15 +48,24 @@ public class GoapPlanner {
     }
 
     private void OnPathCompleted(IEnumerable<GOAPState> sequence) {
+        myPlan.Clear();
         foreach (var act in sequence.Skip(1)) {
             Debug.Log(act);
+            myPlan.Add(act);
         }
+        //IA2-P2
+        
 
         Debug.Log("WATCHDOG " + _watchdog);
 
         var plan = sequence.Skip(1).Select(x => x.generatingAction);
         
         OnPlanCompleted?.Invoke(plan);
+    }
+
+    public List<GOAPState> GetPlan()
+    {
+        return myPlan;
     }
 
     private void OnCantCalculate() {

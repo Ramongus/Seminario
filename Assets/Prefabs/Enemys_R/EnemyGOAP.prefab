@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7721091562899418322}
   - component: {fileID: 7721091562899418334}
   - component: {fileID: 7721091562899418321}
-  - component: {fileID: 7721091562899418320}
   - component: {fileID: 7721091562899418323}
   - component: {fileID: 7721091562899418333}
   - component: {fileID: 7721091562899418332}
@@ -19,6 +18,7 @@ GameObject:
   - component: {fileID: 7721091562899418330}
   - component: {fileID: 7721091562899418328}
   - component: {fileID: 7721091562899418331}
+  - component: {fileID: 2568808610187696065}
   m_Layer: 0
   m_Name: EnemyGOAP
   m_TagString: Untagged
@@ -87,19 +87,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7721091562899418320
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721091562899418325}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.88236517
-  m_Center: {x: 0, y: 0, z: -0.0033816425}
 --- !u!114 &7721091562899418323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   rangeDistance: 8
-  meleeDistance: 2
+  meleeDistance: 3
   sightRange: 10
   obstacleLayer:
     serializedVersion: 2
@@ -223,6 +210,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   onGrid: 0
+--- !u!136 &2568808610187696065
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721091562899418325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.676277
+  m_Height: 5.370886
+  m_Direction: 1
+  m_Center: {x: 0.033627644, y: 0.7288414, z: -0.235393}
 --- !u!1001 &5487775359125507631
 PrefabInstance:
   m_ObjectHideFlags: 0

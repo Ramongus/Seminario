@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using FSM;
+using UnityEditor.UIElements;
 using UnityEngine;
-
+//IA2-P2
 public class PatrolState : MonoBaseState {
 
     private Player _player;
-
+    private GOAPEnemy owner;
 	[SerializeField] float sightRange;
 	[SerializeField] LayerMask obstacleLayer;
 
@@ -19,6 +21,7 @@ public class PatrolState : MonoBaseState {
 
 	private void Awake() {
         _player = FindObjectOfType<Player>();
+        owner = GetComponent<GOAPEnemy>();
     }
     
     public override void UpdateLoop() {
@@ -93,6 +96,7 @@ public class PatrolState : MonoBaseState {
 	private void MoveToNextWaypoint(Vector3 toNextWaypoint)
 	{
 		Vector3 dir = toNextWaypoint.normalized;
-		transform.position += dir * movSpeed * Time.deltaTime;
+		transform.forward = Vector3.Lerp(transform.forward,dir, owner.rotSpeed * Time.deltaTime);
+		transform.position += transform.forward * movSpeed * Time.deltaTime;
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using FSM;
 using UnityEngine;
-
+//IA2-P2
 public class RangeAttackState : MonoBaseState {
 
 	public float attackRate;
@@ -24,9 +24,7 @@ public class RangeAttackState : MonoBaseState {
 			attack.transform.position = this.transform.position;
 			owner.mana -= manaCost;
 		}
-
-		//EventsManager.TriggerEvent("RePlan", owner);
-    }
+	}
 
     public override IState ProcessInput() {
 		return this;

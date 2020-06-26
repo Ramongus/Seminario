@@ -14,8 +14,8 @@ namespace FSM {
         public event Action OnActive;
         public event Action OnUnActive;
 
-        public IState CurrentState { get; private set; }
-        private List<IState> _allStates;
+        public IState CurrentState { get; set; }
+        public List<IState> _allStates;
 
         private Func<IEnumerator, Coroutine> _startCoroutine;
 
@@ -90,8 +90,8 @@ namespace FSM {
                 }
                 else
                     OnUnActive?.Invoke();
-            }
-        }
+            }}
+        
 
 
     }
